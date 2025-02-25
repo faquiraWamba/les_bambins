@@ -1,0 +1,283 @@
+/* Définition des variables couleurs*/
+:root {
+  --primary-color: #f0bb98; /*  */
+  --btn-color: #b4e1e8; /*  */
+  --hover-color: #efeeeed4; /*  */
+  --form-color: #efeeee; /*  */
+  --font-color: #fceac9; /*  */
+  --text-color: #3b1320; /* couleur du texte */
+  --white-color:white;
+
+}
+
+*{
+  box-sizing: border-box;
+  font-family: "Poppins", serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  /* font-size:  0.8rem; */
+
+}
+a{
+  text-decoration: none;
+}
+
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.container{
+  display: grid;
+  min-height: 100vh;
+  grid-template-areas: 'header ' 'main ' 'footer ';
+  grid-template-rows: auto 1fr auto;
+}
+/* {
+} */
+/* En-tête */
+header{
+  grid-area: header;
+  padding: 0 50px 0;
+}
+nav{
+  width:  85%;
+}
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+}
+nav ul a{
+  color: var(--white-color);
+  font-family: "Abril Fatface", serif;
+
+}
+
+footer,header{
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  width: 112px;
+  height: 67px;
+
+}
+.logo img, .footer-logo img{
+  width: 100%;
+  height: 100%;
+  
+}
+main{
+  grid-area: main;
+}
+
+/*register*/
+.register-container{
+  background-color: var(--font-color);
+  height: 100%;
+  display: grid;
+  gap: 2em;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2em;
+  padding-top: 2em;
+  
+}
+.register-tab-container{
+  width: 90vw;
+  display: grid;
+  grid-template-areas: 'title ' 'form';
+  grid-template-rows: auto 1fr ;
+
+}
+.form-title{
+  margin-top: 1.3em;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.register-tab-title{
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+  grid-area: title;
+}
+.register-tab-form{
+  background-color: var(--white-color);
+  border-radius:  0 0 15px 15px;
+  grid-area: form;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2em;
+}
+.register-tab-for-btn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.register-container h1{
+  font-family: "Abril Fatface", serif;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.register-tab-title-item{
+  background-color: var(--form-color);
+  padding: 7px;
+  border-radius: 23px 23px 0 0;
+  text-justify: auto;
+  width: 130px;
+  text-align: center;
+  
+}
+
+
+.register-tab-form form{
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="checkbox"]:checked,input[type="radio"]:checked {
+  accent-color: var(--btn-color); 
+  
+}
+button{
+  background-color: var(--btn-color);
+  padding: 7px 35px 7px;
+  border: none;
+  border-radius: 27px;
+  margin-top: 2em;
+  font-weight: bold;
+  font-size: 1.3em;
+
+}
+button:hover{
+  cursor: pointer;
+}
+
+/* Pied de page */
+footer{
+grid-area: footer;
+padding: 4px 15px 4px;
+}
+.footer-logo{
+  width: 9em;
+  height: 5em;
+}
+.inscription-group-item{
+  display: flex;
+  flex-direction: column;
+}
+
+.inscription-group-item-title{
+  text-transform: uppercase;
+  background-color: var(--primary-color);
+  padding: 5px 2px 5px;
+  margin: 5px;
+  border-radius: 50px 50px;
+  text-align: center;
+  font-weight: 600;
+
+}
+.inscription-group-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.inscription-group-days-container{
+  display: flex;
+  justify-content: space-around;
+  padding: 0 3em 0;
+}
+.inactive {
+  display: none !important;  /* Cache toutes les sections */
+  border: solid 1px;
+
+}
+.active-section{
+  background-color: var(--white-color);
+}
+.inscription-group-holiday-container{
+  margin-top: 1em;
+}
+.holiday-item-title{
+  font-weight:bold;
+  margin-top: 1em;
+  margin-bottom:5px ;
+  font-weight: 600;
+
+}
+#section3 .register-tab-form-item{
+  display: flex;
+  justify-content: space-between;
+}
+.input-text{
+  width: 30em;
+  border: solid 2px var(--text-color);
+  background-color: var(--form-color);
+
+}
+.input-text:focus{
+  border: solid 3px var(--text-color);
+}
+.register-tab-holiday-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5em 0.5em 0.5em 1.3em;
+  font-weight: 600;
+  gap: 0.5em;
+}
+.form-interest{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+
+}
+.register-tab-form-item,.inscription-group-item{
+  padding-left:  1.4em;
+}
+.download-file, .input-file{
+  border: solid 1px var(--text-color);
+  padding: 5px;
+  background-color: var(--form-color);
+  width:fit-content;
+}
+.download-file{
+  font-weight: 100;
+}
+
+
+/*Responsive*/
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}

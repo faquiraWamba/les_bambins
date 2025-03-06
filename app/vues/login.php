@@ -3,13 +3,16 @@
             <?= $error ?>
         </div>
 <?php endif; ?>
-
-<form action="index.php?controller=Auth&action=login" method="post" 
-style="display: flex; flex-direction:column; align-items:center; margin:5em; height:350px; border:solid 1px; ">
-    <input type="email" name="email" id="" required>
-    <input type="password" name="password" id="" required>
-    <button type="submit" class="button">Se connecter</button>
-    <div>
-    <p>Pas de compte? <a href="index.php?controller=Auth&action=register"><em><u>Inscription</u></em></a></p>
-</div>
+<h1 class="luckiest-guy" id="connexion">Connexion</h1>
+<form action="index.php?controller=Auth&action=login" method="post" >
+    <fieldset>
+        <label for="email" class="connexion">Identifiant</label>
+        <input type="text" id="id" class="connexion" name="email" placeholder="Entrez votre identifiant">
+        <label for="password" class="connexion">Mot de passe</label>
+        <input type="password" id="mdp" class="connexion" name="password" placeholder="Entrer votre Mot de passe"><br>
+        <input type="checkbox" id="enregistrer" class="connexion"/>
+        <label for="enregistrer" class="checkbox">Se souvenir de moi</label>
+        <button type="submit" class="bouton">Connexion</button>
+        <a href="index.php?controller=Auth&action=register">Pas encore de compte?</a>
+    </fieldset>
 </form>

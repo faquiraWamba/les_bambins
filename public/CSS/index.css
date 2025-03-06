@@ -255,6 +255,64 @@ padding: 4px 15px 4px;
   font-weight: 100;
 }
 
+/*login*/
+body.orange {
+  background-color: var(--font-color);
+}
+#connexion{
+  text-align: center;
+  margin-left: 0;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+form {
+  width: 40%;
+  margin: auto;
+  border-radius: 10px;
+}
+input.connexion {
+  width: 90%;
+  margin: auto;
+  display: block;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1.5px solid var(--text-color);
+  border-radius: 5px;
+  background-color: var(--form-color);
+}
+label.connexion {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display: block;
+  margin-left: 5%;
+  font-family: "Segoe UI";
+}
+fieldset {
+  border-radius: 60px;
+  background-color: white;
+  padding: 5%;
+  border-style: none;
+}
+.checkbox {
+  display: inline;
+  font-family: "Segoe UI";
+}
+#enregistrer {
+  width: auto;
+  display: inline;
+  margin-left: 5%;
+}
+form a {
+  display: block;
+  text-align: center;
+  margin-bottom: 10%;
+  margin-top: 7%;
+  color: gray;
+  text-decoration-line: underline;
+  font-family: "Segoe UI";
+}
+
+
 
 /*Responsive*/
 /* Extra small devices (phones, 600px and down) */

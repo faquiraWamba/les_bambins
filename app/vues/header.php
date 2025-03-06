@@ -1,17 +1,17 @@
 <header class="header-container">
         <div class="logo">
-            <img src="../../public/images/LOGO.png" alt="LOGO"/>
+            <img src="/../les_bambins/public/images/LOGO.png" alt="LOGO"/>
         </div>
         <nav class="header-element">
             <ul>
                 
-                <li><a href="index.php?page=home">Acceuil</a></li>
-                <li><a href="index.php?page=register">Activités</a></li>
-                <li><a href="index.php?page=#">Tarifs</a></li>
-                <li><a href="index.php?page=#">Menu</a></li>
-                <li><a href="index.php?page=#">FAQ</a></li>           
-                <li><a href="index.php?page=#">A propos de nous</a></li>           
-                <li><a href="index.php?page=#">Inscription</a></li>           
+                <li><a href="index.php?controller=Home">Acceuil</a></li>
+                <li><a href="index.php?controller=#">Activités</a></li>
+                <li><a href="index.php?controller=#">Tarifs</a></li>
+                <li><a href="index.php?controller=#">Menu</a></li>
+                <li><a href="index.php?controller=#">FAQ</a></li>           
+                <li><a href="index.php?controller=#">A propos de nous</a></li>           
+                <li><a href="index.php?controller=Auth&action=login">Connexion</a></li>           
             </ul>
         </nav>
 </header>

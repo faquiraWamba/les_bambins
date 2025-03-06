@@ -1,6 +1,6 @@
 <footer class="footer">
     <div class="footer-logo">
-        <img src="../../public/images/LOGO.png" alt="LOGO"/>
+    <img src="/../les_bambins/public/images/LOGO.png" alt="LOGO"/>
     </div>
     <div class="contact">
         <p>Contactez Nous</p>

@@ -229,7 +229,10 @@
                     
                 <!-- </div> -->
                 <div class="register-tab-for-btn">
-            <button onclick="nextSection(2)" type="button">Suivant</button>
+                    <button onclick="nextSection(2)" type="button">Suivant</button>
+                </div>
+                <div class="register-tab-for-btn">
+                    <button onclick="previousSection(2)" type="button">Précédent</button>
                 </div>
             </form>
             <form action='#' method='post'  id="section3" class="register-tab-form-container inactive">
@@ -262,6 +265,9 @@
                 
                 <div class="register-tab-for-btn ">
                     <button onclick="nextSection(3)" type="button">Suivant</button>
+                </div>
+                <div class="register-tab-for-btn">
+                    <button onclick="previousSection(3)" type="button">Précédent</button>
                 </div>
             </form>
             <form action='#' method='post'  id="section4" class="register-tab-form-container inactive">

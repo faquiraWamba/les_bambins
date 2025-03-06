@@ -5,7 +5,7 @@
         <nav class="header-element">
             <ul>
                 
-                <li><a href="index.php?controller=Home">Acceuil</a></li>
+                <li><a href="index.php?controller=Home&action=index">Acceuil</a></li>
                 <li><a href="index.php?controller=#">Activités</a></li>
                 <li><a href="index.php?controller=#">Tarifs</a></li>
                 <li><a href="index.php?controller=#">Menu</a></li>

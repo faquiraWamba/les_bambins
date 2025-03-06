@@ -10,9 +10,9 @@ class AuthController extends Controller{
             $userModel = new User() ;
             
             $user = $userModel->login($email,$password);
-            var_dump($user);
             if ($user){
-                $_SESSION['user']=$user['id'];
+                $_SESSION['user']=$user['user_id'];
+
                 header('Location: index.php?controller=Home');
                 exit();
 

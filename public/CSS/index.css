@@ -312,6 +312,41 @@ form a {
   font-family: "Segoe UI";
 }
 
+/*activité*/
+.container2 {
+  width: 100%;
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.activity {
+  background-color: var(--font-color);
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  min-height: 200px;
+  width: 100%;
+}
+
+.activity-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 5px solid var(--text-color);
+  background-color: var(--font-color);
+}
+
+.description {
+  flex-grow: 1;
+  font-size: 20px;
+}
 
 
 /*Responsive*/

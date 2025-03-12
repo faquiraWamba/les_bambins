@@ -1,4 +1,5 @@
-<h1 class="luckiest-guy" id="connexion">Connexion</h1>
+<div class="backgroundOrange">
+<h1 id="connexion">Connexion</h1>
 <form class=login_form action="index.php?controller=Auth&action=login" method="post" >
     <fieldset>
         <label for="email" class="connexion">Email</label>
@@ -11,3 +12,4 @@
         <a href="index.php?controller=Auth&action=register">Pas encore de compte?</a>
     </fieldset>
 </form>
+</div>

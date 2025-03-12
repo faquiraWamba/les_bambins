@@ -34,12 +34,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <title>Les Bambins</title>
 </head>
-<body class="container">
-
+<body class="body">
+<?php if (isset($error)): ?>
+        <div style="color: red;">
+            <?= $error ?>
+        </div>
+<?php endif; ?>
         <?php include 'header.php'; ?>
 
         <main class='main'>
-            <?php echo $content; ?>
+                <?php echo $content; ?>
         </main>
 
         <?php include 'footer.php'; ?>

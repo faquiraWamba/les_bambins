@@ -1,5 +1,6 @@
 <?php
 require_once "./config/config.php";
+require_once "./config/auth.php";
 Class Controller{
     public function view($view, $data=[]){
         extract($data);

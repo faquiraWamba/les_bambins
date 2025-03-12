@@ -2,7 +2,9 @@
 session_start();
 require_once './config/config.php';
 require_once 'autoload.php'; // Charge automatiquement les classes
+require_once "./config/auth.php";
 
+$_SESSION['auth']=auth();
 $controller = isset($_GET['controller']) ? ucfirst($_GET['controller']) . 'Controller' : 'HomeController';
 
 $action = isset($_GET['action']) ? $_GET['action'] : 'index';

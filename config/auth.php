@@ -1,5 +1,5 @@
 <?php
-public function auth(){
+function auth(){
 
     if(isset($_SESSION['user'])){
         return True;
@@ -8,5 +8,5 @@ public function auth(){
     }
     
 }
-
+$auth = auth();
 ?>

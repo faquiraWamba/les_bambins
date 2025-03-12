@@ -28,7 +28,7 @@ ul{
   margin: 0;
   padding: 0;
 }
-.container{
+.body{
   display: grid;
   min-height: 100vh;
   grid-template-areas: 'header ' 'main ' 'footer ';
@@ -75,20 +75,26 @@ footer,header{
 }
 main{
   grid-area: main;
+  /* background-color: aquamarine;
+  padding: 2em 5em; */
+  display: grid;
+  align-items: center;
 }
+.container{
+  height: 100%;
+  width: 100%;
+  padding: 2em;
+  display: grid;
+  gap: 2.5em;
+  align-items: center;
+  justify-content: center; 
 
+}
 /*register*/
 .register-container{
   background-color: var(--font-color);
-  height: 100%;
-  display: grid;
-  gap: 2em;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 2em;
-  padding-top: 2em;
-  
 }
+
 .register-tab-container{
   width: 90vw;
   display: grid;
@@ -122,9 +128,11 @@ main{
 .register-tab-for-btn{
   width: 100%;
   display: flex;
+  gap: 3em;
   justify-content: center;
+  margin-top: 2em;
 }
-.register-container h1{
+h1{
   font-family: "Abril Fatface", serif;
   text-align: center;
   font-size: 1.5em;
@@ -139,7 +147,11 @@ main{
   text-align: center;
   
 }
-
+.register-data-form{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
 .register-tab-form form{
   display: flex;
@@ -216,7 +228,7 @@ padding: 4px 15px 4px;
   font-weight: 600;
 
 }
-#section3 .register-tab-form-item{
+.register-tab-form-item{
   display: flex;
   justify-content: space-between;
 }
@@ -254,7 +266,10 @@ padding: 4px 15px 4px;
 .download-file{
   font-weight: 100;
 }
-
+.obligate{
+  color: var(--primary-color);
+  font-weight: bold;
+}
 /*login*/
 body.orange {
   background-color: var(--font-color);
@@ -265,8 +280,11 @@ body.orange {
   margin-top: 5%;
   margin-bottom: 2%;
 }
+.login_form{
+  width: 40%
+}
 form {
-  width: 40%;
+  width: 100%;
   margin: auto;
   border-radius: 10px;
 }
@@ -303,16 +321,16 @@ fieldset {
   margin-left: 5%;
 }
 form a {
-  display: block;
   text-align: center;
-  margin-bottom: 10%;
-  margin-top: 7%;
+  margin:2em 2px 2em;
   color: gray;
   text-decoration-line: underline;
   font-family: "Segoe UI";
 }
-
-
+.connexion-link{
+  
+  margin-top: 2em;
+}
 
 /*Responsive*/
 /* Extra small devices (phones, 600px and down) */

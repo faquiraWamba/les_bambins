@@ -16,10 +16,6 @@ Class User {
         $stmt->execute();
         
         $user=$stmt->fetch(PDO::FETCH_ASSOC);
-        // echo $user['password'];
-        // echo $password;
-        // var_dump(password_needs_rehash($password,PASSWORD_ARGON2I));
-        // var_dump(password_verify($password, $user['password']));
         if($user && password_verify($password, $user['password'])){
 
             return $user;
@@ -32,11 +28,17 @@ Class User {
     public function register($email,$password){
         $sql = "INSERT INTO utilisateur (email,password) VALUES (:email,:password)";
         $stmt = $this->db->prepare($sql);
-        $user = $stmt->execute([
-            ':email'=>$email,
-            ':password'=>password_hash($password, PASSWORD_BCRYPT)
-        ]);
-        return $user;
+        try{
+            $user = $stmt->execute([
+                ':email'=>$email,
+                ':password'=>password_hash($password, PASSWORD_BCRYPT)
+            ]);
+            return $user;
+        }
+        catch(Exception $e){
+            return $e->getMessage();
+        }
+        
     }
 
 
@@ -46,6 +48,7 @@ Class User {
 
         return $query->fetch(PDO::FETCH_ASSOC);
     }
+
     public function getUsers(){
         $query=$this->db->prepare("SELECT * FROM UTILISATEUR");
         $query->execute();

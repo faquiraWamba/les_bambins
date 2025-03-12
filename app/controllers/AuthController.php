@@ -1,6 +1,6 @@
 <?php
 require_once './app/core/Controller.php';
-require_once ROOT_PATH.'app/models/user.php';
+require_once ROOT_PATH.'app/models/User.php';
 class AuthController extends Controller{
     
     public function login(){
@@ -54,7 +54,7 @@ class AuthController extends Controller{
 
     public function logout(){
         session_destroy();
-        header('Location:page_accueil');
+        header('Location:index.php?controller=Home');
         exit();
     }
 }

@@ -1,5 +1,5 @@
 <?php
-class Personne{
+class Person{
     private $nom;
     private $prenom;
 }

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container3">
 
     <h1>Centre aéré et périscolaire Les Bambins</h1>
     <div id="banderole"><img src="../../public/images/Header2.png" alt="Header" ></div>
@@ -60,6 +60,6 @@
             d'activités adaptées à ses besoins. Grâce à ces certifications, nous continuons à offrir un cadre sécurisé,
             ludique
             et éducatif, tout en veillant à l’épanouissement de chaque enfant.</p></div>
-        <div id="certif_img"><img src="images/certif.png"></div>
+        <div id="certif_img"><img src="../../public/images/certif.png"></div>
     </div>
 </div>

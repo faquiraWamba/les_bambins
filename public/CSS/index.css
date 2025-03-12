@@ -136,6 +136,7 @@ h1{
   font-family: "Abril Fatface", serif;
   text-align: center;
   font-size: 1.5em;
+  margin-top: 1.5em;
 }
 
 .register-tab-title-item{
@@ -159,21 +160,23 @@ h1{
 }
 
 input[type="checkbox"]:checked,input[type="radio"]:checked {
-  accent-color: var(--btn-color); 
-  
+  accent-color: var(--btn-color);
 }
 button{
   background-color: var(--btn-color);
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
   padding: 7px 35px 7px;
   border: none;
   border-radius: 27px;
   margin-top: 2em;
   font-weight: bold;
   font-size: 1.3em;
-
 }
 button:hover{
   cursor: pointer;
+  background-color: var(--primary-color);
 }
 
 /* Pied de page */
@@ -271,23 +274,26 @@ padding: 4px 15px 4px;
   font-weight: bold;
 }
 /*login*/
-backgroundOrange {
+.containerOrange{
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
   background-color: var(--font-color);
 }
-#connexion{
-  text-align: center;
-  margin-left: 0;
-  margin-top: 5%;
-  margin-bottom: 2%;
+
+fieldset {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5em;
+  border-radius: 60px;
+  background-color: white;
+  padding: 2%;
+  border-style: none;
+  width: 35em;
 }
-.login_form{
-  width: 40%
-}
-form {
-  width: 100%;
-  margin: auto;
-  border-radius: 10px;
-}
+
 input.connexion {
   width: 90%;
   margin: auto;
@@ -303,17 +309,10 @@ label.connexion {
   margin-top: 10px;
   display: block;
   margin-left: 5%;
-  font-family: "Segoe UI";
 }
-fieldset {
-  border-radius: 60px;
-  background-color: white;
-  padding: 5%;
-  border-style: none;
-}
+
 .checkbox {
   display: inline;
-  font-family: "Segoe UI";
 }
 #enregistrer {
   width: auto;
@@ -322,14 +321,14 @@ fieldset {
 }
 form a {
   text-align: center;
-  margin:2em 2px 2em;
   color: gray;
   text-decoration-line: underline;
-  font-family: "Segoe UI";
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
 }
 
 .connexion-link{
-  
   margin-top: 2em;
 }
 
@@ -368,6 +367,64 @@ form a {
 .description {
   flex-grow: 1;
   font-size: 20px;
+}
+
+/*homepage*/
+p{
+  width: 90%;
+  text-align: justify;
+  margin: 0 auto;
+  font-size: large;
+}
+
+h2{
+  font-family: "Abril Fatface", serif;
+  font-size: 1.5em;
+  color: var(--text-color);
+  margin: 0;
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+#banderole{
+  width: 98vw;
+  height: 10%;
+}
+#banderole img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 2%;
+}
+
+.maps{
+  display: grid;
+  grid-template-columns: 45% 55%;
+  width: 60em;
+  border: 2px solid var(--text-color); /* Définir la largeur et la couleur de la bordure */
+  padding: 1%;
+  margin: 0 auto;
+  align-items: center;
+}
+.maps iframe{
+  width: 100%;
+  height: 50vh;
+  border: 0;
+}
+.maps p{
+  margin-top: auto ;
+}
+.certif{
+  display: grid;
+  grid-template-columns: 70% 30%;
+  text-align: center;
+  margin-bottom: 5%;
+  align-items: center;
+}
+.certif img{
+  width: 80%;
 }
 
 

@@ -535,3 +535,73 @@ h1{
 @media only screen and (min-width: 1200px) {
 
 }
+/* page tarifs*/
+.tarifs h1 {
+  text-align: center;
+  color: var(--primary-color);
+}
+
+table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+th, td{
+  border: 1px solid var(--primary-color);
+  padding: 10px;
+  text-align: center;
+  background-color: #FEF5E7;
+}
+
+th {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+
+.category {
+  background-color: #FCE9C9; 
+  /*background-color: var(--hover-color);*/
+  font-weight: bold;
+  text-align: center;
+}
+
+.infos {
+  width: 80%;
+  margin: 40px auto;
+  padding: 20px;
+  /*background-color: var(--form-color);*/
+  background-color: #FEF5E7 ;
+  border-radius: 10px;
+}
+
+.infos h2 {
+  font-size: 1.5em;
+  text-align: center;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+}
+
+
+.inscription {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.btn-inscription {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--btn-color);
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.btn-inscription:hover {
+  background-color: var(--hover-color);
+}
+
+
+

@@ -7,7 +7,7 @@
             <ul>
                 
                 <li><a href="index.php?controller=Home&action=index">Acceuil</a></li>
-                <li><a href="index.php?controller=#">Activités</a></li>
+                <li><a href="index.php?controller=Activity&action=showActivities">Activités</a></li>
                 <li><a href="index.php?controller=#">Tarifs</a></li>
                 <li><a href="index.php?controller=#">Menu</a></li>
                 <li><a href="index.php?controller=#">FAQ</a></li>           

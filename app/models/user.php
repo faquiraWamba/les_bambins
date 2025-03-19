@@ -36,15 +36,21 @@ Class User {
             return $user;
         }
         catch(Exception $e){
-            return $e->getMessage();
+             $e->getMessage();
         }
         
     }
 
 
     public function getUser($id){
-        $query = $this->db->prepare("SELECT * FROM UTILISATEUR WHERE user_id=$id");
-        $query->execute(['id'=>$id]);
+        $query = $this->db->prepare("SELECT * FROM UTILISATEUR WHERE user_id=:id");
+        $query->execute([':id'=>$id]);
+
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+    public function getUserByMail($email){
+        $query = $this->db->prepare("SELECT * FROM UTILISATEUR WHERE email LIKE :email");
+        $query->execute([':email'=>$email]);
 
         return $query->fetch(PDO::FETCH_ASSOC);
     }

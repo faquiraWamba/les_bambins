@@ -27,6 +27,6 @@
 
         <div class="cta">
             <h3>Intéressé? Inscrivez votre enfant</h3>
-            <button>INSCRIVEZ VOTRE ENFANT</button>
+            <a href="index.php?controller=Child&action=CreateChild"> <button type="button">Inscrire mon enfant</button></a>
         </div>
     </div>

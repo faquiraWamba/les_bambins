@@ -2,7 +2,8 @@
 require_once ROOT_PATH.'app/core/Controller.php';
 require_once ROOT_PATH.'app/core/Generator.php';
 require_once ROOT_PATH.'app/models/Child.php';
-require_once ROOT_PATH.'app/models/Competence.php';
+require_once ROOT_PATH.'app/models/Child_Competence.php';
+require_once ROOT_PATH.'app/core/calculateFunction.php';
 require_once ROOT_PATH.'app/models/Parent.php';
 
 Class ChildController extends Controller{
@@ -15,60 +16,65 @@ Class ChildController extends Controller{
     }
 
     public function CreateChild(){
+
         if($_SERVER['REQUEST_METHOD']==='POST'){
-            if (!empty($_POST["nom_enfant"]) && !empty($_POST["nom_enfant"]) && !empty($_POST["sexe_enfant"]) && !empty($_POST["date_naissance"])
-             && !empty($_POST["securite_sociale"]) && !empty($_POST["fiche_medical"])&& !empty($_POST["type_repas"])&& !empty($_POST["type_famille"])) {
+            if (!empty($_POST["nom_parent"]) && !empty($_POST["prenom_parent"]) && !empty($_POST["sexe_parent"]) 
+            && !empty($_POST["telephone_parent"]) && !empty($_POST["rue_parent"]) && !empty($_POST["ville_parent"])
+            && !empty($_POST["code_postal_parent"]) && !empty($_POST["pays_parent"]) && !empty($_POST["email_parent"])){
+                
+            }
+            if (!empty($_POST["nom_enfant"]) && !empty($_POST["prenom_enfant"]) && !empty($_POST["sexe_enfant"]) && !empty($_POST["date_naissance"])&&
+               !empty($_POST["type_famille"])) {
+                
                 $id_enfant=generateUniqueID('CH');
                 $child= new Child(); 
 
                 //Add parent
                 $parent = new Tutor();
-                $parent = $parent->getParent($_POST["email_parent"]);
+                $parent = $parent->getParent($_POST["id_parent"]);
+                
 
-                //Add the child to a group
-                $age = calculateAge($_POST["date_naissance"]); // calcul age de l'enfant
+                // calcul age de l'enfant
+                $age = calculateAge($_POST["date_naissance"]); 
+
                 //On attribu un groupe temporaire
                 if($age>=3 && $age<=5){
-                    $num_groupe = 5;
+                    $num_groupe = 3;
                 }
                 else if($age>5 & $age<=8){
-                    $num_groupe =8;
+                    $num_groupe =6;
                 }
                 else {
-                    $num_groupe  =0;
+                    $num_groupe  =9;
                 }
-                // $group->CreateGroup($numero_groupe);
 
-                // $group = new Group;
-                // $groups=$group->GetGroupsByAge($age);
-
-                // if($groups){
-                //     $group= rand(1,sizeof($groups)+1);
-                //     $numero_groupe = $group['numero_groupe'];
-                // }else{
-                //     $numero_groupe=generateGroupNumber();
-                //     if($age>=3 && $age<=5){
-                //         $nb_groupe = 5;
-                //     }
-                //     else if($age>5 & $age<=8){
-                //         $nb_groupe=
-                //     }
-                //     $group->CreateGroup($numero_groupe);
-                // }
-
-                $child->CreateChild($id_enfant,$_POST["nom_enfant"],$_POST["prenom_enfant"],$_POST["sexe_enfant"],$_POST["date_naissance"],
-                $_POST["securite_sociale"],$_POST["type_famille"],$_POST["fiche_medical"],$_POST["type_repas"], $parent['id'], $num_groupe );
+                $child=$child->CreateChild(
+                    $id_enfant,
+                    $_POST["nom_enfant"],
+                    $_POST["prenom_enfant"],
+                    $_POST["sexe_enfant"],
+                    $_POST["date_naissance"],
+                    $_POST["type_famille"],
+                    $_POST['id_parent'], 
+                    $num_groupe 
+                );
+                if($child){
+                    var_dump($child);
+                }else{
+                    echo("il y aune erreur");
+                }
+                if (!empty($_POST["competence"])){
+                    $competences =$_POST["competence"];
+                    $child_competence = new Child_Competence();
+                    foreach ($competences as $competence){
+                        $child_competence->CreateChildcompetence($child, $competence);
+                    }
+                }
+                // $this->view('regis');
                 
             }
         }
-        $competence = new Competence;
-        $competences=$competence->GetCompetences();
-        if($competences){
-            $this->view('CreateChild',['competences'=>$competences]);
-        }else{
             $this->view('CreateChild');
-
-        }
     }
 
     

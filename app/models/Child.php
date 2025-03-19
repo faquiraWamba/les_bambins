@@ -3,18 +3,26 @@ require_once '/xampp/htdocs/les_bambins/config/config.php';
 
 Class Child{
     private $db;
+    // private $id_enfant;
+    // private $nom_enfant;
+    // private $prenom_enfant;
+    // private $sexe_enfant;
+    // private $date_naissance;
+    // private $type_famille;
+    // private $id_parent;
+    // private $numero_groupe;
 
     function __construct()
     {
         $this->db = connect_to_db();
     }
 
-    public function CreateChild($id_enfant,$nom_enfant,$prenom_enfant,$sexe_enfant,$date_naissance,$securite_sociale,
-    $type_famille, $fiche_medical,$type_repas,$id_parent,$numero_groupe){
-        $query = "INSERT INTO ENFANT (id_enfant,nom_enfant,prenom_enfant,sexe_enfant,date_naissance,securite_sociale,
-                    type_famille, fiche_medical,type_repas,id_parent,numero_groupe ) 
-                    VALUES (:id_enfant,:nom_enfant,:prenom_enfant,:sexe_enfant,:date_naissance,:securite_sociale,
-                    :type_famille, :fiche_medical,:type_repas,:id_parent,:numero_groupe
+    public function CreateChild($id_enfant,$nom_enfant,$prenom_enfant,$sexe_enfant,$date_naissance,
+    $type_famille,$id_parent,$numero_groupe){
+        $query = "INSERT INTO ENFANT (id_enfant,nom_enfant,prenom_enfant,sexe_enfant,date_naissance,
+                    type_famille,id_parent,numero_groupe ) 
+                    VALUES (:id_enfant,:nom_enfant,:prenom_enfant,:sexe_enfant,:date_naissance,
+                    :type_famille,:id_parent,:numero_groupe)
         ";
         
         $stmt = $this->db->prepare($query);
@@ -26,17 +34,15 @@ Class Child{
                 ':prenom_enfant'=>$prenom_enfant,
                 ':sexe_enfant'=>$sexe_enfant,
                 ':date_naissance'=>$date_naissance,
-                ':securite_sociale'=>$securite_sociale,
                 ':type_famille'=>$type_famille,
-                ':fiche_medical'=>$fiche_medical,
-                ':type_repas'=>$type_repas,
                 ':id_parent'=>$id_parent,
                 ':numero_groupe'=>$numero_groupe
             ]);
+            return $id_enfant;
 
         }
         catch(Exception $e){
-            return $e->getMessage();
+            echo $e->getMessage();
         }
     }
 

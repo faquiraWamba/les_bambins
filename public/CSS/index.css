@@ -216,7 +216,6 @@ padding: 4px 15px 4px;
 }
 .inactive {
   display: none !important;  /* Cache toutes les sections */
-  border: solid 1px;
 
 }
 .active-section{
@@ -244,6 +243,9 @@ padding: 4px 15px 4px;
 }
 .input-text:focus{
   border: solid 3px var(--text-color);
+}
+.input-error{
+  box-shadow: 0 0 5px 2px var(--primary-color) !important;
 }
 .register-tab-holiday-item{
   display: flex;

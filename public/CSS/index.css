@@ -535,7 +535,7 @@ h1{
 @media only screen and (min-width: 1200px) {
 
 }
-/* page tarifs*/
+/* page tarifs et menu*/
 .tarifs h1 {
   text-align: center;
 }
@@ -553,15 +553,14 @@ th, td{
   background-color: #FEF5E7;
 }
 
-th {
-  background-color: var(--primary-color);
-  color: var(--white-color);
+.vide{
+  background-color: var( --white-color); 
+  color: var( --white-color);
+  border: none;
 }
-
 
 .category {
   background-color: #FCE9C9; 
-  /*background-color: var(--hover-color);*/
   font-weight: bold;
   text-align: center;
 }
@@ -570,7 +569,6 @@ th {
   width: 80%;
   margin: 40px auto;
   padding: 20px;
-  /*background-color: var(--form-color);*/
   background-color: #FEF5E7 ;
   border-radius: 10px;
 }
@@ -601,6 +599,7 @@ th {
 .btn-inscription:hover {
   background-color: var(--hover-color);
 }
+
 
 
 

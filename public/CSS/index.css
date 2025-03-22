@@ -239,7 +239,6 @@ padding: 4px 15px 4px;
   width: 30em;
   border: solid 2px var(--text-color);
   background-color: var(--form-color);
-
 }
 .input-text:focus{
   border: solid 3px var(--text-color);
@@ -444,7 +443,85 @@ h2{
 .certif img{
   width: 80%;
 }
+/* RESPONSABLE PEDAGOGIQUE*/
+/*Gestion activité*/
+.container_gestion_activite{
+  background-color: var(--font-color);
+}
+.form_GA{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  width: 95%;
+  margin: 30px auto;
+  padding: 0;
+}
+.onglet-RP{
+  margin: 0;
+  padding: 0;
+  display: block;
+  justify-content: start;
+}
+.onglet{
+  background-color: var(--hover-color);
+  display: inline-block;
+  width: 300px;
+  height: 75px;
+  margin: 0 0 10px;
+  border-radius: 20px 0 0 20px;
+  justify-content: end;
+}
+.onglet.active{
+  background-color: var(--white-color);
+}
+.form-content-RP{
+  align-items: start;
+}
+.tab-content-GA{
+  background-color: var(--white-color);
+  border-radius: 0 20px 20px 20px;
+  display: none;
+  padding: 20px;
+}
 
+.container_gestion_activite:nth-child(2){
+  background-color: var(--white-color);
+  display: block;
+  justify-content: start;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+
+.input-text-RP{
+  width: 45em;
+  border: solid 2px var(--text-color);
+  background-color: var(--form-color);
+}
+.input-text-RP:focus{
+  border: solid 3px var(--text-color);
+}
+
+.register-data-form.RP{
+ justify-content: start;
+  margin-left: 5%;
+  display: block;
+}
+
+.form-title-RP{
+  background-color: var(--btn-color);
+  font-weight: bold;
+  font-size: 1.2em;
+  width: 100%;
+  padding: 5px;
+}
+
+/*.form-title{
+  margin-top: 1.3em;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 1.2em;
+}*/
 /*Responsive*/
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {

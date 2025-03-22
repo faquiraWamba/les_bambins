@@ -22,6 +22,7 @@
         avoir l’esprit tranquille en sachant que vos enfants évoluent dans un environnement respectueux de leurs besoins, où
         l’écoute, la bienveillance et la convivialité sont au cœur de nos valeurs.<br><br></p></div>
     <a href="index.php?controller=Child&action=CreateChild"> <button type="button">Inscrire mon enfant</button></a>
+    <a href="index.php?controller=Activity&action=CreateActivity"> <button type="button">test</button></a>
     <h2>Où nous trouver ?</h2>
     <div class="maps">
         <div>

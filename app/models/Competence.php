@@ -25,7 +25,7 @@ Class Competence{
     }
 
     public function GetCompetences(){
-        $query = "SELECT nom_competence FROM COMPETENCE";
+        $query = "SELECT * FROM COMPETENCE";
         $stmt = $this->db->prepare($query);
 
         try{

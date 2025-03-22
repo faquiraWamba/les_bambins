@@ -216,7 +216,6 @@ padding: 4px 15px 4px;
 }
 .inactive {
   display: none !important;  /* Cache toutes les sections */
-  border: solid 1px;
 
 }
 .active-section{
@@ -244,6 +243,9 @@ padding: 4px 15px 4px;
 }
 .input-text:focus{
   border: solid 3px var(--text-color);
+}
+.input-error{
+  box-shadow: 0 0 5px 2px var(--primary-color) !important;
 }
 .register-tab-holiday-item{
   display: flex;
@@ -533,3 +535,71 @@ h1{
 @media only screen and (min-width: 1200px) {
 
 }
+/* page tarifs et menu*/
+.tarifs h1 {
+  text-align: center;
+}
+
+table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+th, td{
+  border: 1px solid var(--primary-color);
+  padding: 10px;
+  text-align: center;
+  background-color: #FEF5E7;
+}
+
+.vide{
+  background-color: var( --white-color); 
+  color: var( --white-color);
+  border: none;
+}
+
+.category {
+  background-color: #FCE9C9; 
+  font-weight: bold;
+  text-align: center;
+}
+
+.infos {
+  width: 80%;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #FEF5E7 ;
+  border-radius: 10px;
+}
+
+.infos h2 {
+  font-size: 1.5em;
+  text-align: center;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+}
+
+
+.inscription {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.btn-inscription {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--btn-color);
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.btn-inscription:hover {
+  background-color: var(--hover-color);
+}
+
+
+
+

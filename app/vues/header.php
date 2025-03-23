@@ -7,6 +7,8 @@
             <ul>
                 
                 <li><a href="index.php?controller=Home&action=index">Acceuil</a></li>
+                <li><a href="index.php?controller=Menu&action=showMenu">Menu</a></li>
+                <li><a href="index.php?controller=Activity&action=showActivities">Activités</a></li>
 
                 <?php if(isset($_SESSION['role'])){
                     /*Pages pour les membres du personnel connectés*/
@@ -21,12 +23,12 @@
                         <li><a href="index.php?controller=#">paiement</a></li> 
                    <?php  } ?>   
                 <?php } ?> 
-                <li><a href="index.php?controller=Activity&action=showActivities">Activités</a></li>
+                <?php if(!$_SESSION['auth']){?>
                 <li><a href="index.php?controller=Tarif&action=showTarifs">Tarifs</a></li>
-                <li><a href="index.php?controller=Menu&action=showMenu">Menu</a></li>
                 <li><a href="index.php?controller=#">FAQ</a></li>           
                 <li><a href="index.php?controller=#">A propos de nous</a></li>           
                 
+                <?php } ?>          
                 <?php if($_SESSION['auth']){?>
                     <li><a href="index.php?controller=Auth">PP</a></li> 
                     <li><a href="index.php?controller=Auth&action=logout">Deconnexion</a></li> 

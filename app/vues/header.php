@@ -8,11 +8,20 @@
                 
                 <li><a href="index.php?controller=Home&action=index">Acceuil</a></li>
                 <li><a href="index.php?controller=Menu&action=showMenu">Menu</a></li>
-                <li><a href="index.php?controller=Activity&action=showActivities">Activités</a></li>
-
+                <li><?php
+                    if(isset($_SESSION['role'])){ 
+                        if($_SESSION['role']=="administrateur"){
+                    ?>
+                        <a href="index.php?controller=Gestion&action=ShowGestion">
+                    <?php }}
+                    else{ ?>
+                        <a href="index.php?controller=Activity&action=showActivities">
+                    <?php }?>Activités</a></li>
+                    
+                
                 <?php if(isset($_SESSION['role'])){
                     /*Pages pour les membres du personnel connectés*/
-
+                        
                     if($_SESSION['role']=="administrateur" || $_SESSION['role']=="animateur" ){?>
                         <li><a href="index.php?controller=#">EDT</a></li>
                         <li><a href="index.php?controller=#">Suivi des enfants</a></li> 

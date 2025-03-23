@@ -5,7 +5,7 @@
 <?php endif; ?>
 
 <!-- <div class="container"> -->
-    <h1 class="luckiest-guy" id="connexion">S'enregistre</h1>
+    <h1 id="connexion">S'enregistre</h1>
     <form class=login_form action="index.php?controller=Auth&action=register" method="post" >
         <fieldset>
             <label for="email" class="connexion">Email</label>

@@ -22,14 +22,11 @@
                    <?php  } ?>   
                 <?php } ?> 
                 <li><a href="index.php?controller=Activity&action=showActivities">Activités</a></li>
-                <li><a href="index.php?controller=#">Menu</a></li>
-                <!-- Pages hors connexion -->
-                <?php if(!$_SESSION['auth']){?>
-                    <li><a href="index.php?controller=#">Tarifs</a></li>
-                    <li><a href="index.php?controller=#">FAQ</a></li>           
-                    <li><a href="index.php?controller=#">A propos de nous</a></li>           
-                <?php } ?>  
-                <!-- Pages de connexions pour tous les utilisateur -->
+                <li><a href="index.php?controller=Tarif&action=showTarifs">Tarifs</a></li>
+                <li><a href="index.php?controller=Menu&action=showMenu">Menu</a></li>
+                <li><a href="index.php?controller=#">FAQ</a></li>           
+                <li><a href="index.php?controller=#">A propos de nous</a></li>           
+                
                 <?php if($_SESSION['auth']){?>
                     <li><a href="index.php?controller=Auth">PP</a></li> 
                     <li><a href="index.php?controller=Auth&action=logout">Deconnexion</a></li> 

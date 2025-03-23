@@ -1,4 +1,4 @@
-<div class="container_gestion_activite">
+<div class="containerOrange">
     <div class="form_GA">
     <div class="onglet-RP">
         <button class="onglet active" onclick="openTab(0)">Consulter activités</button>
@@ -9,10 +9,11 @@
         <button class="onglet" onclick="openTab(5)">Modifier un parcours activité</button>
     </div>
 <div class="form-content-RP">
+    <!--Consulter activité-->
     <div class="tab-content-GA" style="display: block">
         <h1>reprendre activité</h1>
     </div>
-
+    <!--Créer activité-->
     <div class="tab-content-GA">
         <form method='post'>
             <p class="form-title-RP">Créer une activité</p>
@@ -43,11 +44,11 @@
                 </div>
                 <div class="register-tab-form-item register-tab-holiday-item">
                     <label for="prerequis">Prérequis<span class="obligate">*</span></label>
-                    <textarea class="input-text-RP" name="description_activite" id="description_activite" value="" rows="5" cols="100"> </textarea>
+                    <textarea class="input-text-RP preActivite" name="description_activite" id="description_activite"> </textarea>
                 </div>
                 <div class="register-tab-form-item register-tab-holiday-item">
                     <label for="description_activite">Description<span class="obligate">*</span></label>
-                    <textarea class="input-text-RP" name="description_activite" id="description_activite" value="" rows="10" cols="100"> </textarea>
+                    <textarea class="input-text-RP descActivite" name="description_activite" id="description_activite"> </textarea>
                 </div>
                 <div class="register-tab-form-item register-tab-holiday-item">
                     <label for="image_activite">Image d'illustration<span class="obligate">*</span></label>
@@ -55,11 +56,11 @@
                 </div>
             </div>
             <div class="register-tab-for-btn">
-                <!-- bouton pour soumettre--><button  type="submit">Créer l'activité</button>
+                <button  type="submit">Créer l'activité</button>
             </div>
         </form>
     </div>
-
+    <!--Modifier activité-->
     <div class="tab-content-GA">
         <p class="form-title-RP">Modifier une activité</p>
         <form method='post'>
@@ -94,11 +95,11 @@
                 </div>
                 <div class="register-tab-form-item register-tab-holiday-item">
                     <label for="prerequis">Prérequis<span class="obligate">*</span></label>
-                    <textarea class="input-text-RP" name="description_activite" id="description_activite" value="" rows="5" cols="100"> </textarea>
+                    <textarea class="input-text-RP preActivite" name="description_activite" id="description_activite"> </textarea>
                 </div>
                 <div class="register-tab-form-item register-tab-holiday-item">
                     <label for="description_activite">Description<span class="obligate">*</span></label>
-                    <textarea class="input-text-RP" name="description_activite" id="description_activite" value="" rows="10" cols="100"> </textarea>
+                    <textarea class="input-text-RP descActivite" name="description_activite" id="description_activite"> </textarea>
                 </div>
                 <div class="register-tab-form-item register-tab-holiday-item">
                     <label for="image_activite">Image d'illustration<span class="obligate">*</span></label>
@@ -106,16 +107,16 @@
                 </div>
             </div>
             <div class="register-tab-for-btn">
-                <!-- bouton pour soumettre--><button  type="submit">Modifier l'activité</button>
-                <button  type="submit">Supprimer l'activité</button>
+                <button  type="submit">Modifier l'activité</button>
+                <button  type="submit" class="button2">Supprimer l'activité</button>
             </div>
         </form>
     </div>
-
+    <!--Consulter parcours activité-->
     <div class="tab-content-GA">
         <!-- creprendre fatou-->
     </div>
-
+    <!--Créer parcours activité-->
     <div class="tab-content-GA">
         <p class="form-title-RP">Créer un parcours d'activité</p>
         <form method='post'>
@@ -154,11 +155,11 @@
                 </div>
                 <div class="register-tab-form-item register-tab-holiday-item">
                     <label for="prerequis_parcours">Prérequis<span class="obligate">*</span></label>
-                    <input type="text" class="input-text-RP" name="prerequis_parcours" id="prerequis_parcours" value=""required>
+                    <input type="text" class="input-text-RP preActivite" name="prerequis_parcours" id="prerequis_parcours">
                 </div>
                 <div class="register-tab-form-item register-tab-holiday-item">
                     <label for="description_parcours">Description<span class="obligate">*</span></label>
-                    <textarea type="text" class="input-text-RP" name="description_parcours" id="description_parcours" value=""></textarea>
+                    <textarea type="text" class="input-text-RP descActivite" name="description_parcours" id="description_parcours"></textarea>
                 </div>
                 <div class="register-tab-form-item register-tab-holiday-item">
                     <label for="image_parcours">Image d'illustration<span class="obligate">*</span></label>
@@ -171,7 +172,7 @@
         </form>
 
     </div>
-
+    <!--Modifier parcours activité-->
     <div class="tab-content-GA">
         <p class="form-title-RP">Modifier un parcours d'activité</p>
         <form method='post'>
@@ -214,11 +215,11 @@
                 </div>
                 <div class="register-tab-form-item register-tab-holiday-item">
                     <label for="prerequis_parcours">Prérequis<span class="obligate">*</span></label>
-                    <input type="text" class="input-text-RP" name="prerequis_parcours" id="prerequis_parcours" value=""required>
+                    <input type="text" class="input-text-RP preActivite" name="prerequis_parcours" id="prerequis_parcours">
                 </div>
                 <div class="register-tab-form-item register-tab-holiday-item">
                     <label for="description_parcours">Description<span class="obligate">*</span></label>
-                    <textarea type="text" class="input-text-RP" name="description_parcours" id="description_parcours" value=""></textarea>
+                    <textarea type="text" class="input-text-RP descActivite" name="description_parcours" id="description_parcours"></textarea>
                 </div>
                 <div class="register-tab-form-item register-tab-holiday-item">
                     <label for="image_parcours">Image d'illustration<span class="obligate">*</span></label>

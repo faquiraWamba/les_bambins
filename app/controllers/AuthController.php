@@ -1,6 +1,8 @@
 <?php
-require_once './app/core/Controller.php';
+require_once ROOT_PATH.'app/core/Controller.php';
 require_once ROOT_PATH.'app/models/User.php';
+require_once ROOT_PATH.'app/models/Parent.php';
+require_once ROOT_PATH.'app/models/Personnel.php';
 class AuthController extends Controller{
     
     public function login(){
@@ -8,11 +10,20 @@ class AuthController extends Controller{
             $email = $_POST['email'];
             $password = trim($_POST['password']);
             $userModel = new User() ;
+            $parentModel = new Tutor() ;
+            $personnelModel = new Personnel() ;
             
             $user = $userModel->login($email,$password);
             if ($user){
                 $_SESSION['user']=$user['user_id'];
+                $parent=$parentModel->getParentByUserId($user['user_id']);
+                $personnel=$personnelModel->getPersonnelByUserId($user['user_id']);
 
+                if($parent){
+                    $_SESSION['role']='parent';
+                }else if($personnel){
+                    $_SESSION['role']=$personnel['role_personnel'];
+                }
                 header('Location: index.php?controller=Home');
                 exit();
 

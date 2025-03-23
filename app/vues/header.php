@@ -7,13 +7,31 @@
             <ul>
                 
                 <li><a href="index.php?controller=Home&action=index">Acceuil</a></li>
+
+                <?php if(isset($_SESSION['role'])){
+                    /*Pages pour les membres du personnel connectés*/
+
+                    if($_SESSION['role']=="administrateur" || $_SESSION['role']=="animateur" ){?>
+                        <li><a href="index.php?controller=#">EDT</a></li>
+                        <li><a href="index.php?controller=#">Suivi des enfants</a></li> 
+
+                    <!--Pages pour les parents connectés -->
+
+                    <?php }else if($_SESSION['role']=="parent"){?>
+                        <li><a href="index.php?controller=#">paiement</a></li> 
+                   <?php  } ?>   
+                <?php } ?> 
                 <li><a href="index.php?controller=Activity&action=showActivities">Activités</a></li>
-                <li><a href="index.php?controller=#">Tarifs</a></li>
                 <li><a href="index.php?controller=#">Menu</a></li>
-                <li><a href="index.php?controller=#">FAQ</a></li>           
-                <li><a href="index.php?controller=#">A propos de nous</a></li>           
-                
+                <!-- Pages hors connexion -->
+                <?php if(!$_SESSION['auth']){?>
+                    <li><a href="index.php?controller=#">Tarifs</a></li>
+                    <li><a href="index.php?controller=#">FAQ</a></li>           
+                    <li><a href="index.php?controller=#">A propos de nous</a></li>           
+                <?php } ?>  
+                <!-- Pages de connexions pour tous les utilisateur -->
                 <?php if($_SESSION['auth']){?>
+                    <li><a href="index.php?controller=Auth">PP</a></li> 
                     <li><a href="index.php?controller=Auth&action=logout">Deconnexion</a></li> 
                 <?php }else{?>
                     <li><a href="index.php?controller=Auth&action=login">Connexion</a></li> 

@@ -5,5 +5,8 @@ class ActivityController extends Controller{
     public function showActivities(){
         $this->view('activities');
     }
+    public function showActivity(){
+        $this->view('activities');
+    }
 }
 ?>

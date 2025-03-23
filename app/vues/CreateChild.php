@@ -11,7 +11,7 @@
             <p class="register-tab-title-item" id="section-title4">créneaux d'inscription</p>
         </div>
             
-        <form onsubmit="return validateForm();" action="index.php?controller=Parent&action=CreateParent"  method="post" class="register-tab-form">
+        <form onsubmit="return nextSection(event, 4);" action="index.php?controller=Child&action=CreateChild"  method="post" class="register-tab-form" id="createChildscarsh">
             <p id="form-error"></p>
             <div class="form-group" id="section1" class="">
                 <p class="form-title">Informations Parent</p>
@@ -61,13 +61,12 @@
                         <label for="pays_parent">Pays<span class="obligate">*</span></label>
                         <input type="text" class="input-text" name="pays_parent" id="pays_parent" value=""required>
                     </div>
-                    <div class="connexion-link">
-                        <span>Vous avez déja un compte?</span>
-                        <a href="index.php?controller=Auth&action=login">Connectez vous</a>
-                    </div>
                 </div>
+                <p class="connexion-link">
+                    Vous avez déja un compte?
+                    <a href="index.php?controller=Auth&action=login">Connectez vous</a>
+                </p>
                 <div class="register-tab-for-btn">
-                    
                     <button  type="button" id="suivant-btn" onclick="nextSection(event, 1)">Suivant</button>
                 </div>
             </div>
@@ -100,11 +99,14 @@
                             <label for="date_naissance">Date de naissance<span class="obligate">*</span></label>
                             <input type="date" class="input-text" name="date_naissance" id="date_naissance" value="" required>
                         </div>
+                        <p id="date-message" class="inactive">Le centre n'accepte que les enfants de 3 à 12 ans.</p>
+
                     </div>
                 </div>
                 <div class="register-tab-info">
                     <p class="form-title">Situation familiale <span class="obligate">*</span></p>
-                    <div>
+                    <p id="radio-message" class="inactive">Veuillez sélectionner votre type de famille.</p>
+                    <div >
                         <input type="radio" name="type_famille" id="monoparentale" value="monoparentale" required>
                         <label for="monoparentale">Famille monoparentale</label>
                     </div>
@@ -122,126 +124,184 @@
                     </div>
                 </div> 
                 
-                <div class="register-tab-info">
+                <!-- <div class="register-tab-info">
                     <p class="form-title">Dossier médical</p>
                     <div class="register-tab-form-item register-tab-holiday-item">
                         <input type="file" class="input-file" name="nom" id="nom" value="" placeholder="cliquez ici pour déposez le dossier médical" required>
                     </div>
-                </div>
+                </div> -->
                 <div class="register-tab-info">
-                    <p class="form-title">Centre d'intérêt de l'enfant <span class="obligate">*</span></p>
+                    <p class="form-title ">Centre d'intérêt de l'enfant <span class="obligate">*</span></p>
+                    <p id="error-message" class="inactive">Veuillez sélectionner au moins une compétence.</p>
+
                     <div class="form-interest">
 
+                        <?php  
+                            require_once ROOT_PATH . 'app/models/Competence.php';
 
-                    <?php  
-                        require_once ROOT_PATH . 'app/models/Competence.php';
+                            $competence = new Competence();
+                            $competences = $competence->GetCompetences();
 
-                        $competence = new Competence();
-                        $competences = $competence->GetCompetences();
-
-                        if ($competences) {
-                            foreach ($competences as $comp) { ?>
-                                <div>
-                                    <input type="checkbox" name="competence[]" id="<?= htmlspecialchars($comp["nom_competence"]); ?>" value="<?= htmlspecialchars($comp["id_competence"]); ?>">
-                                    <label for="<?= htmlspecialchars($comp["nom_competence"]); ?>"><?= htmlspecialchars($comp["nom_competence"]); ?></label>
-                                </div>
-                            <?php }
-                        } 
-                    ?>
+                            if ($competences) {
+                                foreach ($competences as $comp) { ?>
+                                    <div>
+                                        <input type="checkbox" name="competence[]" id="<?= htmlspecialchars($comp["nom_competence"]); ?>" value="<?= htmlspecialchars($comp["id_competence"]); ?>">
+                                        <label for="<?= htmlspecialchars($comp["nom_competence"]); ?>"><?= htmlspecialchars($comp["nom_competence"]); ?></label>
+                                    </div>
+                                <?php }
+                            } 
+                        ?>
             
                     </div>
                     <div class="register-tab-for-btn">
                         <button  type="button" onclick="previousSection(2)">Précédent</button>
-                        <button  type="button" onclick="nextSection(2)">Suivant</button>
+                        <button  type="button" onclick="nextSection(event,2)">Suivant</button>
                     </div>
                 </div>
             </div>
-            <?php /* } */?>
-            <?php  /*if(!$creneau){*/?>
             <div class="form_group inactive"  id="section3" >
+                <p id="slot-message" class="inactive">Veuillez sélectionner au moins un créneau.</p>
                 <p class="form-title">Inscription au centre <span class="obligate">*</span></p>
-                <input type="hidden" name="enfant_id" value="<?= $enfant?>">
                 <div>
-                    <input type="checkbox" name="creneau[]" id="creneau" value="périscolaire">
+                    <input type="checkbox" name="creneau[]" id="périscolaire" value="periscolaire">
                     <label for="périscolaire">Périscolaire hors mercredi</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="creneau[]" id="vacances" value="">
+                    <input type="checkbox" name="creneau[]" id="vacances" value="vacances">
                     <label for="vacances">Vacances scolaires</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="creneau[]" id="quantine" value="">
+                    <input type="checkbox" name="creneau[]" id="quantine" value="quantine">
                     <label for="quantine">Quantine</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="creneau[]" id="mercredi" value="">
+                    <input type="checkbox" name="creneau[]" id="mercredi" value="mercredi">
                     <label for="mercredi">Mercredi</label>
                 </div>
+                <!-- <div class="allergies inactive">
+                    <p  class="form-title">Des Allergies à Signaler ??</p>
+                            
+                    <?php 
+                        // $allergies=["fruits à coque et arachides","produits laitiers","gluten","oeufs","poissons et fruits de mer","soja et légumineuses","sésame"];
+                        // foreach($allergies as $allergie){?>
+                    
+                        <div>
+                            <input type="checkbox" name="allergies[]" id="" value="">
+                            <label for=""></label>
+                        </div>
+                    <?php ?>
+                </div> -->
                 <div class="register-tab-for-btn ">
-                    <button  type="button" onclick="previousSection(2)">Précédent</button>
-                    <button  type="button" onclick="nextSection(2)">Suivant</button>
+                    <button  type="button" onclick="previousSection(3)">Précédent</button>
+                    <button  type="button" onclick="nextSection(event, 3)">Suivant</button>
+
                 </div>
     
             </div>
-            <?php /*  } else{*/?>
-            <div class="form_group inactive"  id="section4" >
             
-                <div class="inscription-group-container inactive" id="section4">
+
+            <div class="form_group inactive"  id="section4" >
+                <p class="form-title">Les Créneaux d'inscriptions</p>
+                <div class="inscription-group-container inactive" id="slot_periscolaire">
                     <p class="form-title">Les jours d'inscriptions</p>
-                    <div class="inscription-group-days-container">
+                    <p id="slot-days-message-periscolaire" class="inactive">Veuillez choisir au moins un créneau pour le périscolaire</p>
+                    <div class="inscription-group-day-container">
                         <?php $jours=['lundi','mardi','mercredi','jeudi','vendredi'];
                             foreach($jours as $jour){
                         ?>
-                                <div class="inscription-group-day-item">
-                                    <p class="inscription-group-item-title"><?= $jour ?></p>
-                                    <div class="inscripton-days">
-                                    
-                                        <div>
-                                            <input type="checkbox" name="matin" id="matin" value="">
-                                            <label for="matin">Matin</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" name="apres-midi" id="apres-midi" value="">
-                                            <label for="apres-midi">Après-midi</label>
-                                        </div>
-                                        <div >
-                                            <input type="checkbox" name="soir" id="soir" value="">
-                                            <label for="soir">Soir</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" name="repas" id="repas" value="">
-                                            <label for="repas">Repas</label>
-                                        </div>
+                            <div class="inscription-group-day-item">
+                                <p  class="inscription-group-item-title"><?=$jour?></p>
+                                <div class="inscripton-days">
+                                
+                                    <div>
+                                        <input type="checkbox" name=<?="periode_periscolaire[$jour][]" ?> id="matin" value="matin"class="slot_day">
+                                        <label for="matin">Matin</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name=<?="periode_periscolaire[$jour][]" ?> id="apres-midi" value="apres-midi"class="slot_day">
+                                        <label for="apres-midi">Après-midi</label>
+                                    </div>
+                                    <div >
+                                        <input type="checkbox" name=<?="periode_periscolaire[$jour][]" ?> id="soir" value="soir" class="slot_day">
+                                        <label for="soir">Soir</label>
                                     </div>
                                 </div>
+                            </div>
                         <?php
                             }
                         ?>
+                    </div>
+                </div>
+                <div class="inscription-group-container inactive" id="slot_quantine">
+                
+                    <p class="form-title">Jours de Quantine</p>
+                    <p id="slot-days-message-quantine" class="inactive">Veuillez choisir au moins un créneau pour la quantine</p>
+                    <div class="inscripton-days">
+                        <div>
+                            <input type="checkbox" name="periode_quantine[]" id="lundi" value="lundi" class="slot_day">
+                            <label for="lundi">Lundi</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="periode_quantine[]" id="mardi" value="mardi" class="slot_day">
+                            <label for="mardi">Mardi</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="periode_quantine[]" id="mercredi" value="mercredi" class="slot_day">
+                            <label for="mercredi">Mercredi</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="periode_quantine[]" id="jeudi" value="jeudi" class="slot_day">
+                            <label for="jeudi">Jeudi</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="periode_quantine[]" id="vendredi" value="vendredi" class="slot_day">
+                            <label for="vendredi">Vendredi</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="inscription-group-container inactive" id="slot_mercredi">
+                    
+                    <p class="form-title">Période du Mercredi</p>
+                    <p id="slot-days-message-mercredi" class="inactive">Veuillez choisir au moins un créneau pour le mercredi</p>
+                    <div class="inscripton-days">
+                        <div>
+                            <input type="checkbox" name="periode_mercredi[]" id="matin" value="matin" class="slot_day">
+                            <label for="matin">Matin</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="periode_mercredi[]" id="apres-midi" value="apres-midi" class="slot_day">
+                            <label for="apres-midi">Après-midi</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="periode_mercredi[]" id="journée" value="journée" class="slot_day">
+                            <label for="matin">Journée</label>
+                        </div>
                         
                     </div>
                     
                 </div>
-                <div class="inscription-group-holiday-container" id="holiday">
+                <div class="inscription-group-holiday-container inactive" id="slot_holiday">
                     <p class="form-title">Inscription durant les vacances scolaires</p>
+                    <p id="slot-days-message-holiday" class="inactive">Veuillez choisir au moins un créneau de vacances</p>
                     <div class="inscription-group-item">
                         <div>
-                            <input type="checkbox" name="" id="" value="">
-                            <label for="">Les vacances de la toussaint</label>
+                            <input type="checkbox" name="periode_vacances[]" id="automne" value="automne" class="slot_day">
+                            <label for="">Les vacances d'automne (toussaint)</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="" id="" value="">
-                            <label for="">Les vacances de Noel</label>
+                            <input type="checkbox" name="periode_vacances[]" id="noel" value="noel" class="slot_day">
+                            <label for="">Les vacances de Noël</label>
                         </div>
                         <div >
-                            <input type="checkbox" name="" id="" value="">
+                            <input type="checkbox" name="periode_vacances[]" id="hiver" value="hiver" class="slot_day">
                             <label for="">Les vacances d'hiver</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="" id="" value="">
-                            <label for="">Les vacances de printemps</label>
+                            <input type="checkbox" name="periode_vacances[]" id="printemps" value="printemps" class="slot_day">
+                            <label for="">Les vacances de printemps (Pâques)</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="" id="" value="">
+                            <input type="checkbox" name="periode_vacances[]" id="été" value="été" class="slot_day">
                             <label for="">Les vacances d'été</label>
                         </div>
 

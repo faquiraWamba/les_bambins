@@ -57,5 +57,21 @@ Class Tutor{
             return null;
         }
     }
+    Public function getParentByUserId($user_id){
+        $query="SELECT * FROM PARENT P INNER JOIN UTILISATEUR U ON P.user_id=U.user_id WHERE U.user_id LIKE :user_id";
+        $stmt=$this->db->prepare($query);
+
+        try{
+            $stmt->execute([
+                ':user_id'=>$user_id
+            ]);
+            $parent = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $parent;
+        }
+        catch(Exception $e){
+            $e=$e->getMessage();
+            return null;
+        }
+    }
 }   
 ?>

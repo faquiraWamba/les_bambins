@@ -1,4 +1,9 @@
 <div class="container3">
+    <?php if (isset($error)): ?>
+            <div style="color: red;">
+                <?= $error ?>
+            </div>
+    <?php endif; ?>
 
     <h1>Centre aéré et périscolaire Les Bambins</h1>
     <div id="banderole"><img src="../../public/images/Header2.png" alt="Header" ></div>

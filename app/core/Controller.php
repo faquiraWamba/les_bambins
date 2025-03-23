@@ -1,9 +1,9 @@
 <?php
-require_once "./config/config.php";
-require_once "./config/auth.php";
+require_once "/xampp/htdocs/les_bambins/config/config.php";
+require_once "/xampp/htdocs/les_bambins/config/auth.php";
 Class Controller{
     public function view($view, $data=[]){
-        extract($data);
+        extract($data); 
 
         // Capture le contenu de la vue demandée
         ob_start();

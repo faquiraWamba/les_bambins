@@ -43,6 +43,7 @@
         <?php include 'header.php'; ?>
 
         <main class='main'>
+                
                 <?php echo $content; ?>
         </main>
 
@@ -50,6 +51,7 @@
 
 
         <script src="<?=BASE_URL?>/JS/register.js"></script>
+        <script src="<?=BASE_URL?>/JS/Gestion_activite.js"></script>
         
 </body>
 </html> 

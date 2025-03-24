@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once './config/config.php';
+require_once '/xampp/htdocs/les_bambins/config/config.php';
 require_once 'autoload.php'; // Charge automatiquement les classes
-require_once "./config/auth.php";
+require_once "/xampp/htdocs/les_bambins/config/auth.php";
 
 $_SESSION['auth']=auth();
 $controller = isset($_GET['controller']) ? ucfirst($_GET['controller']) . 'Controller' : 'HomeController';

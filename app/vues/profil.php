@@ -8,7 +8,7 @@ if(!isset($_SESSION['user'])){
 
 
 ?>
-<h1> Bonjour user/<?php echo $_SESSION['user'] ?> </h1>
+<h1> Bonjour user/<?php echo $_SESSION['user']; ?> </h1>
 
 
 

@@ -131,6 +131,10 @@ main{
   justify-content: center;
   margin-top: 2em;
 }
+.connexion-link{ 
+  text-align: center;
+  margin-top: 20px;
+}
 h1{
   font-family: "Abril Fatface", serif;
   text-align: center;
@@ -201,7 +205,11 @@ padding: 4px 15px 4px;
   display: flex;
   flex-direction: column;
 }
-
+.inscription-group-day-container{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 .inscription-group-item-title{
   text-transform: uppercase;
   background-color: var(--primary-color);
@@ -210,6 +218,7 @@ padding: 4px 15px 4px;
   border-radius: 50px 50px;
   text-align: center;
   font-weight: 600;
+  border: none;
 
 }
 .inscription-group-container{
@@ -344,13 +353,6 @@ form a {
   margin-left: auto;
   display: block;
 }
-
-.connexion-link{
-
-  margin-top: 2em;
-}
-
-
 /*activité*/
 .container2 {
   width: 100%;
@@ -457,7 +459,7 @@ h2{
   background-color: var(--font-color);
 }
 .form_GA{
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 4fr;
   width: 95%;
   margin: 30px auto;
@@ -466,8 +468,8 @@ h2{
 .onglet-RP{
   margin: 0;
   padding: 0;
-  display: block;
-  justify-content: start;
+  display: flex;
+  flex-direction: column;
 }
 .onglet{
   background-color: var(--hover-color);
@@ -477,42 +479,41 @@ h2{
   margin: 0 0 10px;
   border-radius: 20px 0 0 20px;
   justify-content: end;
+  flex-shrink: 0;
 }
 .onglet.active{
   background-color: var(--white-color);
 }
 .form-content-RP{
   align-items: start;
+  flex-grow: 1
 }
 .tab-content-GA{
   background-color: var(--white-color);
   border-radius: 0 20px 20px 20px;
   display: none;
   padding: 20px;
+  margin-left: 0;
 }
-
-.container_gestion_activite:nth-child(2){
-  background-color: var(--white-color);
-  display: block;
-  justify-content: start;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
-
 
 .input-text-RP{
-  width: 45em;
+  width: 60%;
   border: solid 2px var(--text-color);
   background-color: var(--form-color);
 }
 .input-text-RP:focus{
   border: solid 3px var(--text-color);
 }
+.input-text-RP.descActivite{
+  height: 25vh;
+}
+.input-text-RP.preActivite{
+  height: 15vh;
+}
 
 .register-data-form.RP{
  justify-content: start;
-  margin-left: 5%;
+  margin-left: 3%;
   display: block;
 }
 
@@ -522,6 +523,26 @@ h2{
   font-size: 1.2em;
   width: 100%;
   padding: 5px;
+  margin-bottom: 20px;
+}
+.button2{
+  background-color: var(--hover-color);
+}
+.table-RP th{
+  background-color: var(--primary-color);
+  border: 2px solid var(#ffd699);
+}
+.table-RP td{
+  background-color: var(--white-color);
+  border: 2px solid var(#ffd699);
+}
+.table-RP{
+  border-collapse: collapse;
+  border: 2px solid var(#ffd699);
+  margin: 25px auto;
+}
+.table-RP tr td.tableQuest{
+  background-color: var(--font-color); !important;
 }
 
 /*FAQ*/
@@ -608,6 +629,7 @@ h2{
   font-weight: bold;
   font-size: 1.2em;
 }*/
+
 /*Responsive*/
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {

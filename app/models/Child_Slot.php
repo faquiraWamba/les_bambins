@@ -9,14 +9,16 @@ Class Child_Slot{
         $this->db = connect_to_db();
     }
 
-    public function CreateChildSlot($id_enfant,$id_creneau){
-        $query = "INSERT INTO ENFANT_CRENEAU (id_enfant,id_creneau) VALUES (:id_enfant,:id_creneau)";
+    public function CreateChildSlot($id_enfant,$id_creneau,$jour,$periode){
+        $query = "INSERT INTO ENFANT_CRENEAU (id_enfant,id_creneau,jour,periode) VALUES (:id_enfant,:id_creneau,:jour,:periode)";
 
         $stmt =$this->db->prepare($query);
         try{
             $stmt->execute([
                 ':id_enfant'=>$id_enfant,
-                ':id_creneau'=>$id_creneau
+                ':id_creneau'=>$id_creneau,
+                'jour'=>$jour,
+                'periode'=>$periode
             ]);
         }
         catch(Exception $e){

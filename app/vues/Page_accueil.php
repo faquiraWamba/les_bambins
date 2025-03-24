@@ -1,4 +1,9 @@
 <div class="container3">
+    <?php if (isset($error)): ?>
+            <div style="color: red;">
+                <?= $error ?>
+            </div>
+    <?php endif; ?>
 
     <h1>Centre aéré et périscolaire Les Bambins</h1>
     <div id="banderole"><img src="../../public/images/Header2.png" alt="Header" ></div>
@@ -22,7 +27,8 @@
         avoir l’esprit tranquille en sachant que vos enfants évoluent dans un environnement respectueux de leurs besoins, où
         l’écoute, la bienveillance et la convivialité sont au cœur de nos valeurs.<br><br></p></div>
     <a href="index.php?controller=Child&action=CreateChild"> <button type="button">Inscrire mon enfant</button></a>
-    <a href="index.php?controller=Activity&action=CreateActivity"> <button type="button">test</button></a>
+    <a href="index.php?controller=Gestion&action=ShowGestion"> <button type="button">test gestion</button></a>
+    <a href="index.php?controller=Activity&action=CreateActivity"> <button type="button">test activité</button></a>
     <h2>Où nous trouver ?</h2>
     <div class="maps">
         <div>

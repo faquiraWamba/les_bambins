@@ -43,6 +43,7 @@
         <?php include 'header.php'; ?>
 
         <main class='main'>
+                
                 <?php echo $content; ?>
         </main>
 

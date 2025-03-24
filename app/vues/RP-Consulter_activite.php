@@ -1,12 +1,12 @@
 <div class="containerOrange">
     <div class="form_GA">
     <div class="onglet-RP">
-        <button class="onglet active" onclick="openTab(0)">Consulter activités</button>
-        <button class="onglet" onclick="openTab(1)">Créer une activité</button>
-        <button class="onglet" onclick="openTab(2)">Modifier une activité</button>
-        <button class="onglet" onclick="openTab(3)">Consulter parcours activité</button>
-        <button class="onglet" onclick="openTab(4)">Créer un parcours activité</button>
-        <button class="onglet" onclick="openTab(5)">Modifier un parcours activité</button>
+        <a href="index.php?controller=Activity&action=ConsultActivity"><button class="onglet active"">Consulter activités</button></a>
+        <a href="index.php?controller=Activity&action=CreateActivity"><button class="onglet">Créer une activité</button></a>
+        <a href="index.php?controller=Activity&action=ModifyActivity"><button class="onglet">Modifier une activité</button></a>
+        <a href="index.php?controller=Activity&action=ConsultActivity"><button class="onglet">Consulter parcours activité</button></a>
+        <a href="index.php?controller=Activity&action=CreateParcours_Activity"><button class="onglet">Créer un parcours activité</button></a>
+        <a href="index.php?controller=Activity&action=ModifyParcours_Activity"><button class="onglet">Modifier un parcours activité</button></a>
     </div>
 <div class="form-content-RP">
     <!--Consulter activité-->
@@ -243,6 +243,4 @@
     </div>
 </div>
 </div>
-
-
 </div>

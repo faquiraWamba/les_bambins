@@ -26,7 +26,7 @@ class ActivityController extends Controller{
             var_dump($activity);
 
         }
-        // $this->view('gestion_activites');
+        $this->view('RP-creer_activite');
     }
 }
 

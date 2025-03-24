@@ -645,6 +645,32 @@ h2{
   font-weight: bold;
   font-size: 1.2em;
 }*/
+/*Profil*/
+.containbox{
+  background-color: var(--white-color);
+  border-radius: 20px;
+  width: 60%;
+  margin: 3% auto;
+  padding: 2%;
+}
+.profil{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.profil.info{
+  background-color: var(--primary-color);
+  width: 80%;
+  border-radius: 30px;
+  padding: 3%;
+}
+#modifProfil{
+  display: block;
+  margin: 1em auto;
+}
+.InfoModif{
+  display: block;
+  margin: auto;
+}
 
 /*Responsive*/
 /* Extra small devices (phones, 600px and down) */
@@ -710,6 +736,7 @@ h1{
   width: 80%;
   margin: 0 auto;
 }
+
 
 }
 

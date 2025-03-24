@@ -2,7 +2,7 @@
 
     <h1>Centre aéré et périscolaire Les Bambins</h1>
     <div id="banderole"><img src="../../public/images/Header2.png" alt="Header" ></div>
-    <div id="text_container"><p>Nous sommes heureux de vous accueillir sur le site du centre aéré "Les Bambins", un lieu d'épanouissement, de partage
+    <div id="text_container"><p class="p_accueil">Nous sommes heureux de vous accueillir sur le site du centre aéré "Les Bambins", un lieu d'épanouissement, de partage
         et d'apprentissage pour vos enfants. Notre centre aéré a pour vocation de proposer un cadre sécurisé, bienveillant
         et stimulant, où chaque enfant peut s'épanouir pleinement tout en découvrant de nouvelles expériences.
 
@@ -30,7 +30,7 @@
                     allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <div><p>Le centre aéré "Les Bambins" est idéalement situé au cœur du quartier universitaire de la Manufacture des
+        <div><p class="p_accueil">Le centre aéré "Les Bambins" est idéalement situé au cœur du quartier universitaire de la Manufacture des
             Tabacs, à Lyon, facilement accessible pour les familles des environs. Vous pouvez visualiser notre emplacement
             exact sur la carte ci-dessous, ce qui vous aidera à mieux planifier votre visite.<br><br>
 
@@ -43,7 +43,7 @@
     </div>
     <h2>Nos certifications</h2>
     <div class="certif">
-        <div><p>Au centre aéré "Les Bambins", nous sommes fiers d’offrir un environnement sûr, enrichissant et respectueux
+        <div><p class="p_accueil">Au centre aéré "Les Bambins", nous sommes fiers d’offrir un environnement sûr, enrichissant et respectueux
             des
             besoins de chaque enfant. Nous avons obtenu plusieurs certifications, dont la Certification Qualité Accueil
             Enfants

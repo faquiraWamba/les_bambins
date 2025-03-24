@@ -1,7 +1,15 @@
 document.querySelectorAll(".boutons_FAQ").forEach(button => {
     button.addEventListener("click", function () {
-        let content = this.nextElementSibling;
+        const content = this.nextElementSibling;
 
+        // Fermer toutes les sections d'abord
+        document.querySelectorAll(".bouton_et_text_FAQ").forEach(section => {
+            if (section !== content) {
+                section.classList.add("cache");
+            }
+        });
+
+        // Toggle (ouvrir ou fermer) la section associée au bouton cliqué
         if (content && content.classList.contains("bouton_et_text_FAQ")) {
             content.classList.toggle("cache");
         }
@@ -9,6 +17,20 @@ document.querySelectorAll(".boutons_FAQ").forEach(button => {
 });
 
 
+document.querySelectorAll(".boutons_FAQ").forEach(button => {
+    button.addEventListener("click", function () {
+        const first = document.getElementById("first_activ");
+
+        // On récupère la div associée au bouton cliqué
+        const content = this.nextElementSibling;
+
+        if (first && first !== content) {
+            first.removeAttribute("id");
+        }
+
+        // ... ici tu peux ajouter le reste de ta logique d'ouverture/fermeture
+    });
+});
 
 // Sélection de tous les boutons de question (bouton_2_FAQ)
 const questionButtons = document.querySelectorAll(".bouton_2_FAQ");

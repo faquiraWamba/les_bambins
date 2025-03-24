@@ -8,15 +8,16 @@
                 
                 <li><a href="index.php?controller=Home&action=index">Acceuil</a></li>
                 <li><a href="index.php?controller=Menu&action=showMenu">Menu</a></li>
-                <li><?php
+                <?php
                     if(isset($_SESSION['role'])){ 
                         if($_SESSION['role']=="administrateur"){
                     ?>
-                        <a href="index.php?controller=Gestion&action=ShowGestion">
+                        <li><a href="index.php?controller=Activity&action=CreateActivity">Activités</a></li>
+                        <li><a href="index.php?controller=Gestion&action=ShowGestion">Gestion Centre</a></li>
                     <?php }}
                     else{ ?>
-                        <a href="index.php?controller=Activity&action=showActivities">
-                    <?php }?>Activités</a></li>
+                        <li><a href="index.php?controller=Activity&action=showActivities">Activités</a></li>
+                    <?php }?>
                     
                 
                 <?php if(isset($_SESSION['role'])){

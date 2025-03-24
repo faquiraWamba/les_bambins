@@ -1,4 +1,5 @@
 <div class="containerOrange">
+    <h1>Gestion des activités</h1>
     <div class="form_GA">
         <div class="onglet-RP">
             <a href="index.php?controller=Activity&action=ConsultActivity"><button class="onglet"">Consulter activités</button></a>
@@ -11,7 +12,18 @@
         <div class="form-content-RP">
             <!--Consulter parcours activité-->
             <div class="tab-content-GA">
-                <!-- creprendre fatou-->
+                <div class="tab-content-GA" style="display: block">
+                    <?php
+                    ob_start();
+                    include 'parcours-activites.php';
+                    $page = ob_get_clean();
+
+                    // Supprime le bloc CTA avec une regex
+                    $page = preg_replace('/<div class="cta">.*?<\/div>/s', '', $page);
+
+                    echo $page;
+                    ?>
+                </div>
             </div>
         </div>
     </div>

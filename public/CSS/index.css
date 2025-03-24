@@ -424,6 +424,7 @@ form:last-of-type table td {
 .form-g label {
   width: 120px; /* Ajuster la largeur pour un bon alignement */
   font-weight: bold;
+<<<<<<< HEAD
   text-align: right;
   margin-right: 10px;
   
@@ -616,10 +617,41 @@ footer {
 
 }
 
+=======
+  font-size: 1.2em;
+}*/
+/*Profil*/
+.containbox{
+  background-color: var(--white-color);
+  border-radius: 20px;
+  width: 60%;
+  margin: 3% auto;
+  padding: 2%;
+}
+.profil{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.profil.info{
+  background-color: var(--primary-color);
+  width: 80%;
+  border-radius: 30px;
+  padding: 3%;
+}
+#modifProfil{
+  display: block;
+  margin: 1em auto;
+}
+.InfoModif{
+  display: block;
+  margin: auto;
+}
+>>>>>>> efc04988d1066008c2b48fb06ae226e4c530af4c
 
 /*Responsive*/
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+
 
 }
 

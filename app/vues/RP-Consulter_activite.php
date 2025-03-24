@@ -1,4 +1,6 @@
 <div class="containerOrange">
+    <h1>Gestion des activités</h1>
+    <a href="index.php?controller=User&action=ShowProfilRP"><button class="onglet active"">Consulter activités</button></a>
     <div class="form_GA">
         <div class="onglet-RP">
             <a href="index.php?controller=Activity&action=showActivitiesRP"><button class="onglet active">Consulter activités</button></a>

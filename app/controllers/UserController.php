@@ -13,6 +13,12 @@ class UserController extends Controller{
         }
     
     }
+    public function ShowProfilRP(){
+        $this->view('RP-Profil');
+    }
+    public function ModifyProfil(){
+        $this->view('Modif_profil');
+    }
 }
 
 

@@ -1,4 +1,5 @@
 <div class="containerOrange">
+    <h1>Gestion des activités</h1>
     <div class="form_GA">
         <div class="onglet-RP">
             <a href="index.php?controller=Activity&action=showActivitiesRP"><button class="onglet">Consulter activités</button></a>
@@ -65,7 +66,7 @@
                     </div>
                     <div class="register-tab-for-btn">
                         <!-- bouton pour soumettre--><button  type="submit">Modifier l'activité</button>
-                        <button  type="submit">Supprimer l'activité</button>
+                        <button  type="submit" class="button2">Supprimer l'activité</button>
                     </div>
                 </form>
             </div>

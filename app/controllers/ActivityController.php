@@ -146,9 +146,11 @@ class ActivityController extends Controller{
     public function ModifyParcours(){
         $this->view('RP-modifier_parcours');
     }
-    public function CreeteParcours(){
+    public function CreateParcours(){
         $this->view('RP-creer_parcours');
     }
+
+
 }
 
 

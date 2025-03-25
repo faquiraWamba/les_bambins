@@ -1,7 +1,7 @@
 <div class="containerOrange">
     <h1>Menu Inscription</h1>
 
-    <a href="index.php?controller=Reg&action=CreateReg"><button class="button3" >Inscrire un enfant au centre</button></a>
+    <a href="index.php?controller=Child&action=CreateChild"> <button type="button" class="button3">Inscrire un enfant au centre</button></a>
     <div class="form_GA">
         <div class="onglet-RP">
             <a href="index.php?controller=RegActivity&action=CreateRegActivity"><button class="onglet">Inscription activités</button></a>

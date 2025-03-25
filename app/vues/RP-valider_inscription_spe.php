@@ -77,6 +77,68 @@
             <button  type="submit">Valider l'inscription</button>
             <button  type="submit" class="button2">Rejeter l'inscription</button>
         </div>
+
+        <!--info ajoutés à la page profil enfant-->
+        <?php if (isset($profilEnfant) && $profilEnfant === true): ?>
+            <p class="form-title-RP">Informations enfants</p>
+            <h3>Inscription activité</h3>
+            <table class="table-RP">
+                <tr>
+                    <th>Nom</th>
+                    <th>Type</th>
+                    <th>Etat</th>
+                    <th>Annuler inscription</th>
+                </tr>
+                <tr>
+                    <td>13/06/1026</td>
+                    <td>77</td>
+                    <td>file attente</td>
+                    <td>icon</td>
+                </tr>
+            </table>
+            <h3>Inscription parcours activité</h3>
+            <table class="table-RP">
+                <tr>
+                    <th>Nom</th>
+                    <th>Type</th>
+                    <th>Etat</th>
+                    <th>Annuler inscription</th>
+                </tr>
+                <tr>
+                    <td>13/06/1026</td>
+                    <td>77</td>
+                    <td>file attente</td>
+                    <td>icon</td>
+                </tr>
+            </table>
+            <p class="form-title-RP">Fiche médicale</p>
+            <h3>Allergie</h3>
+            <table class="table-RP">
+                <tr>
+                    <td>13/06/1026</td>
+                    <td>77</td>
+                    <td>file attente</td>
+                    <td>icon</td>
+                </tr>
+            </table>
+            <h3>Traitement en cours</h3>
+            <table class="table-RP">
+                <tr>
+                    <th>Nom du médicament</th>
+                    <th>Posologie</th>
+                    <th>Heure administration</th>
+                    <th>Fréquence</th>
+                    <th>Durée</th>
+                </tr>
+                <tr>
+                    <td>13/06/1026</td>
+                    <td>77</td>
+                    <td>file attente</td>
+                    <td>icon</td>
+                    <td> </td>
+                </tr>
+            </table>
+        <?php endif; ?>
     </div>
 </div>
 

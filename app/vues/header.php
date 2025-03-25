@@ -11,7 +11,7 @@
             <?php if (isset($_SESSION['role'])) {
                 if ($_SESSION['role'] == "administrateur") { ?>
                     <li><a href="index.php?controller=Activity&action=showActivitiesRP">Activités</a></li>
-                    <li><a href="index.php?controller=Gestion&action=ShowGestion">Gestion Centre</a></li>
+                    <li><a href="index.php?controller=Facture&action=showFacture">Gestion Centre</a></li>
                     <li><a href="index.php?controller=ChildMonitoring&action=showChildMonitoringn">Suivi des enfants</a></li>
 
                 <?php } else { ?>

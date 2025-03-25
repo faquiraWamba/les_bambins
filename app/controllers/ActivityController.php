@@ -1,11 +1,33 @@
 <?php 
 require_once ROOT_PATH.'app/core/Controller.php';
 require_once ROOT_PATH.'app/core/Generator.php';
+require_once ROOT_PATH.'app/core/Generator.php';
 require_once ROOT_PATH.'app/models/Activity.php';
+require_once ROOT_PATH.'app/controllers/imgController.php';
 require_once ROOT_PATH.'app/controllers/imgController.php';
 
 class ActivityController extends Controller{
     public function showActivities(){
+        $activity = new Activity;
+        $activities = $activity->GetActivities();
+        
+        $this->view('activities',['activities'=>$activities]);
+    }
+
+    public function showActivitiesRP(){
+        $activity = new Activity;
+        $activities = $activity->GetActivities();
+        
+        $this->view('RP-Consulter_activite',['activities'=>$activities]);
+    }
+    
+    public function ShowActivity(){
+        if(isset($_GET['id'])){
+            $activite = new Activity();
+            $activite = $activite->getActivity($_GET['id']);
+            $this->view('RP-creer_activite',['activity'=>$activite]);
+        }
+        // $this->view('RP-modifier_activite');
         $activity = new Activity;
         $activities = $activity->GetActivities();
         
@@ -66,10 +88,43 @@ class ActivityController extends Controller{
                 $msg="Activité créé avec succès";
                 $this->view('RP-creer_activite',['error'=>$msg]);
             }
+            $id_activite=generateUniqueCode('AC');
+            
+            $imgController = new ImgController();
+
+            // Upload de l'image
+            $imageUpload = $imgController->uploadImage($_FILES["image_activite"]);
+    
+            if (isset($imageUpload['error'])) {
+                die($imageUpload['error']); // Si erreur lors du téléchargement
+            }
+            $activity = new Activity();
+        $id_activite = generateUniqueCode('AC');
+
+        // Création de l'activité
+        $activity = $activity->CreateActivity(
+            $id_activite,
+            $_POST['nom_activite'],
+            $_POST['age_min_activite'],
+            $_POST['age_max_activite'],
+            $_POST['type_activite'],
+            $_POST['nb_places'],
+            $_POST['niveau_activite'],
+            $_POST['prerequis'],
+            $_POST['tarif_activite'],
+            $_POST['description_activite'],
+            $imageUpload['success']
+        );
+
+            if($activity){
+                $msg="Activité créé avec succès";
+                $this->view('RP-creer_activite',['error'=>$msg]);
+            }
 
         }
         $this->view('RP-creer_activite');
     }
+
 
     public function ModifyActivity(){
         if(isset($_GET['id'])){

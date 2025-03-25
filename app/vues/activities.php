@@ -13,6 +13,8 @@
         <div class="description">
             <h3><?= htmlspecialchars($activity['nom_activite']) ?> - <?= htmlspecialchars($activity['niveau_activite']) ?></h3>
             <p><?= htmlspecialchars($activity['description_activite']) ?></p>
+            <h3><?= htmlspecialchars($activity['nom_activite']) ?> - <?= htmlspecialchars($activity['niveau_activite']) ?></h3>
+            <p><?= htmlspecialchars($activity['description_activite']) ?></p>
             <h3>Prérequis</h3>
                 <p><?= htmlspecialchars($activity['prerequis']) ?></p>
         </div>

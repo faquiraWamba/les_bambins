@@ -179,6 +179,7 @@ button{
   margin: 1em auto;
   font-weight: bold;
   font-size: 1.3em;
+  display: block;
 }
 
 button:hover{
@@ -498,7 +499,7 @@ h2{
 }
 .form-content-RP{
   align-items: start;
-  flex-grow: 1;
+  flex-grow: 1
 }
 .tab-content-GA{
   background-color: var(--white-color);
@@ -506,7 +507,7 @@ h2{
   display: block;
   padding: 20px;
   margin-left: 0;
-  min-height: 500px;
+  min-height: 550px;
 }
 
 .input-text-RP{
@@ -544,8 +545,6 @@ h2{
 .button3{
   background-color: var(--primary-color);
   width: 40%;
-  margin: 1em auto;
-  display: block;
 }
 .table-RP th{
   background-color: var(--primary-color);
@@ -665,6 +664,7 @@ h2{
   width: 80%;
   border-radius: 30px;
   padding: 3%;
+  margin: 1em auto;
 }
 #modifProfil{
   display: block;
@@ -674,6 +674,36 @@ h2{
   display: block;
   margin: auto;
 }
+
+#affectationGroupForm{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+#affectationGroup{
+  width: 120%;
+  height: 200%;
+  margin: 0;
+  display: block;
+}
+#affectationGroupButton{
+  all: unset;
+  margin: 0;
+  border: 1px solid var(--text-color);
+  padding: 3px;
+  width: 50%;
+}
+#affectationGroupButton:hover{
+  background-color: var(--primary-color);
+}
+.lien{
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 
 /*Responsive*/
 /* Extra small devices (phones, 600px and down) */

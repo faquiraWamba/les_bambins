@@ -145,7 +145,16 @@ Class ChildController extends Controller{
         }
             $this->view('CreateChild');
     }
+    function showInfoEnfants(){
+        $this->view('RP-Info_enfants');
+    }
+    function showProfilEnfant(){
+        $this->view('Profil_enfant');
+    }
+    function showInfoInscription(){
+        $this->view('RP-valider_inscription_spe');
+    }
 
-    
+
 }
 ?>

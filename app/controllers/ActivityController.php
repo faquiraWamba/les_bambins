@@ -140,15 +140,7 @@ class ActivityController extends Controller{
         }
 
     }
-    public function ConsultParcours(){
-        $this->view('RP-consulter_parcours');
-    }
-    public function ModifyParcours(){
-        $this->view('RP-modifier_parcours');
-    }
-    public function CreateParcours(){
-        $this->view('RP-creer_parcours');
-    }
+   
 
 
 }

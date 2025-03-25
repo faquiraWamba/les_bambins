@@ -20,3 +20,10 @@ function newPreviewImage(event) {
     };
     reader.readAsDataURL(event.target.files[0]);
 }
+
+$(document).ready(function() {
+    $('#choix').select2({
+        placeholder: "Sélectionnez des options",
+        allowClear: true
+    });
+});

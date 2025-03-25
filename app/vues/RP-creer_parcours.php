@@ -5,63 +5,53 @@
             <a href="index.php?controller=Activity&action=showActivitiesRP"><button class="onglet">Consulter activités</button></a>
             <a href="index.php?controller=Activity&action=CreateActivity"><button class="onglet">Créer une activité</button></a>
             <a href="index.php?controller=Activity&action=ModifyActivity"><button class="onglet">Modifier une activité</button></a>
-            <a href="index.php?controller=Activity&action=ConsultParcours"><button class="onglet">Consulter parcours activité</button></a>
-            <a href="index.php?controller=Activity&action=CreateParcours"><button class="onglet active">Créer un parcours activité</button></a>
-            <a href="index.php?controller=Activity&action=ModifyParcours"><button class="onglet">Modifier un parcours activité</button></a>
+            <a href="index.php?controller=Parcours&action=ConsultParcours"><button class="onglet">Consulter parcours activité</button></a>
+            <a href="index.php?controller=Parcours&action=CreateParcours"><button class="onglet active">Créer un parcours activité</button></a>
+            <a href="index.php?controller=Parcours&action=ModifyParcours"><button class="onglet">Modifier un parcours activité</button></a>
         </div>
         <div class="form-content-RP">
             <!--Créer parcours activité-->
             <div class="tab-content-GA">
                 <p class="form-title-RP">Créer un parcours d'activité</p>
-                <form method='post'>
+                <form method='post' action="index.php?controller=Parcours&action=CreateParcours">
                     <div class="register-data-form RP">
                         <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="nom_parcours">Nom du parcours d'activité <span class="obligate">*</span></label>
-                            <input type="text" class="input-text-RP" name="nom_parcours" id="nom_parcours" value="" required>
+                            <label for="titre_parcours">Nom du parcours d'activité <span class="obligate">*</span></label>
+                            <input type="text" class="input-text-RP" name="titre_parcours" id="titre_parcours" value="" required>
                         </div>
                         <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="liste_activite">Liste des activités <span class="obligate">*</span></label>
-                            <input list="liste_activite" class="input-text-RP">
-                            <datalist id="liste_activite"><!-- je sais pas comment on reprend de la database-->
-                                <option value="Edge">
-                                <option value="Firefox">
-                            </datalist>
+                            <label for="activities">Liste des activités <span class="obligate">*</span></label>
+                            <div class="selected-options" id="selectedOptions"></div>
+                            <select id="choix" class="input-text-RP" name="activities[]" multiple required>
+                                <?php if($activities) {
+                                foreach ($activities as $activity){?>
+                                <option value="<?= $activity['id_activite']?>"><?= $activity['nom_activite']?></option>
+                                <?php }}?>
+                            </select>
                         </div>
                         <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="date_deb_parcours">A partir du <span class="obligate">*</span></label>
-                            <input type="text" class="input-text-RP" name="date_deb_parcours" id="date_deb_parcours" value="" required>
+                            <label for="date_debut_parcours">A partir du <span class="obligate">*</span></label>
+                            <input type="date" class="input-text-RP" name="date_debut_parcours" id="date_debut_parcours" value="" required>
                         </div>
                         <div class="register-tab-form-item register-tab-holiday-item">
                             <label for="date_fin_parcours">Jusqu'au<span class="obligate">*</span></label>
-                            <input type="text" class="input-text-RP" name="date_fin_parcours" id="date_fin_parcours" value=""required>
+                            <input type="date" class="input-text-RP" name="date_fin_parcours" id="date_fin_parcours" value=""required>
                         </div>
                         <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="Tarif_parcours">Tarif<span class="obligate">*</span></label>
-                            <input type="number" class="input-text-RP" name="Tarif_parcours" id="Tarif_parcours" value=""required>
+                            <label for="prix_parcours">Tarif<span class="obligate">*</span></label>
+                            <input type="number" class="input-text-RP" name="prix_parcours" id="prix_parcours" value=""required>
                         </div>
                         <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="nb_place_parcours">Nombre de places <span class="obligate">*</span></label>
-                            <input type="number" class="input-text-RP" name="nb_place_parcours" id="nb_place_parcours" value=""required>
-                        </div>
-                        <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="niveau_parcours">Niveau<span class="obligate">*</span></label>
-                            <input type="text" class="input-text-RP" name="niveau_parcours" id="niveau_parcours" value=""required>
-                        </div>
-                        <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="prerequis_parcours">Prérequis<span class="obligate">*</span></label>
-                            <input type="text" class="input-text-RP preActivite" name="prerequis_parcours" id="prerequis_parcours">
+                            <label for="nb_places_parcours">Nombre de places <span class="obligate">*</span></label>
+                            <input type="number" class="input-text-RP" name="nb_places_parcours" id="nb_places_parcours" value=""required>
                         </div>
                         <div class="register-tab-form-item register-tab-holiday-item">
                             <label for="description_parcours">Description<span class="obligate">*</span></label>
-                            <textarea type="text" class="input-text-RP descActivite" name="description_parcours" id="description_parcours"></textarea>
-                        </div>
-                        <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="image_parcours">Image d'illustration<span class="obligate">*</span></label>
-                            <input type="file" name="image_parcours" id="image_parcours" value="">
+                            <textarea type="text" class="input-text-RP descActivite" name="description_parcours" id="description_parcours" required></textarea>
                         </div>
                     </div>
                     <div class="register-tab-for-btn">
-                        <!-- bouton pour soumettre--><button  type="submit">Créer l'activité</button>
+                        <!-- bouton pour soumettre--><button  type="submit">Créer parcours</button>
                     </div>
                 </form>
 

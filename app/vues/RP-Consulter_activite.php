@@ -10,7 +10,6 @@
         <div class="form-content-RP">
             <!--Consulter activité-->
             <div class="tab-content-GA" style="display: block">
-                <h1>Activités du centre</h1>
                 <?php include_once '/xampp/htdocs/les_bambins/app/vues/activities.php' ?>
             </div>
             

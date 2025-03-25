@@ -1,254 +1,87 @@
-<?php include 'header.php'; ?>
-<div class="register-container">
-    <h1>
-        Suivi des enfants
-    </h1>
-    <div class="register-tab-container">
-
-        <div class="register-tab-form">
-
-            <div class="historique">
-
-                <label for="nom">Nom de l'enfant :</label>
-                <select id="nom">
-                    <option>Exau M</option>
-                </select>
-                <div class="histo">
-                    <p>Personnes à contact en cas d'urgence</p>
-                </div>
-                <div>
-                    <p>Eunice : 06 20 90 24 04</p>
-                    <p>
-                    <p>Eunice : 06 20 90 24 04</p>
-                    </p>
-                    <p>
-                    <p>Eunice : 06 20 90 24 04</p>
-                    </p>
-                </div>
-                <div class="histo">
-                    <p>Fiche médical</p>
-                </div>
-
-                <div class="somebody">
-                    <label for="allergie">Allergie</label>
-                </div>
-
-
-                <div class="somebody">
-                    <table class="allergie">
-
-                        <tr>
-                            <td>JeashKDHn</td>
-                            <td>dfgngsdgle</td>
-                            <td>dfgngsdgle</td>
-                        </tr>
-
-                    </table>
-                    <div class="clearfix"></div> <!-- Empêche le chevauchement -->
-
-                    <label for="traitement">Traitement en cours</label>
-
-                </div>
-
-                <!-- table traitement en cours -->
-            </div>
-            <form action='#' method='post' id="section1" class="register-tab-form-container ">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nom du médicament</th>
-                            <th>Posologie</th>
-                            <th>Heure administration</th>
-                            <th>Fréquence</th>
-                            <th>Durée</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Doliprane</td>
-                            <td>1comprimé matin, midi, soir</td>
-                            <td>8h, 12, 18h</td>
-                            <td>Curabitur pretium tincidunt lacus </td>
-                            <td>Pendant 3 semaines</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </form>
-            <div class="somebody">
-                <label for="restriction">Restriction</label>
-            </div>
-            <div>
-                <p>t is a long established fact that a reader will be distracted by the
-                    readable content of a page when looking at its layout. The point of
-                    using Lorem Ipsum is that it has. </p> </br>
-
-                <p>it look like readable English. Many desktop publishing packages and
-                    web page editors now use Lorem Ipsum as their default model text, and
-                    a search for 'lorem ipsum' will uncover many web sites still in their
-                    infancy. Various versions have evolved over the years, sometimes by
-                    accident, sometimes on purpose (injected humour and the like).</p>
-            </div>
-
-            <div class="histo">
-                <p>Suivi des traitements</p>
-            </div>
-
-            <div class="somebody">
-                <label for="enregistrer">Enregistrer une prise de traitement <a href="#">📧</a></label>
-            </div>
-            <div class="form-group">
-                <label for="nom">Nom du médicament :</label>
-                <input type="nom" id="nom" name="nom">
-            </div>
-
-            <div class="register-tab-for-btn">
-                <button onclick="nextSection(1)" type="button">Enrégistrer une prise de traiment </button>
-            </div>
-
-            <div class="somebody">
-                <label for="historique">Historiquede traitement</label>
-            </div>
-            <form action="">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nom du médicament</th>
-                            <th>Jour d'administration</th>
-                            <th>Heure administration</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Doliprane</td>
-                            <td>02/03/22</td>
-                            <td>8h</td>
-
-                        </tr>
-                        <tr>
-                            <td>Doliprane</td>
-                            <td>02/03/22</td>
-                            <td>8h</td>
-
-                        </tr>
-
-                    </tbody>
-                </table>
-
-                <div class="register-tab-for-btn">
-                    <button onclick="nextSection(1)" type="button">Supprimer </button>
-                    <button onclick="nextSection(1)" type="button">Modifier </button>
-                </div>
-            </form>
-
-            <div class="histo">
-                <p>incident médicaux</p>
-            </div>
-
-            <form action="">
-                <div class="somebody">
-                    <label for="historique">Formulaire d'incident medical</label>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="nature">Nature de l'incident :</label>
-                    <input type="nature" id="nature" name="nature"> </br>
-                </div>
-                <div class="description">
-
-                    <p>Description</p>
-                </div>
-
-                <div class="nouveau-div">
-
-                </div>
-
-                <div class="form-group">
-                    <label for="soins">Soins administrés :</label>
-                    <input type="text" id="soins" name="soins">
-                    </br>
-                </div>
-                <div class="register-tab-for-btn">
-                    <button onclick="nextSection(1)" type="button">Enregistrer </button>
-
-                </div>
-
-            </form>
-            <div class="somebody">
-                <label for="historique">Historique d'incidents médicaux</label>
-            </div>
-            <form action="">
-
-            </form>
-
-<!-- Historique du traiment -->
-
-
-            <form action="">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Heure</th>
-                            <th>Lieu</th>
-                            <th>Description</th>
-                            <th>Soins administrés</th>
-                            <th>Personne administrante</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>02/03/22</td>
-                            <td>8h</td>
-                            <td>La cour</td>
-                            <td>gfedhjsklhgfdsdfcghjkertjkmjhgfdsghjkjhgfdsqsuieryuoiouytry</td>
-                            <td>gfedhjsklhgfdsdfcghjkertjkmjhgfdsghjkjhgfdsqsuieryuoiouytry</td>
-                            <td>Xau</td>
-
-                        </tr>
-                        <tr>
-                        <td>02/03/22</td>
-                            <td>8h</td>
-                            <td>La cour</td>
-                            <td>gfedhjsklhgfdsdfcghjkertjkmjhgfdsghjkjhgfdsqsuieryuoiouytry</td>
-                            <td>gfedhjsklhgfdsdfcghjkertjkmjhgfdsghjkjhgfdsqsuieryuoiouytry</td>
-                            <td>Xau</td>
-
-                        </tr>
-
-                    </tbody>
-                </table>
-
-                <div class="register-tab-for-btn">
-                    <button onclick="nextSection(1)" type="button">Supprimer </button>
-                    <button onclick="nextSection(1)" type="button">Modifier </button>
-                </div>
-            </form>
-          
-            <!-- <div class="empty-space"></div> -->
-
-
+<div class="containerOrange">
+    <h1>Suivi des enfants</h1>
+    <div class="form_GA">
+        <div class="onglet-RP">
+            <a href="index.php?controller=ChildMonitoringComportement&action=showChildMonitoringC"><button class="onglet">Suivi Comportemental</button></a>
+            <a href="index.php?controller=ChildMonitoringPedagogique&action=showChildMonitoringP"><button class="onglet">Suivi pédagogique</button></a>
+            <a href="index.php?controller=ChildMonitoringPresence&action=showChildMonitoringPresence"><button class="onglet">Suivi des présence</button></a>
+            <?php if (isset($_SESSION['role']) && ($_SESSION['role'] == "administrateur" || $_SESSION['role'] == "animateur")) { ?>
+                <a href="index.php?controller=ChildMonitoringMed&action=showChildMonitoringM"><button class="onglet active">Suivi médical</button></a>
+            <?php } ?>
         </div>
-        <div class="menu">
-        <a href="suivi-presence.php">
-                <div class="menu-item active">Suivi des présences</div>
-            </a>
 
-            <a href="suivi-medical.php">
-                <div class="menu-item active">Suivi médical</div>
-            </a>
-            <a href="suivi-comportement.php">
-                <div class="menu-item active">Suivi comportemental</div>
-            </a>
-            <a href="suivi-pedagogique.php">
-                <div class="menu-item active">Suivi pédagogique</div>
-            </a>
+        <div class="form-content-RP">
+            <div class="tab-content-GA">
+                <form method='post'>
+                    <div class="register-data-form RP">
+                        <div class="register-tab-form-item register-tab-holiday-item">
+                            <label for="nom_enfant">Nom de l'enfant</label>
+                            <input class="input-text-RP" list="liste_enfant">
+                            <datalist id="liste_enfant"><!-- je sais pas comment on reprend de la database-->
+                                <option value="Edge">
+                                <option value="Firefox">
+                            </datalist>
+                        </div><!--
+                        <div class="register-tab-form-item register-tab-holiday-item">
+                            <label for="date_reunion">Date <span class="obligate">*</span></label>
+                            <input type="text" class="input-text-RP" name="date_reunion" id="date_reunion" value="" required>
+                        </div>
+                        <div class="register-tab-form-item register-tab-holiday-item">
+                            <label for="heure_reunion">Heure de la réunion <span class="obligate">*</span></label>
+                            <input type="text" class="input-text-RP" name="heure_reunion" id="heure_reunion" value="" required>
+                        </div>
+                    </div>
+                    <div class="register-tab-for-btn">
+                        <button  type="submit">Créer la réunion</button>
+                    </div>-->
+                    </div>
+                </form>
+                <p class="form-title-RP">Personne à contacter en cas d'urgence</p>
+                <div>
+                    <h3>Nom du parent :</h3>
+                    <p>numéro de tel</p>
+                </div>
+                <p class="form-title-RP">Fiche médical</p><!--je pense qu'il faut ue new table-->
+                <form method='post'>
+                    <div class="register-data-form RP">
+                        <div class="register-tab-form-item register-tab-holiday-item">
+                            <label for="date">Date <span class="obligate">*</span></label>
+                            <input type="text" class="input-text-RP" name="date" id="date" value="" required>
+                        </div>
+                        <div class="register-tab-form-item register-tab-holiday-item">
+                            <label for="Descriptif">Type <span class="obligate">*</span></label>
+                            <input class="input-text-RP" list="liste_type">
+                            <datalist id="liste_type"><!-- je sais pas comment on reprend de la database-->
+                                <option value="Incident">
+                                <option value="Succès">
+                                <option value="Spécifique">
+                            </datalist>
+                        </div>
+                        <div class="register-tab-form-item register-tab-holiday-item">
+                            <label for="description_comportemental">Description<span class="obligate">*</span></label>
+                            <textarea type="text" class="input-text-RP descActivite" name="description_comportemental" id="description_comportemental" required></textarea>
+                        </div>
+                        <div class="register-tab-for-btn">
+                            <button  type="submit">Enregistrer un suivi comportemental</button>
+                        </div>
+                    </div>
+                </form>
+                <p class="form-title-RP">Historique du Suivi Comportemental</p>
+                <table class="table-RP">
+                    <tr>
+                        <th>Date</th>
+                        <th>Type de suivi</th>
+                        <th>Description</th>
+                        <th>Suprrimer</th>
+                    </tr>
+                    <tr>
+                        <td>Parent prof</td>
+                        <td>13/06/2025</td>
+                        <td>19h</td>
+                        <td>Icon</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
-
 </div>
-
-</div>
-<?php include('footer.php'); ?>

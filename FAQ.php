@@ -119,7 +119,7 @@
     </div>
 </footer>
 
-<script type="text/javascript" src="./public/JS/Les_Bambins.js"></script>
+<script type="text/javascript" src="public/JS/openTab.js"></script>
 </body>
 </html>
 

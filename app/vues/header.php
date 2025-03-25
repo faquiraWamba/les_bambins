@@ -12,7 +12,7 @@
                     <li><a href="index.php?controller=Activity&action=showActivitiesRP">Activités</a></li>
                     <li><a href="index.php?controller=Facture&action=ShowFacture">Gestion Centre</a></li>
                     <li><a href="index.php?controller=RegActivity&action=CreateRegActivity">Gestion Inscription</a></li>
-                    <li><a href="index.php?controller=ChildMonitoring&action=showChildMonitoringn">Suivi des enfants</li>
+                    <li><a href="index.php?controller=ChildMonitoringComportement&action=showChildMonitoringC">Suivi des enfants</li>
                 <?php } else { ?>
                     <li><a href="index.php?controller=Activity&action=showActivities">Suivi des enfants</a></li>
                 <?php }
@@ -24,7 +24,7 @@
             <li><a href="index.php?controller=FAQ&action=showFAQ">FAQ</a></li>
 
             <?php if ($_SESSION['auth']) { ?>
-                <li><a href="index.php?controller=Auth">PP</a></li>
+                <li><a href="index.php?controller=User&action=ShowProfilRP">PP</a></li>
                 <li><a href="index.php?controller=Auth&action=logout">Deconnexion</a></li>
             <?php } else { ?>
                 <li><a href="index.php?controller=Auth&action=login">Connexion</a></li>

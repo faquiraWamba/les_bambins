@@ -5,6 +5,9 @@ class ChildMonitoringPresenceController extends Controller{
     public function showChildMonitoringPresence(){
         $this->view('suivi-presence');
     }
+    public function showFicheAppel(){
+        $this->view('AN-fiche_appel');
+    }
 
 }
 

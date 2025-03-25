@@ -14,7 +14,8 @@
                     <li><a href="index.php?controller=RegActivity&action=CreateRegActivity">Gestion Inscription</a></li>
                     <li><a href="index.php?controller=ChildMonitoringComportement&action=showChildMonitoringC">Suivi des enfants</li>
                 <?php } else { ?>
-                    <li><a href="index.php?controller=Activity&action=showActivities">Suivi des enfants</a></li>
+                    <li><a href="index.php?controller=ChildMonitoringPresence&action=showFicheAppel">Activités</a></li>
+                    <li><a href="index.php?controller=ChildMonitoringComportement&action=showChildMonitoringC">Suivi des enfants</a></li>
                 <?php }
             } else { ?>
                 <li><a href="index.php?controller=Activity&action=showActivities">Activités</a></li>

@@ -6,7 +6,7 @@
     <?php endif; ?>
 
     <h1>Centre aéré et périscolaire Les Bambins</h1>
-    <div id="banderole"><img src="../../public/images/Header2.png" alt="Header" ></div>
+    <div id="banderole"><img src="/public/images/Header2.png" alt="Header" ></div>
     <div id="text_container"><p class="p_accueil">Nous sommes heureux de vous accueillir sur le site du centre aéré "Les Bambins", un lieu d'épanouissement, de partage
         et d'apprentissage pour vos enfants. Notre centre aéré a pour vocation de proposer un cadre sécurisé, bienveillant
         et stimulant, où chaque enfant peut s'épanouir pleinement tout en découvrant de nouvelles expériences.
@@ -65,6 +65,6 @@
             d'activités adaptées à ses besoins. Grâce à ces certifications, nous continuons à offrir un cadre sécurisé,
             ludique
             et éducatif, tout en veillant à l’épanouissement de chaque enfant.</p></div>
-        <div id="certif_img"><img src="../../public/images/certif.png"></div>
+        <div id="certif_img"><img src="./public/images/certif.png"></div>
     </div>
 </div>

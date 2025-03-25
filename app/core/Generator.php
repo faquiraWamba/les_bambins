@@ -5,6 +5,12 @@ function generateUniqueID($prefix, $length = 4) {
     return strtoupper($prefix) . $uniquePart;
 }
 
+function generateUniqueCode($prefix, $length = 3) {
+    // Utilisation d'un préfixe (2 lettres) suivi d'un identifiant unique basé sur le timestamp
+    $uniquePart = substr(time() . mt_rand(10, 999), -$length);
+    return strtoupper($prefix) . $uniquePart;
+}
+
 function generateGroupNumber() {
     return str_pad(mt_rand(1, 999), 3, '0', STR_PAD_LEFT);
 }

@@ -1,8 +1,8 @@
 <?php
 require_once ROOT_PATH.'app/core/Controller.php';
 
-class GestionController extends Controller{
-    public function showGestion(){
+class ChildMonitoringController extends Controller{
+    public function showChildMonitoringn(){
         $this->view('suivi-comportement');
     }
 

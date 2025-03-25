@@ -14,12 +14,6 @@ class ActivityController extends Controller{
         $this->view('activities',['activities'=>$activities]);
     }
 
-    public function showActivitiesRP(){
-        $activity = new Activity;
-        $activities = $activity->GetActivities();
-        
-        $this->view('RP-Consulter_activite',['activities'=>$activities]);
-    }
     
     public function ShowActivity(){
         if(isset($_GET['id'])){
@@ -41,14 +35,6 @@ class ActivityController extends Controller{
         $this->view('RP-Consulter_activite',['activities'=>$activities]);
     }
     
-    public function ShowActivity(){
-        if(isset($_GET['id'])){
-            $activite = new Activity();
-            $activite = $activite->getActivity($_GET['id']);
-            $this->view('RP-creer_activite',['activity'=>$activite]);
-        }
-        // $this->view('RP-modifier_activite');
-    }
 
     public function CreateActivity(){
        

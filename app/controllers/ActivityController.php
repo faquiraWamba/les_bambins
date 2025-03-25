@@ -129,6 +129,7 @@ class ActivityController extends Controller{
                 $this->view('RP-creer_activite', ['error' => $msg]);
             }
         }
+        $this->view('RP-modifier_activite');
 
     }
     public function DeleteActivity(){

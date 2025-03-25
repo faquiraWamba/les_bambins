@@ -12,6 +12,7 @@
                 if ($_SESSION['role'] == "administrateur") { ?>
                     <li><a href="index.php?controller=Activity&action=CreateActivity">Activités</a></li>
                     <li><a href="index.php?controller=Facture&action=ShowFacture">Gestion Centre</a></li>
+                    <li><a href="index.php?controller=RegActivity&action=CreateRegActivity">Gestion Enfant</a></li>
                 <?php } else { ?>
                     <li><a href="index.php?controller=Activity&action=showActivities">Suivi des enfants</a></li>
                 <?php }

@@ -4,6 +4,7 @@
         <div class="onglet-RP">
             <a href="index.php?controller=Activity&action=showActivitiesRP"><button class="onglet">Consulter activités</button></a>
             <a href="index.php?controller=Activity&action=CreateActivity"><button class="onglet active">Créer une activité</button></a>
+            <a href="index.php?controller=Activity&action=ModifyActivity"><button class="onglet">Modifier une activité</button></a>
             <a href="index.php?controller=Activity&action=ConsultParcours"><button class="onglet">Consulter parcours activité</button></a>
             <a href="index.php?controller=Activity&action=CreateParcours"><button class="onglet">Créer un parcours activité</button></a>
             <a href="index.php?controller=Activity&action=ModifyParcours"><button class="onglet">Modifier un parcours activité</button></a>

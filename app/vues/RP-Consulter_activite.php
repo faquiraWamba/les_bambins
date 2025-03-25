@@ -1,9 +1,8 @@
 <div class="containerOrange">
     <h1>Gestion des activités</h1>
-    <a href="index.php?controller=User&action=ShowProfilRP"><button class="onglet active"">Consulter activités</button></a>
     <div class="form_GA">
     <div class="onglet-RP">
-        <a href="index.php?controller=Activity&action=ConsultActivity"><button class="onglet active"">Consulter activités</button></a>
+        <a href="index.php?controller=Activity&action=ConsultActivity"><button class="onglet active"">Consulter activités</></>
         <a href="index.php?controller=Activity&action=CreateActivity"><button class="onglet">Créer une activité</button></a>
         <a href="index.php?controller=Activity&action=ModifyActivity"><button class="onglet">Modifier une activité</button></a>
         <a href="index.php?controller=Activity&action=ConsultParcours"><button class="onglet">Consulter parcours activité</button></a>

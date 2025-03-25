@@ -664,6 +664,7 @@ h2{
   width: 80%;
   border-radius: 30px;
   padding: 3%;
+  margin: 1em auto;
 }
 #modifProfil{
   display: block;
@@ -673,6 +674,36 @@ h2{
   display: block;
   margin: auto;
 }
+
+#affectationGroupForm{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+#affectationGroup{
+  width: 120%;
+  height: 200%;
+  margin: 0;
+  display: block;
+}
+#affectationGroupButton{
+  all: unset;
+  margin: 0;
+  border: 1px solid var(--text-color);
+  padding: 3px;
+  width: 50%;
+}
+#affectationGroupButton:hover{
+  background-color: var(--primary-color);
+}
+.lien{
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 
 /*Responsive*/
 /* Extra small devices (phones, 600px and down) */

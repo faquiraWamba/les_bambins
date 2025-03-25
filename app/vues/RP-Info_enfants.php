@@ -16,7 +16,7 @@
     <form method='post'>
         <div class="register-data-form RP">
             <div class="register-tab-form-item register-tab-holiday-item">
-                <label for="nom_enfant">Nom de l'enfant <span class="obligate">*</span></label>
+                <label for="nom_enfant">Nom de l'enfant </label>
                 <input class="input-text-RP" list="liste_enfants">
                 <datalist id="liste_activite"><!-- je sais pas comment on reprend de la database-->
                     <option value="Edge">
@@ -33,7 +33,7 @@
             <th>Groupe</th>
         </tr>
         <tr>
-            <td><a href="index.php?controller=Child&action=ProfilEnfant" class="lien">13/06/1026</a></td>
+            <td><a href="index.php?controller=Child&action=showProfilEnfant" class="lien">13/06/1026</a></td>
             <td>77</td>
             <td>Payé</td>
             <td>icon</td>

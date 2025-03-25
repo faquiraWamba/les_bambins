@@ -149,7 +149,7 @@ Class ChildController extends Controller{
         $this->view('RP-Info_enfants');
     }
     function showProfilEnfant(){
-        $this->view('RP-Profil_enfant');
+        $this->view('Profil_enfant');
     }
     function showInfoInscription(){
         $this->view('RP-valider_inscription_spe');

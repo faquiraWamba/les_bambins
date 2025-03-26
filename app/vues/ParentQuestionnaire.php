@@ -1,13 +1,8 @@
-<?php
-//vérification de connexion de l'utilisateur
-
-if(!isset($_SESSION['user'])){
-    header('Location:page_accueil');
-    exit;
-}
-
-
-?>
-<h1> Bonjour user/<?php echo $_SESSION['user']; ?> </h1>
-
-
+<div class="containerOrange">
+    <div class="containbox">
+        <p class="form-title-RP">Questionnaire d'activité</p>
+        <p class="lienQuest">nom Questionnaire</p>
+        <p class="form-title-RP">Questionnaire Parcours d'activité</p>
+        <p class="lienQuest">nom Questionnaire</p>
+    </div>
+</div>

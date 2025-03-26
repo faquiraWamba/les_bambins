@@ -10,13 +10,17 @@
             <a href="index.php?controller=ChildMonitoringComportement&action=showChildMonitoringC"><button class="onglet">Suivi Comportemental</button></a>
             <a href="index.php?controller=ChildMonitoringPedagogique&action=showChildMonitoringP"><button class="onglet">Suivi pédagogique</button></a>
             <a href="index.php?controller=ChildMonitoringPresence&action=showChildMonitoringPresence"><button class="onglet">Suivi des présence</button></a>
-            <?php if (isset($_SESSION['role']) && ($_SESSION['role'] == "administrateur" || $_SESSION['role'] == "animateur")) { ?>
+            <?php if (isset($_SESSION['role']) && ($_SESSION['role'] == "administrateur" || $_SESSION['role'] == "animateur" || $_SESSION['role'] == "parent")) { ?>
                 <a href="index.php?controller=ChildMonitoringMed&action=showChildMonitoringM"><button class="onglet">Suivi médical</button></a>
             <?php } ?>
         </div>
+
         <div class="form-content-RP">
             <div class="tab-content-GA" style="display: block">
+                <?php if (isset($_SESSION['role'])) {
+                if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur")) { ?>
                 <p class="form-title-RP">Enfants inscrits au centres</p>
+                <?php } }?>
     <form method='post'>
         <div class="register-data-form RP">
             <div class="register-tab-form-item register-tab-holiday-item">

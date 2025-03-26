@@ -38,7 +38,11 @@
                     <td>13/06/1026</td>
                     <td>77</td>
                     <td>Payé</td>
-                    <td>icon</td>
+                    <td>
+                        <a href="index.php?controller=FactureController&action=download&id=<?= $facture['id_facture'] ?>">
+                            <i class="fa-solid fa-file-arrow-down"></i>
+                        </a>
+                    </td>
                 </tr>
             </table>
         <p class="form-title-RP">Contact d'urgence</p>

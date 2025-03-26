@@ -7,6 +7,9 @@ class RegActivityController extends Controller{
     public function ModifyRegActivity(){
         $this->view('RP-modif_inscription_activite');
     }
+    public function inscrireEnfant(){
+        $this->view('FormInscriptionActivite');
+    }
 
 }
 

@@ -151,7 +151,7 @@ Class ChildController extends Controller{
     function showProfilEnfant(){
         $this->view('Profil_enfant');
     }
-    function showInfoInscription(){
+    function showInfoInscription($msg = null){
         if(isset($_GET['id'])){
             $id=$_GET['id'];
             $newenfant = new Child;
@@ -161,7 +161,7 @@ Class ChildController extends Controller{
             $creneau= new Child_slot; 
             $creneaux = $creneau->GetAllSlotAttente($id); 
             // $enfant_creneau->Get
-            $this->view('RP-valider_inscription_spe',['enfant'=>$enfant,'parent'=>$parent, 'creneaux'=>$creneaux]);
+            $this->view('RP-valider_inscription_spe',['enfant'=>$enfant,'parent'=>$parent, 'creneaux'=>$creneaux, 'error'=>$msg]);
         }
         
     }

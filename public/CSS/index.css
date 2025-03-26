@@ -964,5 +964,24 @@ th, td{
 .add-activity:hover {
   background-color: var(--font-color);
 }
+#searchResults {
+  position: absolute;  /* Positionnement absolu pour placer le résultat au-dessus de l'input */
+  border: 1px solid #ccc;
+  max-height: 200px;       /* Prend toute la largeur de l'input */
+  background-color: white;  /* Fond blanc pour que la liste soit lisible */
+  z-index: 9999;       /* Assure que la liste des résultats s'affiche au-dessus des autres éléments */
+  overflow-y: auto;    /* Ajoute un défilement si nécessaire */
+}
 
+#searchInput {
+  position: relative;  /* Nécessaire pour le positionnement absolu de #searchResults */
+}
+
+  .search-item {
+      padding: 5px;
+      cursor: pointer;
+  }
+  .search-item:hover {
+      background-color: #f0f0f0;
+  }
 

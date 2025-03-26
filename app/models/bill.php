@@ -7,7 +7,15 @@ class Facture {
     public function __construct() {
         $this->db = connect_to_db();
     }
-
+    public function getFactureById($id) {
+        $query = "SELECT f.id_facture, f.date_facture, f.montant, e.nom_enfant
+                  FROM factures f
+                  JOIN enfants e ON f.id_enfant = e.id_enfant
+                  WHERE f.id_facture = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
     public function getFactureByMonth($id_enfant) {
         $query = "SELECT * FROM FACTURE 
                   WHERE id_enfant = :id_enfant 

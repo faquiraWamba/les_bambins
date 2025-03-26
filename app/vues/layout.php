@@ -104,6 +104,7 @@
         <script src="<?=BASE_URL?>/JS/openTab.js"></script>
         <script src="<?=BASE_URL?>/JS/Gestion_facture.js"></script>
         <script src="<?=BASE_URL?>/JS/search.js"></script>
+        <script src="https://kit.fontawesome.com/a6f89b6701.js" crossorigin="anonymous"></script>
         
         
 </body>

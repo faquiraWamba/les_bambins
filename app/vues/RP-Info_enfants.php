@@ -44,7 +44,7 @@
             <td><a href="index.php?controller=Child&action=showProfilEnfant" class="lien">13/06/1026</a></td>
             <td>77</td>
             <td>Payé</td>
-            <td>icon</td>
+            <td>groupe</td>
         </tr>
     </table>
         </div>

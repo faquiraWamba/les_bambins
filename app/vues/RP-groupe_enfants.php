@@ -105,7 +105,12 @@
                         <td><?=$group['nb_enfant']?></td>
                         <td><?=$group['age_min_groupe']?></td>
                         <td><?=$group['age_max_groupe']?></td>
-                        <td>icon</td><!--mettre un bouton qui supprime-->
+                        <td><form method="POST" action="index.php?controller=GroupController&action=deleteGroup" class="delete-form">
+                                <input type="hidden" name="id_groupe" value="<?= $group['id_groupe'] ?>">
+                                <button type="submit" class="delete-btn">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </form></td>
                     </tr>
                       <?php  }
                     }?>
@@ -120,7 +125,7 @@
                         <th>Places occupé</th>
                         <th>Age Min</th>
                         <th>Age max</th>
-                        <th>voir</th>
+                        <th>Supprimer</th>
                     </tr>
                     <?php if($groups){
                         foreach($groups as $group){?>
@@ -130,7 +135,12 @@
                         <td><?=$group['nb_enfant']?></td>
                         <td><?=$group['age_min_groupe']?></td>
                         <td><?=$group['age_max_groupe']?></td>
-                        <td>icon</td><!--mettre un bouton qui supprime-->
+                        <td><form method="POST" action="index.php?controller=GroupController&action=deleteGroup" class="delete-form">
+                                <input type="hidden" name="id_groupe" value="<?= $group['id_groupe'] ?>">
+                                <button type="submit" class="delete-btn">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </form></td>
                     </tr>
                       <?php  }
                     }?>

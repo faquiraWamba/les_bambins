@@ -1,5 +1,5 @@
 <div class="containerOrange">
-    <h1>Menu Inscription</h1>
+    <h1>Suivi des enfants</h1>
     <?php if (isset($_SESSION['role'])) {
         if ($_SESSION['role'] == "administrateur") { ?>
             <a href="index.php?controller=Child&action=CreateChild"> <button type="button" class="button3">Inscrire un enfant au centre</button></a>

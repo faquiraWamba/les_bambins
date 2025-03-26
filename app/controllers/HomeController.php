@@ -13,6 +13,11 @@ class HomeController extends Controller{
                     if ($_SESSION['role'] == "parent") {
                         $this->view('IntraHomeParent');
                     }
+                    else {
+                        if ($_SESSION['role'] == "accompagnateur") {
+                            $this->view('IntraHomeAcc');
+                        }
+                    }
                 }
             }
             $this->view('page_accueil'); 

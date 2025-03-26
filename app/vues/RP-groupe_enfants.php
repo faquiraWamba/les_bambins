@@ -77,10 +77,10 @@
                 <form>
                     <div class="register-tab-form-item register-tab-holiday-item">
                         <label for="nom_groupe">Nom du groupe</label>
-                        <select id="liste_groupe" name='numero_groupe' required><!-- je sais pas comment on reprend de la database-->
+                        <select id="liste_groupe" name='numero_groupe' required>
                             <option value="">groupe</option>
                             <?php if($groups){
-                                foreach($groups as $group){?>    
+                                foreach($groups as $group){?>
                                 <option value=<?= $group['numero_groupe']?>><?= $group['numero_groupe']?></option>
                                 <?php  }
                             }?>

@@ -299,8 +299,8 @@
             <p><?= $parent['rue_parent'].', '.$parent['ville_parent'].', '. $parent['pays_parent'] ?? '_' ?></p>
         </div>
         <div class="register-tab-for-btn">
-        <a href="index.php?controller=Child&action=validateChildSlots&id=<?= htmlspecialchars($enfant['id_enfant']) ?>"> <button type="button">Valider l'inscription</button></a>
-        <a href="index.php?controller=Child&action=refuseChildSlots&id=<?= htmlspecialchars($enfant['id_enfant']) ?>"> <button  type="button" class="button2">Rejeter l'inscription</button></a>
+        <a href="index.php?controller=Slot&action=validateChildSlots&id=<?= htmlspecialchars($enfant['id_enfant']) ?>"> <button type="button">Valider l'inscription</button></a>
+        <a href="index.php?controller=Slot&action=refuseChildSlots&id=<?= htmlspecialchars($enfant['id_enfant']) ?>"> <button  type="button" class="button2">Rejeter l'inscription</button></a>
 
         </div>
 

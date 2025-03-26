@@ -1,9 +1,13 @@
 <?php
 require_once ROOT_PATH.'app/core/Controller.php';
-require_once ROOT_PATH.'app/models/Child_Llot.php';
+require_once ROOT_PATH.'app/models/Child_Slot.php';
 require_once ROOT_PATH.'app/models/Slot.php';
+require_once ROOT_PATH.'app/controllers/RegCentreController.php';
+require_once ROOT_PATH.'app/controllers/ChildController.php';
 
 class SlotController extends Controller{
+
+    
   
     public function validateChildSlots() {
         if ($_GET['id']) {

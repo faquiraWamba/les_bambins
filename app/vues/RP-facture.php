@@ -6,48 +6,35 @@
             <a href="index.php?controller=Reunion&action=showReunion"><button class="onglet">Réunion</button></a>
             <a href="index.php?controller=Questionnaire&action=showQuestionnaire"><button class="onglet">Questionnaire</button></a>
         </div>
-
+        
     <div class="form-content-RP">
-        <!--Facture-->
+        
         <div class="tab-content-GA" style="display: block">
-            <p class="form-title-RP">Consulter les factures</p>
-        <form method="post">
-            <div class="register-data-form RP">
+            <p class="form-title-RP">Consulter les factures d'un enfant</p>
+            <form method="post">
+                <div class="register-data-form RP">
+                <!-- Input de recherche -->
                 <div class="register-tab-form-item register-tab-holiday-item">
-                    <label for="nom_enfant">Nom de l'enfant</label>
-                    <input class="input-text-RP" list="liste_nom_enfant">
-                    <datalist id="liste_nom_enfant">
-                        <option value="Edge">
-                        <option value="Firefox">
-                    </datalist>
+                    <input type="text" id="searchInput" class="input-text-RP" onkeyup="searchChildren()" placeholder="Rechercher un enfant">
                 </div>
                 <div class="register-tab-form-item register-tab-holiday-item">
-                    <label for="prenom_enfant">Prénom de l'enfant</label>
-                    <input class="input-text-RP" list="liste_prenom_enfant">
-                    <datalist id="liste_prenom_enfant">
-                        <option value="Edge">
-                        <option value="Firefox">
-                    </datalist>
+                    <input type="hidden" class="input-text-RP" id="selectedChildId" name="id_enfant">
                 </div>
-            </div>
-        </form>
-            <table class="table-RP">
-                <tr>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Date de facturation</th>
-                    <th>Montant</th>
-                    <th>Etat</th>
-                    <th>Facture</th>
-                </tr>
-                <tr>
-                    <td>Hun</td>
-                    <td>Laura</td>
-                    <td>13/06/1026</td>
-                    <td>77</td>
-                    <td>Payé</td>
-                    <td>icon</td>
-                </tr>
+                <div id="searchResults" class="input-text-RP" ></div>
+                </div>
+            </form>   
+        <button onclick="fetchBills()">Voir les factures</button>
+
+        <table class="table-RP" id="billsTable" border="1" style="display:none;">
+            <tr>
+                <th>Numéro Facture</th>
+                <th>Montant</th>
+                <th>Date</th>
+                <th>Statut</th>
+                <th>Icon</th>
+            </tr>
+            <tbody id="billsBody"></tbody>
+        </table> 
             </table>
             <div>
                 <p class="form-title-RP">Factures non payés</p>
@@ -62,14 +49,26 @@
                     <th>Etat</th>
                     <th>Facture</th>
                 </tr>
+                <?php if($bills){
+                        foreach($bills as $bill){?>
+                            
+                    
                 <tr>
-                    <td>Hun</td>
-                    <td>Laura</td>
-                    <td>13/06/1026</td>
-                    <td>77</td>
-                    <td>Payé</td>
+                <?php 
+                    require_once '/xampp/htdocs/les_bambins/app/models/Child.php';
+                    $modelenfant = new Child;
+                    $enfant=$modelenfant->getChild($bill['id_enfant']);
+                     $bill['date_facture'] ?>
+                    <td><?= $enfant['nom_enfant'] ?? 'NONE' ?></td>
+                    <td><?= $enfant['prenom_enfant'] ?? 'NONE' ?></td>
+                    <td><?= $bill['date_facture'] ?? 'NONE' ?></td>
+                    <td><?= $bill['montant']  ?? 'NONE' ?></td>
+                    <td>Non Payé</td>
                     <td>icon</td>
                 </tr>
+
+                <?php    }
+                    } ?>
             </table>
         </div>
     </div>

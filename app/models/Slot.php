@@ -9,6 +9,8 @@ Class Slot{
         $this->db = connect_to_db();
     }
 
+    
+
     public function CreateSlot($type_accueil,$tarif_creneau,$nb_place_accueil,$jour,$periode){
         $query = "INSERT INTO CRENEAU (type_accueil,tarif_creneau,nb_place_accueil,jour,periode) 
         VALUES (:type_accueil,:tarif_creneau,:nb_place_accueil,:jour,:periode)";

@@ -131,7 +131,7 @@
         Nos conseillers répondent à vos questions dans les meilleurs délais</p>
 
     <h1>Intéressé ? Inscrivez votre enfant</h1>
-    <a href="_" id="bouton_inscrire_enfant">Inscrivez votre enfant</a>
+    <a href="index.php?controller=Child&action=CreateChild"><button>Inscrivez votre enfant</button> </a>
 </div>
 
 <script type="text/javascript" src="../../public/JS/openTab.js"></script>

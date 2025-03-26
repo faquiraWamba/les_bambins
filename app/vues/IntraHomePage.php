@@ -12,7 +12,7 @@
         </div><?php }} ?>
 
         <?php if (isset($_SESSION['role'])) {
-            if ($_SESSION['role'] == "animateur") { ?>
+            if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "accompagnateur")){ ?>
                 <div class="module_home">
                     <h2>Vie au centre</h2>
                     <a href="index.php?controller=EDT&action=showEDTAnim"><button class="bar Orange">Emploi du temps</button></a>
@@ -70,6 +70,18 @@
                     <a href="index.php?controller=EDT&action=showEDTParent"><button class="bar Orange">Emploi du temps</button></a>
                 </div>
                         <?php }} ?>
+        <?php if (isset($_SESSION['role'])) {
+            if ($_SESSION['role'] == "accompagnateur") { ?>
+                <div class="module_home">
+                    <h2>Suivi des enfants</h2>
+                    <div class="semi">
+                        <a href="index.php?controller=ChildMonitoringPedagogique&action=showChildMonitoringP"><button class="bar">Suivi Pédagogique</button></a>
+                        <a href="index.php?controller=ChildMonitoringComportement&action=showChildMonitoringC"><button class="bar">Suivi des Comportemental</button></a>
+                    </div>
+                    <a href="index.php?controller=ChildMonitoringPresence&action=showChildMonitoringPresence"><button class="bar">Suivi des présences</button></a>
+                    <a href="index.php?controller=Child&action=showInfoEnfants"><button class="bar Orange">Informations sur les enfants</button></a>
+                </div>
+            <?php }} ?>
     </div>
 
 </div>

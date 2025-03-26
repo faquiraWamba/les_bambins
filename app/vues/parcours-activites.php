@@ -1,5 +1,8 @@
 <div class="container2">
-    <h2>Nos parcours d'activités</h2>
+
+    <?php if (!$_SESSION['auth']) {?>
+        <h2>Nos parcours d'activités</h2>
+    <?php }?>
 
     <?php if(isset($allParcours)){
         $i=0;
@@ -44,6 +47,12 @@
                 <a href="index.php?controller=Parcours&action=DeleteParcours&id=<?= htmlspecialchars($parcours['id_parcours']) ?>"> <button  type="button">Supprimer</button></a>
             </div>
         <?php }}?>
+        <?php if (isset($_SESSION['role'])){
+            if($_SESSION['role'] == "parent") {?>
+                <div class="btnActivite">
+                    <button type="button">S'inscrire</button>
+                </div>
+            <?php }}?>
     </div>
 <?php }} ?>
     

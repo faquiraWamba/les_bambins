@@ -67,6 +67,6 @@
 
     <section class="inscription">
         <h2>Intéressé? Inscrivez votre enfant</h2>
-        <a href="#" class="btn-inscription">INSCRIVEZ VOTRE ENFANT</a>
+        <button><a href="index.php?controller=Child&action=CreateChild">INSCRIVEZ VOTRE ENFANT</a></button>
     </section>
 

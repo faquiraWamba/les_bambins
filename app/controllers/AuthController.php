@@ -68,6 +68,39 @@ class AuthController extends Controller{
         header('Location:index.php?controller=Home');
         exit();
     }
+
+    public function updateUser() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if(isset($_GET['id'])){
+                $id=$_GET['id'];}
+             // ID de l'utilisateur à modifier
+            $password = $_POST['password']; // Nouveau mot de passe
+    
+            // Vérifier si l'ID et le mot de passe sont fournis
+            if (empty($id) || empty($password)) {
+                $error = "ID ou mot de passe manquant";
+                return $this->view('login', ['error' => $error]);
+            }
+    
+            // Instancier le modèle
+            $userModel = new User();
+    
+            // Mettre à jour le mot de passe
+            $user = $userModel->updatePassword($id, $password);
+    
+            if ($user) {
+                $success = "Mot de passe mis à jour avec succès";
+                return $this->view('profile', ['success' => $success]);
+            } else {
+                $error = "Échec de la mise à jour du mot de passe";
+                return $this->view('login', ['error' => $error]);
+            }
+        }
+    
+        // Si la requête n'est pas POST, afficher la page de mise à jour
+        $this->view('update');
+    }
+    
 }
 
 

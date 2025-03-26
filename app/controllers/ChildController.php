@@ -117,19 +117,19 @@ Class ChildController extends Controller{
                                         $child_slot->CreateChildSlot($child,2,'Mercredi',$period);
                                     }else if($slot=="vacances"){
                                         if($period=='hiver'){
-                                            $child_slot->CreateChildSlot($child,4,'tous les jours','tous');
-                                        }else if($period=='noel'){
                                             $child_slot->CreateChildSlot($child,5,'tous les jours','tous');
+                                        }else if($period=='noel'){
+                                            $child_slot->CreateChildSlot($child,7,'tous les jours','tous');
                                         }else if($period=='printemps'){
                                             $child_slot->CreateChildSlot($child,6,'tous les jours','tous');
                                             
                                         }else if($period=='été'){
-                                            $child_slot->CreateChildSlot($child,7,'tous les jours','tous');
-                                            
-                                        $child_slot->CreateChildSlot($child,8,'tous les jours','tous');
+                                            $child_slot->CreateChildSlot($child,3,'tous les jours','tous');
+                                        }else if($period=='automne'){    
+                                        $child_slot->CreateChildSlot($child,4,'tous les jours','tous');
                                     }
                                     }if($slot=="quantine"){
-                                        $child_slot->CreateChildSlot($child,3,$period,'repas');
+                                        $child_slot->CreateChildSlot($child,8,$period,'repas');
                                     }
                                 }
                             }
@@ -152,7 +152,18 @@ Class ChildController extends Controller{
         $this->view('Profil_enfant');
     }
     function showInfoInscription(){
-        $this->view('RP-valider_inscription_spe');
+        if(isset($_GET['id'])){
+            $id=$_GET['id'];
+            $newenfant = new Child;
+            $enfant = $newenfant->getChild($id);
+            $newparent= new Tutor; 
+            $parent=$newparent->getParentByChild($id);
+            $creneau= new Child_slot; 
+            $creneaux = $creneau->GetAllSlotAttente($id); 
+            // $enfant_creneau->Get
+            $this->view('RP-valider_inscription_spe',['enfant'=>$enfant,'parent'=>$parent, 'creneaux'=>$creneaux]);
+        }
+        
     }
 
 

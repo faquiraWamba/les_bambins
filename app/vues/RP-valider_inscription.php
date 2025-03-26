@@ -18,15 +18,25 @@
                     <tr>
                         <th>Nom</th>
                         <th>Prénom</th>
-                        <th>Date de naissance</th>
-                        <th>Groupe</th>
+                        <th>SExe</th>
+                        <th>Age</th>
+                        <th>Détails</th>
                     </tr>
+                    <?php 
+                        require_once ROOT_PATH.'app/core/calculateFunction.php';
+                        
+                        if(isset($enfants)){
+                        foreach($enfants as $enfant) {
+                            $age = calculateAge($enfant['date_naissance'])
+                    ?>
                     <tr>
-                        <td><a href="index.php?controller=Child&action=ShowInfoInscription" class="lien">13/06/1026</a></td>
-                        <td>77</td>
-                        <td>Payé</td>
-                        <td>icon</td>
+                        <td><?= $enfant['nom_enfant']?></td>
+                        <td><?= $enfant['prenom_enfant']?></td>
+                        <td><?= $enfant['sexe_enfant']?></td>
+                        <td><?= $age?></td>
+                        <td><a href="index.php?controller=Child&action=ShowInfoInscription&id=<?=$enfant['id_enfant'] ?>" class="lien">Icon</a></td>
                     </tr>
+                    <?php }}?>
                 </table>
     </div>
 </div>

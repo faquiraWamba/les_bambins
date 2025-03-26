@@ -47,7 +47,7 @@ Class Parcours{
             return $parcours;
         }
         catch(Exception $e){
-            return $e->getMessage();
+            var_dump($e->getMessage());
         }
     }
 

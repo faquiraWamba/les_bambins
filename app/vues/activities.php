@@ -13,8 +13,6 @@
         <div class="description">
             <h3><?= htmlspecialchars($activity['nom_activite']) ?> - <?= htmlspecialchars($activity['niveau_activite']) ?></h3>
             <p><?= htmlspecialchars($activity['description_activite']) ?></p>
-            <h3><?= htmlspecialchars($activity['nom_activite']) ?> - <?= htmlspecialchars($activity['niveau_activite']) ?></h3>
-            <p><?= htmlspecialchars($activity['description_activite']) ?></p>
             <h3>Prérequis</h3>
                 <p><?= htmlspecialchars($activity['prerequis']) ?></p>
         </div>
@@ -40,7 +38,7 @@
         <?php endif; ?>
         <?php if (isset($_SESSION['role'])){
             if($_SESSION['role'] == "administrateur") {?>
-            <div class="cta">
+            <div class="btnActivite">
                 <a href="index.php?controller=Activity&action=ShowActivity&id=<?= htmlspecialchars($activity['id_activite']) ?>"> <button type="button">Modifier</button></a>
                 <a href="index.php?controller=Activity&action=DeleteActivity&id=<?= htmlspecialchars($activity['id_activite']) ?>"> <button  type="button">Supprimer</button></a>
             </div>

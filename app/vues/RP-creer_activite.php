@@ -13,11 +13,13 @@
             <div class="tab-content-GA">
                 <?php if(isset($activity)){?>
                     <form method='post' action="index.php?controller=Activity&action=ModifyActivity&id=<?= $activity["id_activite"] ?>" enctype="multipart/form-data">
-                        <?php }else{?>
+                        <p class="form-title-RP">Modifier  activité</p>
+                        
+                    <?php }else{?>
                             <form method='post' action="index.php?controller=Activity&action=CreateActivity" enctype="multipart/form-data">
-                        <?php }?>
-                    <form method='post' action="index.php?controller=Activity&action=CreateActivity" enctype="multipart/form-data">
                     <p class="form-title-RP">Créer une activité</p>
+                        
+                            <?php }?>
                     <div class="register-data-form RP">
                         <div class="register-tab-form-item register-tab-holiday-item">
                             <label for="nom_activite">Nom de l'activité <span class="obligate">*</span></label>

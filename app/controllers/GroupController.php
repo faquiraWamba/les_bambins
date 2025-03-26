@@ -14,9 +14,7 @@ Class GroupController extends Controller{
             
         }
     }
-
-    public function GetGroupByAge($age){
-        $group = new Group();
-    }
+    
+    
 }   
 ?>

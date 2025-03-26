@@ -49,7 +49,7 @@ class AuthController extends Controller{
             if ($user){
                 $error="Votre compte a été créé";
                 
-                $this->view('login', ['error'=>$error]);
+                $this->view('login', ['success'=>$error]);
 
             }else{
                 //Si l'utilisateur n'est pas créer

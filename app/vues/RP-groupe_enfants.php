@@ -12,27 +12,24 @@
         <div class="form-content-RP">
             <div class="tab-content-GA" style="display: block">
                 <p class="form-title-RP">Création de groupe d'enfant</p>
-                <form method='post'>
+                <form method='post' action="index.php?controller=Child_Group&action=CreateGroup">
                     <div class="register-data-form RP">
                         <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="nom_groupe">Nom du groupe <span class="obligate">*</span></label>
-                            <input type="text" class="input-text-RP" name="nom_groupe" id="nom_groupe" value="" required>
+                            <label for="nb_enfant">Nombre de place <span class="obligate">*</span></label>
+                            <input type="text" class="input-text-RP" name="nb_enfant" id="nb_enfant" value="" required>
                         </div>
                         <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="nombre_groupe">Nombre de place <span class="obligate">*</span></label>
-                            <input type="text" class="input-text-RP" name="nombre_groupe" id="nombre_groupe" value="" required>
+                            <label for="age_min_groupe">Age Minimum <span class="obligate">*</span></label>
+                            <input type="text" class="input-text-RP" name="age_min_groupe" id="age_min_groupe" value="" required min=3>
                         </div>
                         <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="ageMin">Age Minimum <span class="obligate">*</span></label>
-                            <input type="text" class="input-text-RP" name="ageMin" id="ageMin" value="" required>
-                        </div>
-                        <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="ageMax">Age maximum <span class="obligate">*</span></label>
-                            <input type="text" class="input-text-RP" name="ageMax" id="ageMax" value="" required>
+                            <label for="age_max_groupe">Age maximum <span class="obligate">*</span></label>
+                            <input type="text" class="input-text-RP" name="age_max_groupe" id="age_max_groupe" value="" required max=12>
                         </div>
                         <div class="register-tab-for-btn">
-                            <button  type="submit">Créer l'activité</button>
+                            <button  type="submit">Créer le groupe</button>
                         </div>
+                    </div>
                 </form>
                 <p class="form-title-RP">Enfant sans groupe</p>
                 <div class="profil info">
@@ -41,56 +38,102 @@
                 </div>
                 <table class="table-RP">
                     <tr>
-                        <th>Nom</th>
+                        <th>Numerom</th>
                         <th>Prénom</th>
-                        <th>Groupe</th>
                         <th>Affecter à un groupe</th>
                     </tr>
-                    <tr>
-                        <td>13/06/1026</td>
-                        <td>77</td>
-                        <td>Payé</td>
+                    <?php if($childsNogroup){
+                        foreach($childsNogroup as $childNogroup){?>
+                        <tr>
+                        <td><?=$childNogroup['nom_enfant']?></td>
+                        <td><?=$childNogroup['prenom_enfant']?></td>
+                      
                         <td>
-                            <form id="affectationGroupForm">
+                            <form id="affectationGroupForm" action="index.php?controller=Child_Group&action=updateGroup" method="post">
                                 <div>
+                                    <input type="hidden" name="nom_enfant" value="<?=$childNogroup['id_enfant']?>">
                                     <label for="nom_groupe"></label>
-                                    <input list="liste_groupe" id="affectationGroup">
-                                    <datalist id="liste_groupe"><!-- je sais pas comment on reprend de la database-->
-                                        <option value="Edge">
-                                        <option value="Firefox">
-                                    </datalist>
+                                    <select id="liste_groupe" name='numero_groupe' required>
+                                        <option value="">groupe</option>
+                                        <?php if($groups){
+                                            foreach($groups as $group){?>    
+                                            <option value="<?= $group['numero_groupe']?>"><?= $group['numero_groupe']?></option>
+                                            <?php  }
+                                        }?>
+                                    </select>
                                 </div>
                                 <div>
-                                    <button  type="submit" id="affectationGroupButton">Valider</button>
+                                    <button type="submit" id="affectationGroupButton">Valider</button>
                                 </div>
                             </form>
-                        </td><!--bouton qui affecte à un groupe-->
-                    </tr>
+                        </td>
+                        </tr>
+                        <?php  }
+                    }?>
                 </table>
+
+                <!-- Enfants par groupe -->
                 <p class="form-title-RP">Consultation de groupe d'enfant</p>
                 <form>
                     <div class="register-tab-form-item register-tab-holiday-item">
                         <label for="nom_groupe">Nom du groupe</label>
-                        <input class="input-text-RP" list="liste_groupe">
-                        <datalist id="liste_groupe"><!-- je sais pas comment on reprend de la database-->
-                            <option value="Edge">
-                            <option value="Firefox">
-                        </datalist>
+                        <select id="liste_groupe" name='numero_groupe' required><!-- je sais pas comment on reprend de la database-->
+                            <option value="">groupe</option>
+                            <?php if($groups){
+                                foreach($groups as $group){?>    
+                                <option value=<?= $group['numero_groupe']?>><?= $group['numero_groupe']?></option>
+                                <?php  }
+                            }?>
+                        </select>
+                        <button type="submit">Rechercher</button>
                     </div>
                 </form>
                 <table class="table-RP">
                     <tr>
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Groupe</th>
-                        <th>Affecter à un groupe</th>
+                        <th>Numgroupe</th>
+                        <th>Places restantes</th>
+                        <th>Places occupé</th>
+                        <th>Age Min</th>
+                        <th>Age max</th>
+                        <th>voir</th>
                     </tr>
-                    <tr>
-                        <td>13/06/1026</td>
-                        <td>77</td>
-                        <td>Payé</td>
+                    <?php if($groups){
+                        foreach($groups as $group){?>
+                        <tr>
+                        <td><?=$group['numero_groupe']?></td>
+                        <td><?=$group['nb_enfant']?></td>
+                        <td><?=$group['nb_enfant']?></td>
+                        <td><?=$group['age_min_groupe']?></td>
+                        <td><?=$group['age_max_groupe']?></td>
                         <td>icon</td><!--mettre un bouton qui supprime-->
                     </tr>
+                      <?php  }
+                    }?>
+                </table>
+
+                <!-- Liste des groupes -->
+                <p class="form-title-RP">Consultation des groupes</p>
+                <table class="table-RP">
+                    <tr>
+                        <th>Numgroupe</th>
+                        <th>Places restantes</th>
+                        <th>Places occupé</th>
+                        <th>Age Min</th>
+                        <th>Age max</th>
+                        <th>voir</th>
+                    </tr>
+                    <?php if($groups){
+                        foreach($groups as $group){?>
+                        <tr>
+                        <td><?=$group['numero_groupe']?></td>
+                        <td><?=$group['nb_enfant']?></td>
+                        <td><?=$group['nb_enfant']?></td>
+                        <td><?=$group['age_min_groupe']?></td>
+                        <td><?=$group['age_max_groupe']?></td>
+                        <td>icon</td><!--mettre un bouton qui supprime-->
+                    </tr>
+                      <?php  }
+                    }?>
                 </table>
             </div>
         </div>

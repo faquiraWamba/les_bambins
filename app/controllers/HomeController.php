@@ -17,6 +17,7 @@ class HomeController extends Controller{
             }
             $this->view('page_accueil'); 
         }
+        $this->view('page_accueil'); 
     }
 }
 ?>

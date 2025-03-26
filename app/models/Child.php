@@ -1,5 +1,4 @@
 <?php
-require_once '/xampp/htdocs/les_bambins/config/config.php';
 
 Class Child{
     private $db;
@@ -73,5 +72,18 @@ Class Child{
         $stmt->execute([':name' => $name . '%']);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getChilds() {
+        $query = "SELECT * FROM enfant";
+        $stmt = $this->db->prepare($query);
+    
+        try {
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    
 }
 ?>

@@ -146,7 +146,9 @@ Class ChildController extends Controller{
             $this->view('CreateChild');
     }
     function showInfoEnfants(){
-        $this->view('RP-Info_enfants');
+        $childModel = new Child();
+        $enfantsInscrits = $childModel->getChildrenInscrit();
+        $this->view('RP-Info_enfants', ['enfantsInscrits' => $enfantsInscrits]);
     }
     function showProfilEnfant(){
         $this->view('Profil_enfant');

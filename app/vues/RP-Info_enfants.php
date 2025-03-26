@@ -20,15 +20,14 @@
                 <?php if (isset($_SESSION['role'])) {
                 if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur")) { ?>
                 <p class="form-title-RP">Enfants inscrits au centres</p>
-                <?php } }?>
-    <form method='post'>
+                <?php } } ?>
+    <form method='post' action="index.php?controller=Child&action=searchChild">
         <div class="register-data-form RP">
             <div class="register-tab-form-item register-tab-holiday-item">
                 <label for="nom_enfant">Nom de l'enfant </label>
-                <input class="input-text-RP" list="liste_enfants">
-                <datalist id="liste_activite"><!-- je sais pas comment on reprend de la database-->
-                    <option value="Edge">
-                    <option value="Firefox">
+                <input class="input-text-RP" id="nom_enfant" name="nom_enfant" list="liste_enfants">
+                <datalist id="liste_enfants">
+                    <!-- Les options seront ajoutées dynamiquement via JavaScript -->
                 </datalist>
             </div>
         </div>
@@ -40,12 +39,20 @@
             <th>Date de naissance</th>
             <th>Groupe</th>
         </tr>
-        <tr>
-            <td><a href="index.php?controller=Child&action=showProfilEnfant" class="lien">13/06/1026</a></td>
-            <td>77</td>
-            <td>Payé</td>
-            <td>icon</td>
-        </tr>
+        <?php if (!empty($enfantsInscrits)) {
+            foreach ($enfantsInscrits as $enfant) { ?>
+                <tr>
+                    <td><a href="index.php?controller=Child&action=showProfilEnfant&id=<?= $enfant['id_enfant'] ?>" class="lien"><?= $enfant['nom_enfant'] ?></a></td>
+                    <td><?= $enfant['prenom_enfant'] ?></td>
+                    <td><?= $enfant['date_naissance'] ?></td>
+                    <td><?= $enfant['numero_groupe'] ?></td>
+                </tr>
+            <?php }
+        } else { ?>
+            <tr>
+                <td colspan="4">Aucun enfant inscrit trouvé.</td>
+            </tr>
+        <?php } ?>
     </table>
         </div>
         </div>

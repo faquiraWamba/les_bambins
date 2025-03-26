@@ -84,6 +84,21 @@ Class Child{
             return $e->getMessage();
         }
     }
+
+    public function getChildrenInscrit() {
+        $query = "SELECT DISTINCT e.* 
+                  FROM enfant e
+                  INNER JOIN enfant_creneau c ON e.id_enfant = c.id_enfant
+                  WHERE c.Etat = 'validé'";
+        $stmt = $this->db->prepare($query);
+    
+        try {
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
     
 }
 ?>

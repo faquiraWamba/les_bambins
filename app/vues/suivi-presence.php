@@ -25,6 +25,24 @@
                         </div>
                     </div>
                 </form>
+                <?php if (isset($_SESSION['role'])) {
+                    if ($_SESSION['role'] == "parent") { ?>
+                        <p class="form-title-RP">Notifier d'une abscence</p>
+                        <form>
+                            <div class="register-data-form RP">
+                                <div class="register-tab-form-item register-tab-holiday-item">
+                                    <label for="Date_abs">Date <span class="obligate">*</span></label>
+                                    <input type="Date" class="input-text-RP" name="Date_abs" id="Date_abs" value=" " required>
+                                </div>
+
+                                <div class="register-tab-form-item register-tab-holiday-item">
+                                    <label for="justif">Justification <span class="obligate">*</span></label>
+                                    <textarea type="number" class="input-text-RP" name="justif" id="justif"  value="" required min="3" max="12"></textarea>
+                                </div>
+                                <button  type="submit">Enregistrer l'absence</button>
+                            </div>
+                        </form>
+                    <?php }} ?>
                 <p class="form-title-RP">Historique des présences</p>
                 <table class="table-RP">
                     <tr>
@@ -38,6 +56,7 @@
                         <td>19h</td>
                     </tr>
                 </table>
+
             </div>
         </div>
     </div>

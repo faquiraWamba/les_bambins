@@ -5,6 +5,9 @@ class ParentQuestionnaireController extends Controller{
             $this->view('ParentQuestionnaire');
        
     }
+    public function showAnswerQuest(){
+        $this->view('AnswerQuest');
+    }
     
 }
 ?>

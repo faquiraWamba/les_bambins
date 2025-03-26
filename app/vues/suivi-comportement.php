@@ -13,8 +13,6 @@
 
         <div class="form-content-RP">
             <div class="tab-content-GA">
-                <?php if (isset($_SESSION['role'])) {
-                if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur")) { ?>
                 <form method='post'>
                     <div class="register-data-form RP">
                         <div class="register-tab-form-item register-tab-holiday-item">
@@ -27,6 +25,8 @@
                         </div>
                     </div>
                 </form>
+                <?php if (isset($_SESSION['role'])) {
+                    if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur")) { ?>
                 <p class="form-title-RP">Enregistrement d'un nouveau suivi comportemental</p>
                 <form method='post'>
                     <div class="register-data-form RP">

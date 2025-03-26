@@ -100,5 +100,14 @@ Class Child{
         }
     }
     
+    public function getChildrenByParent($parentId) {
+        $query = "SELECT DISTINCT e.* 
+                  FROM enfant e
+                  INNER JOIN enfant_creneau c ON e.id_enfant = c.id_enfant
+                  WHERE c.Etat = 'validé' AND e.id_parent = :parentId";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([':parentId' => $parentId]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>

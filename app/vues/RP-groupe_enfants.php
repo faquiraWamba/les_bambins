@@ -27,14 +27,14 @@
                             <input type="text" class="input-text-RP" name="age_max_groupe" id="age_max_groupe" value="" required max=12>
                         </div>
                         <div class="register-tab-for-btn">
-                            <button  type="submit">Créer le groupe</button>
+                            <button type="submit">Créer le groupe</button>
                         </div>
                     </div>
                 </form>
                 <p class="form-title-RP">Enfant sans groupe</p>
                 <div class="profil info">
                     <h3>Nombre d'enfant sans groupe :</h3>
-                    <p>3</p>
+                    <p><?= count($childsNogroup) ?></p>
                 </div>
                 <table class="table-RP">
                     <tr>
@@ -42,77 +42,41 @@
                         <th>Prénom</th>
                         <th>Affecter à un groupe</th>
                     </tr>
-                    <?php if($childsNogroup){
-                        foreach($childsNogroup as $childNogroup){?>
-                        <tr>
-                        <td><?=$childNogroup['nom_enfant']?></td>
-                        <td><?=$childNogroup['prenom_enfant']?></td>
-                      
-                        <td>
-                            <form id="affectationGroupForm" action="index.php?controller=Child_Group&action=updateGroup" method="post">
-                                <div>
-                                    <input type="hidden" name="nom_enfant" value="<?=$childNogroup['id_enfant']?>">
-                                    <label for="nom_groupe"></label>
-                                    <select id="liste_groupe" name='numero_groupe' required>
-                                        <option value="">groupe</option>
-                                        <?php if($groups){
-                                            foreach($groups as $group){?>    
-                                            <option value="<?= $group['numero_groupe']?>"><?= $group['numero_groupe']?></option>
-                                            <?php  }
-                                        }?>
-                                    </select>
-                                </div>
-                                <div>
-                                    <button type="submit" id="affectationGroupButton">Valider</button>
-                                </div>
-                            </form>
-                        </td>
-                        </tr>
-                        <?php  }
-                    }?>
-                </table>
+                    <?php 
+                            require_once ROOT_PATH.'app/core/calculateFunction.php';
 
-                <!-- Enfants par groupe -->
-                <p class="form-title-RP">Consultation de groupe d'enfant</p>
-                <form>
-                    <div class="register-tab-form-item register-tab-holiday-item">
-                        <label for="nom_groupe">Nom du groupe</label>
-                        <select id="liste_groupe" name='numero_groupe' required><!-- je sais pas comment on reprend de la database-->
-                            <option value="">groupe</option>
-                            <?php if($groups){
-                                foreach($groups as $group){?>    
-                                <option value=<?= $group['numero_groupe']?>><?= $group['numero_groupe']?></option>
-                                <?php  }
-                            }?>
-                        </select>
-                        <button type="submit">Rechercher</button>
-                    </div>
-                </form>
-                <table class="table-RP">
-                    <tr>
-                        <th>Numgroupe</th>
-                        <th>Places restantes</th>
-                        <th>Places occupé</th>
-                        <th>Age Min</th>
-                        <th>Age max</th>
-                        <th>voir</th>
-                    </tr>
-                    <?php if($groups){
-                        foreach($groups as $group){?>
-                        <tr>
-                        <td><?=$group['numero_groupe']?></td>
-                        <td><?=$group['nb_enfant']?></td>
-                        <td><?=$group['nb_enfant']?></td>
-                        <td><?=$group['age_min_groupe']?></td>
-                        <td><?=$group['age_max_groupe']?></td>
-                        <td><form method="POST" action="index.php?controller=GroupController&action=deleteGroup" class="delete-form">
-                                <input type="hidden" name="id_groupe" value="<?= $group['id_groupe'] ?>">
-                                <button type="submit" class="delete-btn">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                            </form></td>
-                    </tr>
-                      <?php  }
+                    if($childsNogroup){
+                        foreach($childsNogroup as $childNogroup){
+                            $age = calculateAge($childNogroup['date_naissance']); // Assurez-vous que 'date_naissance' est le bon champ
+                            ?>
+                            <tr>
+                            <td><?=$childNogroup['nom_enfant']?></td>
+                            <td><?=$childNogroup['prenom_enfant']?></td>
+                          
+                            <td>
+                                <form id="affectationGroupForm" action="index.php?controller=Child_Group&action=updateGroup" method="post">
+                                    <div>
+                                        <input type="hidden" name="id_enfant" value="<?=$childNogroup['id_enfant']?>">
+                                        <label for="nom_groupe"></label>
+                                        <select id="liste_groupe" name='numero_groupe' required>
+                                            <option value="">groupe</option>
+                                            <?php 
+                                            if($groups){
+                                                foreach($groups as $group){
+                                                    if ($age >= $group['age_min_groupe'] && $age <= $group['age_max_groupe']) {?>    
+                                                        <option value="<?= $group['numero_groupe']?>"><?= $group['numero_groupe']?></option>
+                                                    <?php }
+                                                }?>
+                                            <?php }?>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <button type="submit" id="affectationGroupButton">Valider</button>
+                                    </div>
+                                </form>
+                            </td>
+                            </tr>
+                        <?php  }
                     }?>
                 </table>
 
@@ -122,25 +86,20 @@
                     <tr>
                         <th>Numgroupe</th>
                         <th>Places restantes</th>
-                        <th>Places occupé</th>
+                        <th>Places occupées</th>
                         <th>Age Min</th>
                         <th>Age max</th>
-                        <th>Supprimer</th>
+                        <th>voir</th>
                     </tr>
                     <?php if($groups){
                         foreach($groups as $group){?>
                         <tr>
                         <td><?=$group['numero_groupe']?></td>
-                        <td><?=$group['nb_enfant']?></td>
-                        <td><?=$group['nb_enfant']?></td>
+                        <td><?=$group['places_restantes']?></td>
+                        <td><?=$group['nb_enfant'] - $group['places_restantes']?></td>
                         <td><?=$group['age_min_groupe']?></td>
                         <td><?=$group['age_max_groupe']?></td>
-                        <td><form method="POST" action="index.php?controller=GroupController&action=deleteGroup" class="delete-form">
-                                <input type="hidden" name="id_groupe" value="<?= $group['id_groupe'] ?>">
-                                <button type="submit" class="delete-btn">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                            </form></td>
+                        <td>icon</td><!--mettre un bouton qui supprime-->
                     </tr>
                       <?php  }
                     }?>

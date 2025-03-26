@@ -17,7 +17,11 @@
                     <li><a href="index.php?controller=EDT&action=showEDTAnim">EDT</a></li>
                 <?php } else { if ($_SESSION['role'] == "parent") { ?>
 
-            <?php } } } }?>
+            <?php } } } }
+            else{?>
+                <li><a href="index.php?controller=Activity&action=showActivities">Activités</a></li>
+
+            <?php }?>
 
             <li><a href="index.php?controller=FAQ&action=showFAQ">FAQ</a></li>
             <?php if (!$_SESSION['auth']) { ?>

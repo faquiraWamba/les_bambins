@@ -76,7 +76,7 @@ class ActivityController extends Controller{
 
             if($activity){
                 $msg="Activité créé avec succès";
-                $this->view('RP-creer_activite',['error'=>$msg]);
+                $this->view('RP-creer_activite',['success'=>$msg]);
             }
             $id_activite=generateUniqueCode('AC');
             
@@ -108,7 +108,7 @@ class ActivityController extends Controller{
 
             if($activity){
                 $msg="Activité créé avec succès";
-                $this->view('RP-creer_activite',['error'=>$msg]);
+                $this->view('RP-creer_activite',['success'=>$msg]);
             }
 
         }

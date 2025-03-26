@@ -18,7 +18,7 @@ class Child_GroupController extends Controller{
                     $this->view('RP-groupe_enfants',['groups'=>$groups,'success'=>$msg,'childsNogroup'=>$childsNogroup]);
             }else{
                 $msg= "Il manque des champ";
-                $this->view('RP-groupe_enfants',['groups'=>$groups,'error'=>$msg]);
+                $this->view('RP-groupe_enfants',['groups'=>$groups,'childsNogroup'=>$childsNogroup, 'error'=>$msg]);
             }
         }
         $this->view('RP-groupe_enfants',['groups'=>$groups,'childsNogroup'=>$childsNogroup, 'error'=>$error, 'success'=>$success]);
@@ -40,17 +40,18 @@ class Child_GroupController extends Controller{
     
                 if ($result === true) {
                     $msg = "Groupe mis à jour avec succès.";
-                    $this->view('RP-groupe_enfants',['groups'=>$groups,'success'=>$msg,'childsNogroup'=>$childsNogroup]);
+                    $this->CreateGroup(null,$msg);
 
                 } else {
-                    $this->view('RP-groupe_enfants',['groups'=>$groups,'error'=>$result,'childsNogroup'=>$childsNogroup]);
+                    $this->CreateGroup($result);
 
                 }
             } else {
-                $this->view('RP-groupe_enfants',['childsNogroup'=>$childsNogroup, 'error' => "Données manquantes."]);
+                $msg=  "Données manquantes.";
+                $this->CreateGroup($msg);
             }
         } else {
-            $this->view('RP-groupe_enfants',['groups'=>$groups,'childsNogroup'=>$childsNogroup]);
+            $this->CreateGroup();
 
         }
     }

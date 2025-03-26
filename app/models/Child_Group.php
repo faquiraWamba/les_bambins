@@ -23,7 +23,7 @@ Class Child_Group{
     public function updateChildGroup($id_enfant, $numero_groupe) {
         // Vérifie le nombre de places restantes
         $queryCheck = "SELECT (g.nb_enfant - COUNT(e.id_enfant)) AS places_restantes 
-                       FROM groupe g 
+                       FROM groupe_enfant g 
                        LEFT JOIN enfant e ON g.numero_groupe = e.numero_groupe 
                        WHERE g.numero_groupe = :numero_groupe
                        GROUP BY g.nb_enfant";

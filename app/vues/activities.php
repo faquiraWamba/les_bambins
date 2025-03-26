@@ -48,7 +48,7 @@
         <?php if (isset($_SESSION['role'])){
             if($_SESSION['role'] == "parent") {?>
                 <div class="btnActivite">
-                    <button type="button">S'inscrire</button>
+                    <a href="index.php?controller=RegActivity&action=inscrireEnfant"><button type="button">S'inscrire</button></a>
                 </div>
             <?php }}?>
     </div>

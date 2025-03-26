@@ -12,7 +12,7 @@
                     <li><a href="index.php?controller=Activity&action=showActivitiesRP">Activités</a></li>
                     <li><a href="index.php?controller=Facture&action=ShowFacture">Gestion Centre</a></li>
                     <li><a href="index.php?controller=RegActivity&action=CreateRegActivity">Gestion Inscription</a></li>
-                    <li><a href="index.php?controller=ChildMonitoringComportement&action=showChildMonitoringC">Suivi des enfants</li>
+                    <li><a href="index.php?controller=Child&action=showInfoEnfants">Suivi des enfants</li>
                 <?php } else { ?>
                     <li><a href="index.php?controller=ChildMonitoringPresence&action=showFicheAppel">Activités</a></li>
                     <li><a href="index.php?controller=ChildMonitoringComportement&action=showChildMonitoringC">Suivi des enfants</a></li>

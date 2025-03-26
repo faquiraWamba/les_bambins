@@ -2,6 +2,7 @@
     <h1>Suivi des enfants</h1>
     <div class="form_GA">
         <div class="onglet-RP">
+            <a href="index.php?controller=Child&action=showInfoEnfants"><button class="onglet">Informations enfants</button></a>
             <a href="index.php?controller=ChildMonitoringComportement&action=showChildMonitoringC"><button class="onglet">Suivi Comportemental</button></a>
             <a href="index.php?controller=ChildMonitoringPedagogique&action=showChildMonitoringP"><button class="onglet">Suivi pédagogique</button></a>
                 <a href="index.php?controller=ChildMonitoringPresence&action=showChildMonitoringPresence"><button class="onglet active">Suivi des présence</button></a>

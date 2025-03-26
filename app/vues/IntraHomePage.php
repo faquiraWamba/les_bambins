@@ -4,40 +4,40 @@
     <div class="Intrahome">
         <div class="module_home">
             <h2>Gestion du centre</h2>
-            <button class="bar Orange">Suivi des factures</button>
-            <button class="bar">Suivi des factures</button>
-            <button class="bar">Suivi des factures</button>
+            <a href="index.php?controller=Facture&action=showFacture"><button class="bar Orange">Suivi des factures</button></a>
+            <a href="index.php?controller=Reunion&action=showReunion"><button class="bar">Suivi des réunion</button></a>
+            <a href="index.php?controller=Questionnaire&action=showQuestionnaire"><button class="bar">Résultat des questionnaires de satisfaction</button></a>
         </div>
 
         <div class="module_home">
             <h2>Suivi des enfants</h2>
             <div class="semi">
-                <button class="bar">Suivi des factures</button>
-                <button class="bar">Suivi des factures</button>
-                <button class="bar">Suivi des présences</button>
-                <button class="bar">Suivi médical</button>
+                <a href="index.php?controller=ChildMonitoringPedagogique&action=showChildMonitoringP"><button class="bar">Suivi Pédagogique</button></a>
+                <a href="index.php?controller=ChildMonitoringComportement&action=showChildMonitoringC"><button class="bar">Suivi des Comportemental</button></a>
+                <a href="index.php?controller=ChildMonitoringPresence&action=showChildMonitoringPresence"><button class="bar">Suivi des présences</button></a>
+                <a href="index.php?controller=ChildMonitoringMed&action=showChildMonitoringM"><button class="bar">Suivi médical</button></a>
             </div>
-            <button class="bar Orange">Informations sur les enfants</button>
+            <a href="index.php?controller=Child&action=showInfoEnfants"><button class="bar Orange">Informations sur les enfants</button></a>
         </div>
 
         <div class="module_home">
             <h2>Gestion des activités</h2>
             <div class="semi">
-                <button class="bar">Créer une activité</button>
-                <button class="bar">Créer parcours d'activité</button>
+                <a href="index.php?controller=Activity&action=CreateActivity"><button class="bar">Créer une activité</button></a>
+                <a href="index.php?controller=Parcours&action=CreateParcours"><button class="bar">Créer parcours d'activité</button></a>
             </div>
-            <button class="bar Orange">Consulter les activités</button>
-            <button class="bar">Consulter les parcours d'activités</button>
+            <a href="index.php?controller=Activity&action=showActivitiesRP"><button class="bar Orange">Consulter les activités</button></a>
+            <a href="index.php?controller=Parcours&action=ConsultParcours"><button class="bar">Consulter les parcours d'activités</button></a>
         </div>
 
         <div class="module_home">
             <h2>Inscriptions des enfants</h2>
-            <button class="bar Orange">Inscrire un enfant au centre</button>
+            <a href="index.php?controller=Child&action=CreateChild"><button class="bar Orange">Inscrire un enfant au centre</button></a>
             <div class="semi">
-                <button class="bar">Inscription activité</button>
-                <button class="bar">Groupes d'enfants</button>
+                <a href="index.php?controller=RegActivity&action=CreateRegActivity"><button class="bar">Inscription activité</button></a>
+                <a href="index.php?controller=Child_Group&action=CreateGroup"><button class="bar">Groupes d'enfants</button></a>
             </div>
-            <button class="bar">Valider les demandes d'inscriptions</button>
+            <a href="index.php?controller=RegCentre&action=ValidReg"><button class="bar">Valider les demandes d'inscriptions</button></a>
         </div>
     </div>
 

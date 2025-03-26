@@ -55,6 +55,22 @@ Class Child{
             return $stmt->fetch(PDO::FETCH_ASSOC);
         }
         catch(Exception $e){
+             var_dump($e->getMessage());
+        }
+    }
+
+    public function inscriptionEnAttente(){
+        $query = "SELECT DISTINCT e.* 
+            FROM enfant e
+            INNER JOIN enfant_creneau c ON e.id_enfant = c.id_enfant
+            WHERE c.Etat = 'attente'";
+        $stmt=$this->db->prepare($query);
+
+        try{
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+        catch(Exception $e){
             return $e->getMessage();
         }
     }

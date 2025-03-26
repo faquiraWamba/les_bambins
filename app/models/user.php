@@ -61,5 +61,49 @@ Class User {
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function updateUser($id, $email = null, $password = null) {
+        $sql = "UPDATE utilisateur SET ";
+        $params = [];
+    
+        if ($email !== null) {
+            $sql .= "email = :email, ";
+            $params[':email'] = $email;
+        }
+        
+        if ($password !== null) {
+            $sql .= "password = :password, ";
+            $params[':password'] = password_hash($password, PASSWORD_BCRYPT);
+        }
+    
+        // Supprimer la dernière virgule et ajouter la condition WHERE
+        $sql = rtrim($sql, ", ") . " WHERE id = :id";
+        $params[':id'] = $id;
+    
+        $stmt = $this->db->prepare($sql);
+    
+        try {
+            return $stmt->execute($params);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function updatePassword($id, $password) {
+        $sql = "UPDATE utilisateur SET password = :password WHERE user_id = :id";
+        $stmt = $this->db->prepare($sql);
+        
+        try {
+            $stmt->execute([
+                ':password' => password_hash($password, PASSWORD_BCRYPT),
+                ':id' => $id
+            ]);
+            return $stmt->rowCount() > 0; // Retourne true si une ligne a été mise à jour
+        } catch (Exception $e) {
+            var_dump($e->getMessage());
+            return false;
+        }
+    }
+    
+    
 }
 ?>

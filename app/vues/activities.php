@@ -40,9 +40,9 @@
         <?php endif; ?>
         <?php if (isset($_SESSION['role'])){
             if($_SESSION['role'] == "administrateur") {?>
-            <div class="cta">
-                <a href="index.php?controller=Activity&action=ShowActivity&id=<?= htmlspecialchars($activity['id_activite']) ?>"> <button type="button" class="button3">Modifier</button></a>
-                <a href="index.php?controller=Activity&action=DeleteActivity&id=<?= htmlspecialchars($activity['id_activite']) ?>"> <button  type="button" class="button2">Supprimer</button></a>
+            <div class="btnActivite">
+                <a href="index.php?controller=Activity&action=ShowActivity&id=<?= htmlspecialchars($activity['id_activite']) ?>"> <button type="button">Modifier</button></a>
+                <a href="index.php?controller=Activity&action=DeleteActivity&id=<?= htmlspecialchars($activity['id_activite']) ?>"> <button  type="button">Supprimer</button></a>
             </div>
         <?php }}?>
     </div>

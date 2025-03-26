@@ -477,6 +477,10 @@ h2{
   margin: 30px auto;
   padding: 0;
 }
+.btnActivite{
+  display: flex;
+}
+
 .onglet-RP{
   margin: 0;
   padding: 0;

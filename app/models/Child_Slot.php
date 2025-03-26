@@ -25,5 +25,22 @@ Class Child_Slot{
             return $e->getMessage();
         }
     }
+
+    public function GetAllSlotAttente($id_enfant){
+        $query = "SELECT *
+        FROM  ENFANT_CRENEAU EC INNER JOIN creneau e ON e.id_creneau=EC.id_creneau
+        WHERE EC.id_enfant like :id_enfant AND Ec.Etat = 'attente'";
+        $stmt = $this->db->prepare($query);
+
+        try{
+            $stmt->execute([':id_enfant'=>$id_enfant]);
+            $parcours = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $parcours;
+        }
+        catch(Exception $e){
+                var_dump($e->getMessage());
+                
+        }  
+     }
 }
 ?>

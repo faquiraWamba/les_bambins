@@ -26,4 +26,9 @@ $(document).ready(function() {
         placeholder: "Sélectionnez des options",
         allowClear: true
     });
+
+    let selectedValues = $('#choix').data('selected'); // Récupère les valeurs stockées en data
+    if (selectedValues) {
+        $('#choix').val(selectedValues).trigger('change'); // Applique les valeurs sélectionnées
+    }
 });

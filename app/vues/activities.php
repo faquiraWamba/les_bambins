@@ -45,6 +45,12 @@
                 <a href="index.php?controller=Activity&action=DeleteActivity&id=<?= htmlspecialchars($activity['id_activite']) ?>"> <button  type="button">Supprimer</button></a>
             </div>
         <?php }}?>
+        <?php if (isset($_SESSION['role'])){
+            if($_SESSION['role'] == "parent") {?>
+                <div class="btnActivite">
+                    <button type="button">S'inscrire</button>
+                </div>
+            <?php }}?>
     </div>
     <?php }}?>
     <?php if (!$_SESSION['auth']) {?>

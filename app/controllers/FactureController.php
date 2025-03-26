@@ -8,6 +8,10 @@ class FactureController extends Controller{
         $unpaidBills = $bill->getUnpaidBills();
         $this->view('RP-facture', ['bills' => $unpaidBills]);
     }
+    public function showFactureParent(){
+        $this->view('Facture');
+    }
+
 
     
 

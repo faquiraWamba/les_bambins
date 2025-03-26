@@ -144,7 +144,7 @@ h1{
   font-family: "Abril Fatface", serif;
   text-align: center;
   font-size: 1.5em;
-  margin: 2em auto;
+  margin: 1em auto;
 }
 
 .register-tab-title-item{
@@ -877,23 +877,23 @@ th, td{
 /*edt vue animateur et vue parent*/
 
 .containerr {
-  /*width: 200%;*/
-  max-width: 1000px;
+  width: 70%;
+  height: 80%;
   background: var(--white-color);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   justify-content: center;
   flex: 1; 
-  margin : auto;/* normalment permet au container de grandir et prendre l’espace restant */
+  margin : 3em auto;
 }
 
 .selecteur {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin: 0 auto;
+  width: 70%;
 }
 
 .selecteur button {

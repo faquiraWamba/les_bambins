@@ -1,6 +1,9 @@
 <div class="containerOrange">
     <h1>Menu Inscription</h1>
-    <a href="index.php?controller=Child&action=CreateChild"> <button type="button" class="button3">Inscrire un enfant au centre</button></a>
+    <?php if (isset($_SESSION['role'])) {
+        if ($_SESSION['role'] == "administrateur") { ?>
+            <a href="index.php?controller=Child&action=CreateChild"> <button type="button" class="button3">Inscrire un enfant au centre</button></a>
+        <?php }} ?>
     <div class="form_GA">
         <div class="onglet-RP">
             <a href="index.php?controller=Child&action=showInfoEnfants"><button class="onglet active">Informations enfants</button></a>

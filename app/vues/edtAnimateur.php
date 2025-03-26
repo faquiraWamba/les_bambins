@@ -1,6 +1,6 @@
-<body class ="edt">
+<div class ="containerOrange">
+    <h1>Emploi du temps</h1>
 <div class="containerr">
-        <h1>Emploi du temps</h1>
         <div class="selecteur">
             <button>&#9664;</button>
             <span>Semaine du 13/06 au 20/06</span>
@@ -57,4 +57,4 @@
             </tr>
         </table>
     </div>
-</body>
+</div>

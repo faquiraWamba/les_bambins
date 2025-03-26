@@ -2,13 +2,25 @@
     <h1>Bienvenue dans votre espace "nom"</h1>
 
     <div class="Intrahome">
+        <?php if (isset($_SESSION['role'])) {
+        if ($_SESSION['role'] == "administrateur") { ?>
         <div class="module_home">
             <h2>Gestion du centre</h2>
             <a href="index.php?controller=Facture&action=showFacture"><button class="bar Orange">Suivi des factures</button></a>
             <a href="index.php?controller=Reunion&action=showReunion"><button class="bar">Suivi des réunion</button></a>
             <a href="index.php?controller=Questionnaire&action=showQuestionnaire"><button class="bar">Résultat des questionnaires de satisfaction</button></a>
-        </div>
+        </div><?php }} ?>
 
+        <?php if (isset($_SESSION['role'])) {
+            if ($_SESSION['role'] == "animateur") { ?>
+                <div class="module_home">
+                    <h2>Vie au centre</h2>
+                    <a href="index.php?controller=EDT&action=showEDTAnim"><button class="bar Orange">Emploi du temps</button></a>
+                    <a href="index.php?controller=Menu&action=showMenu"><button class="bar">Menu</button></a>
+                </div><?php }} ?>
+
+        <?php if (isset($_SESSION['role'])) {
+        if ($_SESSION['role'] == "administrateur" || $_SESSION['role'] == "animateur") { ?>
         <div class="module_home">
             <h2>Suivi des enfants</h2>
             <div class="semi">
@@ -18,8 +30,10 @@
                 <a href="index.php?controller=ChildMonitoringMed&action=showChildMonitoringM"><button class="bar">Suivi médical</button></a>
             </div>
             <a href="index.php?controller=Child&action=showInfoEnfants"><button class="bar Orange">Informations sur les enfants</button></a>
-        </div>
+        </div><?php } }?>
 
+        <?php if (isset($_SESSION['role'])) {
+        if ($_SESSION['role'] == "administrateur") { ?>
         <div class="module_home">
             <h2>Gestion des activités</h2>
             <div class="semi">
@@ -39,6 +53,7 @@
             </div>
             <a href="index.php?controller=RegCentre&action=ValidReg"><button class="bar">Valider les demandes d'inscriptions</button></a>
         </div>
+        <?php } }?>
     </div>
 
 </div>

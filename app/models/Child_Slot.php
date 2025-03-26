@@ -41,6 +41,40 @@ Class Child_Slot{
                 var_dump($e->getMessage());
                 
         }  
-     }
+    }
+
+    public function validateSlot($id_enfant) {
+        $query = "UPDATE ENFANT_CRENEAU 
+                  SET Etat = 'validé' 
+                  WHERE id_enfant = :id_enfant AND Etat = 'attente'";
+    
+        $stmt = $this->db->prepare($query);
+    
+        try {
+            $stmt->execute([':id_enfant' => $id_enfant]);
+            return $stmt->rowCount() > 0; // Retourne true si au moins un créneau a été mis à jour
+        } catch (Exception $e) {
+            var_dump($e->getMessage());
+            return false;
+        }
+    }
+
+    public function refuseSlot($id_enfant) {
+        $query = "UPDATE ENFANT_CRENEAU 
+                  SET Etat = 'refusé' 
+                  WHERE id_enfant = :id_enfant AND Etat = 'attente'";
+    
+        $stmt = $this->db->prepare($query);
+    
+        try {
+            $stmt->execute([':id_enfant' => $id_enfant]);
+            return $stmt->rowCount() > 0; // Retourne true si au moins un créneau a été mis à jour
+        } catch (Exception $e) {
+            var_dump($e->getMessage());
+            return false;
+        }
+    }
+    
+
 }
 ?>

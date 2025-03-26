@@ -5,10 +5,10 @@ class RegCentreController extends Controller{
     public function ModifyReg(){
         $this->view('RP-modify_inscription');
     }
-    public function ValidReg(){
+    public function ValidReg($msg=null){
         $enfant =  new Child();
         $enfants=$enfant->inscriptionEnAttente();
-        $this->view('RP-valider_inscription',['enfants'=>$enfants]);
+        $this->view('RP-valider_inscription',['enfants'=>$enfants, 'error'=>$msg]);
     }
 
 }

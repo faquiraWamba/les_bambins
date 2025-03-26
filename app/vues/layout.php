@@ -36,14 +36,59 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Les Bambins</title>
 </head>
 <body class="body">
+    
 <?php if (isset($error)): ?>
-        <div style="color: red;">
-            <?= $error ?>
-        </div>
+    <div style="color: red;">
+        <?= $error ?>
+    </div>
+
+    <!-- Ajout de SweetAlert2 pour afficher l'erreur sous forme de boîte de dialogue -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oups...',
+            text: "<?= addslashes($error) ?>", 
+            confirmButtonText: 'Réessayer',
+            background: '#ffe5e5', 
+            color: '#d9534f', 
+            confirmButtonColor: '#d9534f', 
+            timer: 3000, 
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        });
+    </script>
+<?php elseif (isset($success)): ?>
+    <!-- Boîte de dialogue pour le succès -->
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Succès!',
+            text: "<?= addslashes($success) ?>", 
+            confirmButtonText: 'OK',
+            background: '#d4edda', 
+            color: '#155724', 
+            confirmButtonColor: '#28a745', 
+            timer: 3000, 
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        });
+    </script>
 <?php endif; ?>
+
+
         <?php include 'header.php'; ?>
 
         <main class='main'>

@@ -14,6 +14,7 @@
                     <p class="form-title-RP">Inscrire un enfant à une activité</p>
                     <form method='post' action="index.php?controller=Activity&action=CreateActivity">
                         <div class="register-data-form RP">
+
                             <div class="register-tab-form-item register-tab-holiday-item">
                                 <label for="nom_enfant">Nom de l'enfant <span class="obligate">*</span></label>
                                 <input type="text" class="input-text-RP" name="nom_enfant" id="nom_enfant" value="" required>
@@ -31,8 +32,8 @@
                                 </datalist>
                             </div>
                             <div class="register-tab-form-item register-tab-holiday-item">
-                                <label for="nom_activite">Groupe de l'enfant <span class="obligate">*</span></label>
-                                <input class="input-text-RP" list="liste_activite">
+                                <label for="nom_activite">Nom de l'activité <span class="obligate">*</span></label>
+                                <select class="input-text-RP" list="liste_activite" name="id_activity">
                                 <datalist id="liste_activite"><!-- je sais pas comment on reprend de la database-->
                                     <option value="Edge">
                                     <option value="Firefox">

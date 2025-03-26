@@ -6,7 +6,7 @@
             <a href="index.php?controller=ChildMonitoringPedagogique&action=showChildMonitoringP"><button class="onglet">Suivi pédagogique</button></a>
             <a href="index.php?controller=ChildMonitoringPresence&action=showChildMonitoringPresence"><button class="onglet">Suivi des présence</button></a>
             <?php if (isset($_SESSION['role']) && ($_SESSION['role'] == "administrateur" || $_SESSION['role'] == "animateur")) { ?>
-                <a href="index.php?controller=ChildMonitoringMed&action=showChildMonitoringM"><button class="onglet active">Suivi médical</button></a>
+                <a href="index.php?controller=ChildMonitoringMed&action=showChildMonitoring"><button class="onglet active">Suivi médical</button></a>
             <?php } ?>
         </div>
 

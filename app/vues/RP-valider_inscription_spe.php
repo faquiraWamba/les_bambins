@@ -338,7 +338,8 @@
                     <td>icon</td>
                 </tr>
             </table>
-            <p class="form-title-RP">Fiche médicale</p>
+            <p class="form-title-RP">Fiche médicale</p><!--ça sera bien de mettre le dossier médical mais jsp comment on fait-->
+        <h3> </h3>
             <h3>Allergie</h3>
             <table class="table-RP">
                 <tr>
@@ -348,23 +349,7 @@
                     <td>icon</td>
                 </tr>
             </table>
-            <h3>Traitement en cours</h3>
-            <table class="table-RP">
-                <tr>
-                    <th>Nom du médicament</th>
-                    <th>Posologie</th>
-                    <th>Heure administration</th>
-                    <th>Fréquence</th>
-                    <th>Durée</th>
-                </tr>
-                <tr>
-                    <td>13/06/1026</td>
-                    <td>77</td>
-                    <td>file attente</td>
-                    <td>icon</td>
-                    <td> </td>
-                </tr>
-            </table>
+
         <?php endif; ?>
     </div>
 </div>

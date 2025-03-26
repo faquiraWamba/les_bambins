@@ -1,5 +1,7 @@
 <div class="container2">
+    <?php if (!$_SESSION['auth']) {?>
     <h2>Nos activités</h2>
+    <?php }?>
 
     <?php if(isset($activities)){
         $i=0;

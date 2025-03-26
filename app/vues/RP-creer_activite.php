@@ -6,7 +6,6 @@
             <a href="index.php?controller=Activity&action=CreateActivity"><button class="onglet active">Créer une activité</button></a>
             <a href="index.php?controller=Parcours&action=ConsultParcours"><button class="onglet">Consulter parcours activité</button></a>
             <a href="index.php?controller=Parcours&action=CreateParcours"><button class="onglet">Créer un parcours activité</button></a>
-            <a href="index.php?controller=Parcours&action=ModifyParcours"><button class="onglet">Modifier un parcours activité</button></a>
         </div>
         <div class="form-content-RP">
             <!--Créer activité-->

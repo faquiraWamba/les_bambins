@@ -7,6 +7,10 @@ require_once ROOT_PATH.'app/controllers/imgController.php';
 require_once ROOT_PATH.'app/controllers/imgController.php';
 
 class ActivityController extends Controller{
+    public function showRapportActivite(){
+        $this->view('AN-rapport_activite');
+    }
+
     public function showActivities(){
         $activity = new Activity;
         $activities = $activity->GetActivities();

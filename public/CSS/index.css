@@ -957,4 +957,51 @@ th, td{
   background-color: var(--font-color);
 }
 
+/* Style pour le calendrier */
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 5px;
+  padding: 10px;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  width: 200px;
+}
 
+.day {
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.day:hover {
+  background-color: #f0f0f0;
+}
+
+.selected {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.calendar-container {
+  display: none;
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.calendar-icon {
+  cursor: pointer;
+}

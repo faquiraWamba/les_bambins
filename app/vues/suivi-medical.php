@@ -2,12 +2,19 @@
     <h1>Suivi des enfants</h1>
     <div class="form_GA">
         <div class="onglet-RP">
-            <a href="index.php?controller=Child&action=showInfoEnfants"><button class="onglet">Informations enfants</button></a>
+        <script src="public/JS/calendar.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/dialog-polyfill@0.5.4/dist/dialog-polyfill.min.js"></script>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/dialog-polyfill@0.5.4/dist/dialog-polyfill.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dialog-polyfill@0.5.4/dist/dialog-polyfill.min.css">
+
             <a href="index.php?controller=ChildMonitoringComportement&action=showChildMonitoringC"><button class="onglet">Suivi Comportemental</button></a>
             <a href="index.php?controller=ChildMonitoringPedagogique&action=showChildMonitoringP"><button class="onglet">Suivi pédagogique</button></a>
             <a href="index.php?controller=ChildMonitoringPresence&action=showChildMonitoringPresence"><button class="onglet">Suivi des présence</button></a>
             <?php if (isset($_SESSION['role']) && ($_SESSION['role'] == "administrateur" || $_SESSION['role'] == "animateur")) { ?>
-                <a href="index.php?controller=ChildMonitoringMed&action=showChildMonitoring"><button class="onglet active">Suivi médical</button></a>
+                <a href="index.php?controller=ChildMonitoringMed&action=showChildMonitoringM"><button class="onglet active">Suivi médical</button></a>
             <?php } ?>
         </div>
 
@@ -46,9 +53,26 @@
                 <form method='post'>
                     <div class="register-data-form RP">
                         <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="date">Date <span class="obligate">*</span></label>
-                            <input type="text" class="input-text-RP" name="date" id="date" value="" required>
-                        </div>
+                            <!-- <label for="date">Date <span class="obligate">*</span></label>
+                            
+                        <input type="text" class="input-text-RP" name="date" id="date" value="" required> -->
+                        <div class="register-tab-form-item register-tab-holiday-item">
+                        <label for="date">Date <span class="obligate">*</span></label>
+    <div class="input-container">
+        <input type="text" class="input-text-RP" name="date" readonly id="selectedDate" required>
+        <span class="calendar-icon" onclick="openCalendar()">📅</span>
+    </div>
+</div>
+
+<!-- Dialog pour afficher le calendrier -->
+<dialog id="calendarDialog">
+    <h3>Choisissez une date</h3>
+    <div id="month-year"></div>
+    <div class="calendar"></div>
+    <button onclick="closeCalendar()">Fermer</button>
+</dialog>
+
+
                         <div class="register-tab-form-item register-tab-holiday-item">
                             <label for="Descriptif">Type <span class="obligate">*</span></label>
                             <input class="input-text-RP" list="liste_type">

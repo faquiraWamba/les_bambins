@@ -102,6 +102,7 @@
         <script src="<?=BASE_URL?>/JS/register.js"></script>
         <script src="<?=BASE_URL?>/JS/Gestion_activite.js"></script>
 <script src="<?=BASE_URL?>/JS/openTab.js"></script>
+
         
         
 </body>

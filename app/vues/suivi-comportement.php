@@ -16,42 +16,53 @@
                 <form method='post'>
                     <div class="register-data-form RP">
                         <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="nom_enfant">Nom de l'enfant</label>
-                            <input class="input-text-RP" list="liste_enfant">
-                            <datalist id="liste_enfant"><!-- je sais pas comment on reprend de la database-->
-                                <option value="Edge">
-                                <option value="Firefox">
-                            </datalist>
+                            <label for="id_enfant">Nom du groupe</label>
+                            <select id="liste_groupe" name='id_enfant' required>
+                                <option value="">groupe</option>
+                            </select>
                         </div>
                     </div>
                 </form>
                 <?php if (isset($_SESSION['role'])) {
                     if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur")|| ($_SESSION['role'] == "accompagnateur")) { ?>
                 <p class="form-title-RP">Enregistrement d'un nouveau suivi comportemental</p>
-                <form method='post'>
-                    <div class="register-data-form RP">
-                        <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="date">Date <span class="obligate">*</span></label>
-                            <input type="text" class="input-text-RP" name="date" id="date" value="" required>
-                        </div>
-                        <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="Descriptif">Type <span class="obligate">*</span></label>
-                            <input class="input-text-RP" list="liste_type">
-                            <datalist id="liste_type"><!-- je sais pas comment on reprend de la database-->
-                                <option value="Incident">
-                                <option value="Succès">
-                                <option value="Spécifique">
-                            </datalist>
-                        </div>
-                        <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="description_comportemental">Description<span class="obligate">*</span></label>
-                            <textarea type="text" class="input-text-RP descActivite" name="description_comportemental" id="description_comportemental" required></textarea>
-                        </div>
-                        <div class="register-tab-for-btn">
-                            <button  type="submit">Enregistrer un suivi comportemental</button>
-                        </div>
-                    </div>
-                </form>
+                        <form method="POST">
+                            <div class="register-data-form RP">
+                                <div class="register-tab-form-item register-tab-holiday-item">
+                                    <label for="id_enfant">Nom du groupe</label>
+                                    <label for="nom_groupe">Nom du groupe</label>
+                                    <label for="id_enfant">Nom de l'enfant</label>
+                                    <select id="liste_enfant" name="id_enfant" required>
+                                        <option value="">Choisir un enfant</option>
+                                        <?php if ($children) {
+                                            foreach ($children as $child) { ?>
+                                                <option value="<?= $child['id_enfant'] ?>"><?= $child['nom_enfant'] ?></option>
+                                            <?php }
+                                        } ?>
+                                    </select>
+                                </div>
+                                <div class="register-tab-form-item register-tab-holiday-item">
+                                    <label for="date">Date <span class="obligate">*</span></label>
+                                    <input type="date" class="input-text-RP" name="date" id="date" required>
+                                </div>
+                                <div class="register-tab-form-item register-tab-holiday-item">
+                                    <label for="Descriptif">Type <span class="obligate">*</span></label>
+                                    <input class="input-text-RP" name="type" list="liste_type" required>
+                                    <datalist id="liste_type">
+                                        <option value="Incident">
+                                        <option value="Succès">
+                                        <option value="Spécifique">
+                                    </datalist>
+                                </div>
+                                <div class="register-tab-form-item register-tab-holiday-item">
+                                    <label for="description_comportemental">Description<span class="obligate">*</span></label>
+                                    <textarea type="text" class="input-text-RP descActivite" name="description_comportemental" id="description_comportemental" required></textarea>
+                                </div>
+                                <div class="register-tab-for-btn">
+                                    <button type="submit">Enregistrer un suivi comportemental</button>
+                                </div>
+                            </div>
+                        </form>
                 <?php } }?>
                 <p class="form-title-RP">Historique du Suivi Comportemental</p>
                 <table class="table-RP">

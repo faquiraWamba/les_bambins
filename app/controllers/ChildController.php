@@ -145,8 +145,15 @@ Class ChildController extends Controller{
         }
             $this->view('CreateChild');
     }
-    function showInfoEnfants(){
-        $this->view('RP-Info_enfants');
+    function showInfoEnfants() {
+        $childModel = new Child();
+        if ($_SESSION['role'] == 'parent') {
+            $parentId = $_SESSION['parent_id']; 
+            $enfantsInscrits = $childModel->getChildrenByParent($parentId);
+        } else {
+            $enfantsInscrits = $childModel->getChildrenInscrit();
+        }
+        $this->view('RP-Info_enfants', ['enfantsInscrits' => $enfantsInscrits]);
     }
     function showProfilEnfant(){
         $this->view('Profil_enfant');

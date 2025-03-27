@@ -111,5 +111,12 @@ Class Activity{
             
         }
     }
+
+    public function getActivityById($id_activite) {
+        $query = "SELECT * FROM activite WHERE id_activite = :id_activite";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([':id_activite' => $id_activite]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
 ?>

@@ -63,9 +63,7 @@
                 <td></td>
             </tr>
         </table>
-    
-   <!-- <button class="add-activity">INSCRIRE À UNE NOUVELLE ACTIVITÉ</button> -->
 
-    <a href="activities.php" class="add-activity">INSCRIRE À UNE NOUVELLE ACTIVITÉ</a>
+    <a href="index.php?controller=Activity&action=showActivitiesRP"><button>INSCRIRE À UNE NOUVELLE ACTIVITÉ</button></a>
 
     </div>

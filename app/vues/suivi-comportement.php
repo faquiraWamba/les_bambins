@@ -31,15 +31,9 @@
                                 <div class="register-tab-form-item register-tab-holiday-item">
                                     <label for="id_enfant">Nom du groupe</label>
                                     <label for="nom_groupe">Nom du groupe</label>
-                                    <label for="id_enfant">Nom de l'enfant</label>
-                                    <select id="liste_enfant" name="id_enfant" required>
-                                        <option value="">Choisir un enfant</option>
-                                        <?php if ($children) {
-                                            foreach ($children as $child) { ?>
-                                                <option value="<?= $child['id_enfant'] ?>"><?= $child['nom_enfant'] ?></option>
-                                            <?php }
-                                        } ?>
-                                    </select>
+                                    <div class="register-tab-form-item register-tab-holiday-item">
+                                        <input type="text" id="searchInput" class="input-text-RP" onkeyup="searchChildren()" placeholder="Rechercher un enfant">
+                                    </div>
                                 </div>
                                 <div class="register-tab-form-item register-tab-holiday-item">
                                     <label for="date">Date <span class="obligate">*</span></label>

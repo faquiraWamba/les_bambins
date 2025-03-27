@@ -24,12 +24,12 @@
             <?php }?>
 
             <li><a href="index.php?controller=FAQ&action=showFAQ">FAQ</a></li>
-            <?php if (!$_SESSION['auth']) { ?>
+            <?php if (!isset($_SESSION['user_id'])) { ?>
             <li><a href="index.php?controller=Tarif&action=showTarifs">Tarifs</a></li>
             <?php } ?>
-            <?php if ($_SESSION['auth']) { ?>
-                <li><a href="index.php?controller=User&action=ShowProfilRP">PP</a></li>
-                <li><a href="index.php?controller=Auth&action=logout">Deconnexion</a></li>
+            <?php if (isset($_SESSION['user_id'])) { ?>
+                <li><a href="index.php?controller=User&action=ShowProfilRP"><i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i></a></li>
+                <li><a href="index.php?controller=Auth&action=logout"><i class="fa-solid fa-right-from-bracket fa-xl" style="color: #ffffff;"></i></a></li>
             <?php } else { ?>
                 <li><a href="index.php?controller=Auth&action=login">Connexion</a></li>
             <?php } ?>

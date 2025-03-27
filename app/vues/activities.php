@@ -48,12 +48,12 @@
         <?php if (isset($_SESSION['role'])){
             if($_SESSION['role'] == "parent") {?>
                 <div class="btnActivite">
-                    <a href="index.php?controller=RegActivity&action=inscrireEnfant&id=<?= $activity['id_activite']?>"><button type="button">Inscrire un enfant</button></a>
+                    <a href="index.php?controller=RegActivity&action=inscrireEnfant&id_activite=<?= $activity['id_activite']?>"><button type="button">Inscrire un enfant</button></a>
                 </div>
             <?php }}?>
     </div>
     <?php }}?>
-    <?php if (!$_SESSION['auth']) {?>
+    <?php if (!isset($_SESSION['user_id'])) {?>
         <div class="cta">
             <h3>Intéressé? Inscrivez votre enfant</h3>
             <a href="index.php?controller=Child&action=CreateChild"> <button type="button">Inscrire mon enfant</button></a>

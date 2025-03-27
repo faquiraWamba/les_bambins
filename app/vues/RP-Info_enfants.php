@@ -27,7 +27,7 @@
                 <label for="nom_enfant">Nom de l'enfant </label>
                 <input class="input-text-RP" id="nom_enfant" name="nom_enfant" list="liste_enfants">
                 <datalist id="liste_enfants">
-                    <!-- Les options seront ajoutées dynamiquement via JavaScript -->
+
                 </datalist>
             </div>
         </div>

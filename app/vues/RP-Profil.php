@@ -4,19 +4,35 @@
         <p class="form-title-RP">Profil</p>
         <div class="profil">
             <div class="profil info">
+                <?php if (isset($_SESSION['role'])) {
+                if ($_SESSION['role'] == "parent") { ?>
                 <h3>Nom :</h3>
-                <p>"nom"</p>
+                <p><?= $parent["nom_parent"] ?? " "?></p>
                 <h3>Prénom :</h3>
-                <p>"prénom"</p>
+                <p><?= $parent["prenom_parent"] ?? " "?></p>
                 <h3>Adresse mail :</h3>
-                <p>"mail"</p>
+                <p><?= $parent["email"] ?? " "?></p>
                 <h3>Numéro de téléphone :</h3>
-                <p>"tel"</p>
+                <p><?= $parent["telephone_parent"] ?? " "?></p>
                 <h3>Adresse :</h3>
-                <p>"adresse"</p>
+                <p><?= $parent["rue_parent"]." ".$parent["ville_parent"]." ".$parent["code_postal_parent"] ?? " "?></p>
+                <?php }} ?>
+                <?php if (isset($_SESSION['role'])) {
+                    if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur")) { ?>
+                        <h3>Nom :</h3>
+                        <p><?= $personnel["nom_personnel"] ?? " "?></p>
+                        <h3>Prénom :</h3>
+                        <p><?= $personnel["prenom_personnel"] ?? " "?></p>
+                        <h3>Adresse mail :</h3>
+                        <p><?= $personnel["email"] ?? " "?></p>
+                        <h3>Numéro de téléphone :</h3>
+                        <p><?= $personnel["telephone_personnel"] ?? " "?></p>
+                        <h3>Adresse :</h3>
+                        <p><?= $personnel["rue_personnel"]." ".$personnel["ville_personnel"]." ".$personnel["code_postal_personnel"] ?? " "?></p>
+                    <?php }} ?>
             </div>
-            <div>
-                <p>Mettre la PP</p>
+            <div class="icon">
+                <i class="fa-solid fa-user fa-10x" id="icon"></i>
             </div>
         </div>
         <div>
@@ -40,7 +56,7 @@
                     <td>Payé</td>
                     <td>
                         <a href="index.php?controller=FactureController&action=download&id=<?= $facture['id_facture'] ?>">
-                            <i class="fa-solid fa-file-arrow-down"></i>
+                            <i class="fa-solid fa-file-arrow-down icon"></i>
                         </a>
                     </td>
                 </tr>

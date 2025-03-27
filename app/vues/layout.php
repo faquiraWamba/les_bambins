@@ -42,9 +42,7 @@
 <body class="body">
     
 <?php if (isset($error)): ?>
-    <div style="color: red;">
-        <?= $error ?>
-    </div>
+   
 
     <!-- Ajout de SweetAlert2 pour afficher l'erreur sous forme de boîte de dialogue -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -13,7 +13,7 @@
             <p class="form-title-RP">Consulter les factures d'un enfant</p>
             <form method="post">
                 <div class="register-data-form RP">
-                <!-- Input de recherche -->
+
                 <div class="register-tab-form-item register-tab-holiday-item">
                     <input type="text" id="searchInput" class="input-text-RP" onkeyup="searchChildren()" placeholder="Rechercher un enfant">
                 </div>

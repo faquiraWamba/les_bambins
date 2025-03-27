@@ -634,6 +634,12 @@ h2{
   margin: 3% auto;
   padding: 2%;
 }
+.icon{
+  padding: 10px;
+}
+#icon{
+  margin-top: 25px;
+}
 .profil{
   display: grid;
   grid-template-columns: 3fr 1fr;

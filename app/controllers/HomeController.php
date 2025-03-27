@@ -9,12 +9,20 @@ class HomeController extends Controller{
         }else{
                 if ($_SESSION['role'] == "animateur") {
                     $this->view('intranet');
+                }else{
+                    if ($_SESSION['role'] == "parent") {
+                        $this->view('IntraHomeParent');
+                    }
+                    else {
+                        if ($_SESSION['role'] == "accompagnateur") {
+                            $this->view('IntraHomeAcc');
+                        }
+                    }
                 }
             }
             $this->view('page_accueil'); 
         }
-       
+        $this->view('page_accueil'); 
     }
-    
 }
 ?>

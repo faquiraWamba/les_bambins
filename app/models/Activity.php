@@ -1,5 +1,4 @@
 <?php
-require_once "/xampp/htdocs/les_bambins/config/config.php";
 
 Class Activity{
     private $db;
@@ -111,6 +110,13 @@ Class Activity{
         //    var_dump()
             
         }
+    }
+
+    public function getActivityById($id_activite) {
+        $query = "SELECT * FROM activite WHERE id_activite = :id_activite";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([':id_activite' => $id_activite]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
 ?>

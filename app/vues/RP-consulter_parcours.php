@@ -3,9 +3,12 @@
     <div class="form_GA">
         <div class="onglet-RP">
             <a href="index.php?controller=Activity&action=showActivitiesRP"><button class="onglet">Consulter activités</button></a>
-            <a href="index.php?controller=Activity&action=CreateActivity"><button class="onglet">Créer une activité</button></a>
             <a href="index.php?controller=Parcours&action=ConsultParcours"><button class="onglet active">Consulter parcours activité</button></a>
-            <a href="index.php?controller=Parcours&action=CreateParcours"><button class="onglet">Créer un parcours activité</button></a>
+            <?php if (isset($_SESSION['role'])) {
+                if ($_SESSION['role'] == "administrateur") {?>
+                    <a href="index.php?controller=Activity&action=CreateActivity"><button class="onglet">Créer une activité</button></a>
+                    <a href="index.php?controller=Parcours&action=CreateParcours"><button class="onglet">Créer un parcours activité</button></a>
+                <?php }}?>
         </div>
         <div class="form-content-RP">
             <!--Consulter parcours activité-->

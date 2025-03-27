@@ -145,13 +145,20 @@ Class ChildController extends Controller{
         }
             $this->view('CreateChild');
     }
-    function showInfoEnfants(){
-        $this->view('RP-Info_enfants');
+    function showInfoEnfants() {
+        $childModel = new Child();
+        if ($_SESSION['role'] == 'parent') {
+            $parentId = $_SESSION['parent_id']; 
+            $enfantsInscrits = $childModel->getChildrenByParent($parentId);
+        } else {
+            $enfantsInscrits = $childModel->getChildrenInscrit();
+        }
+        $this->view('RP-Info_enfants', ['enfantsInscrits' => $enfantsInscrits]);
     }
     function showProfilEnfant(){
         $this->view('Profil_enfant');
     }
-    function showInfoInscription(){
+    function showInfoInscription($msg = null){
         if(isset($_GET['id'])){
             $id=$_GET['id'];
             $newenfant = new Child;
@@ -161,7 +168,7 @@ Class ChildController extends Controller{
             $creneau= new Child_slot; 
             $creneaux = $creneau->GetAllSlotAttente($id); 
             // $enfant_creneau->Get
-            $this->view('RP-valider_inscription_spe',['enfant'=>$enfant,'parent'=>$parent, 'creneaux'=>$creneaux]);
+            $this->view('RP-valider_inscription_spe',['enfant'=>$enfant,'parent'=>$parent, 'creneaux'=>$creneaux, 'error'=>$msg]);
         }
         
     }

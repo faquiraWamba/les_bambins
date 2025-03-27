@@ -1,6 +1,4 @@
 <?php
-require_once "/xampp/htdocs/les_bambins/config/config.php";
-
 Class Parcours{
     private $db;
 

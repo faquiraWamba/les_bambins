@@ -618,6 +618,14 @@ h2{
   grid-auto-rows: 70px;
   gap: 20px;
 }
+/*Qustionnaire*/
+.lienQuest{
+  font-weight: bold;
+  border-bottom: 1px solid var(--text-color);
+  text-decoration: underline;
+  padding: 2px;
+  margin: 3%;
+}
 /*Profil*/
 .containbox{
   background-color: var(--white-color);
@@ -956,7 +964,16 @@ th, td{
 .add-activity:hover {
   background-color: var(--font-color);
 }
+#searchResults {
+  position: absolute;  /* Positionnement absolu pour placer le résultat au-dessus de l'input */
+  border: 1px solid #ccc;
+  max-height: 200px;       /* Prend toute la largeur de l'input */
+  background-color: white;  /* Fond blanc pour que la liste soit lisible */
+  z-index: 9999;       /* Assure que la liste des résultats s'affiche au-dessus des autres éléments */
+  overflow-y: auto;    /* Ajoute un défilement si nécessaire */
+}
 
+<<<<<<< HEAD
 /* Style pour le calendrier */
 .calendar {
   display: grid;
@@ -967,6 +984,19 @@ th, td{
   border: 1px solid #ccc;
   width: 200px;
 }
+=======
+#searchInput {
+  position: relative;  /* Nécessaire pour le positionnement absolu de #searchResults */
+}
+
+  .search-item {
+      padding: 5px;
+      cursor: pointer;
+  }
+  .search-item:hover {
+      background-color: #f0f0f0;
+  }
+>>>>>>> c3e33eee985ebc19a6d7ae9b61b3b44632d73f73
 
 .day {
   padding: 10px;

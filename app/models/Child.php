@@ -1,16 +1,7 @@
 <?php
-require_once '/xampp/htdocs/les_bambins/config/config.php';
 
 Class Child{
     private $db;
-    // private $id_enfant;
-    // private $nom_enfant;
-    // private $prenom_enfant;
-    // private $sexe_enfant;
-    // private $date_naissance;
-    // private $type_famille;
-    // private $id_parent;
-    // private $numero_groupe;
 
     function __construct()
     {
@@ -73,6 +64,50 @@ Class Child{
         catch(Exception $e){
             return $e->getMessage();
         }
+    }
+
+    public function searchChildrenByName($name) {
+        $query = "SELECT id_enfant, nom_enfant FROM ENFANT WHERE nom_enfant LIKE :name LIMIT 10";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([':name' => $name . '%']);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getChilds() {
+        $query = "SELECT * FROM enfant";
+        $stmt = $this->db->prepare($query);
+    
+        try {
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function getChildrenInscrit() {
+        $query = "SELECT DISTINCT e.* 
+                  FROM enfant e
+                  INNER JOIN enfant_creneau c ON e.id_enfant = c.id_enfant
+                  WHERE c.Etat = 'validé'";
+        $stmt = $this->db->prepare($query);
+    
+        try {
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    
+    public function getChildrenByParent($parentId) {
+        $query = "SELECT DISTINCT e.* 
+                  FROM enfant e
+                  INNER JOIN enfant_creneau c ON e.id_enfant = c.id_enfant
+                  WHERE c.Etat = 'validé' AND e.id_parent = :parentId";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([':parentId' => $parentId]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 ?>

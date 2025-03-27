@@ -1,5 +1,4 @@
 <?php
-require_once '/xampp/htdocs/les_bambins/config/config.php';
 
 Class Child_Competence{
     private $db;

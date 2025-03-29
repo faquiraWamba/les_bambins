@@ -1,7 +1,4 @@
 <?php
-require_once ROOT_PATH.'app/core/Controller.php';
-require_once ROOT_PATH.'app/models/Comportement.php';
-
 class ChildMonitoringComportementController extends Controller{
 
     public function showChildMonitoringC()

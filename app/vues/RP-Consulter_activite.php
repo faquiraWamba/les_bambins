@@ -13,7 +13,7 @@
         <div class="form-content-RP">
             <!--Consulter activité-->
             <div class="tab-content-GA" style="display: block">
-                <?php include_once '/xampp/htdocs/les_bambins/app/vues/activities.php' ?>
+                <?php include_once(ROOT_PATH . 'app/vues/activities.php') ?>
             </div>
             
         </div>

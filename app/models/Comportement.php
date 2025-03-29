@@ -1,6 +1,4 @@
 <?php
-require_once ROOT_PATH.'app/models/Comportement.php';
-
 class ChildMonitoringComportementModel {
 
     public function enregistrerSuiviComportement($id_enfant, $date, $type, $description_comportemental) {

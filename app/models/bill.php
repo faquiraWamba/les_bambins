@@ -1,6 +1,4 @@
 <?php
-require_once '/xampp/htdocs/les_bambins/app/core/Generator.php';
-
 class Facture {
     private $db;
 

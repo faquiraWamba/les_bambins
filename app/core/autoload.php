@@ -1,24 +1,18 @@
 <?php
-// Enregistrement et création de la fonctionAutoload 
+// Enregistrement automatique des classes (contrôleurs, modèles, etc.)
 spl_autoload_register(function ($class) {
-    // echo "Tentative de chargement de la classe : " . var_export($class, true) . "<br>";
-    $file = "../app/controllers/$class.php";
-    // echo "Chargement de : $file";
-    if (file_exists($file)) {
-        require_once $file;
-    }
+    $paths = [
+        ROOT_PATH . 'app/controllers/',
+        ROOT_PATH . 'app/models/',
+        ROOT_PATH . 'app/core/',
+    ];
 
-    $file = "../app/models/$class.php";
-    if (file_exists($file)) {
-        require_once $file;
-    }
-
-    $file = "../app/core/$class.php";
-    if (file_exists($file)) {
-        require_once $file;
+    foreach ($paths as $path) {
+        $file = $path . $class . '.php';
+        if (file_exists($file)) {
+            require_once $file;
+            return; // on sort dès qu'on trouve la classe
+        }
     }
 });
-
-
-// spl_autoload_register('autoload');
 ?>

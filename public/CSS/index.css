@@ -981,15 +981,3 @@ th, td{
   overflow-y: auto;    /* Ajoute un défilement si nécessaire */
 }
 
-#searchInput {
-  position: relative;  /* Nécessaire pour le positionnement absolu de #searchResults */
-}
-
-  .search-item {
-      padding: 5px;
-      cursor: pointer;
-  }
-  .search-item:hover {
-      background-color: #f0f0f0;
-  }
-

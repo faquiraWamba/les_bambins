@@ -1,5 +1,4 @@
 <?php
-
 class ChildMonitoringPedagogique {
     private $db;
 

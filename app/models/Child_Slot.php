@@ -1,7 +1,4 @@
 <?php
-require_once ROOT_PATH.'app/models/Bill.php';
-
-
 Class Child_Slot{
     private $db;
 

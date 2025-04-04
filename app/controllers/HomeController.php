@@ -1,28 +1,24 @@
 <?php
-require_once "./app/core/Controller.php";
-class HomeController extends Controller{
-    public function index(){
-        // var_dump($_SESSION);
+class HomeController extends Controller {
+    public function index() {
         if (isset($_SESSION['role'])) {
             if ($_SESSION['role'] == "administrateur") {
-            $this->view('IntraHomePage');
-        }else{
-                if ($_SESSION['role'] == "animateur") {
-                    $this->view('intranet');
-                }else{
-                    if ($_SESSION['role'] == "parent") {
-                        $this->view('IntraHomeParent');
-                    }
-                    else {
-                        if ($_SESSION['role'] == "accompagnateur") {
-                            $this->view('IntraHomeAcc');
-                        }
-                    }
-                }
+                echo "Redirection vers IntraHomePage<br>";
+                $this->view('IntraHomePage');
+            } elseif ($_SESSION['role'] == "animateur") {
+                echo "Redirection vers intranet<br>";
+                $this->view('intranet');
+            } elseif ($_SESSION['role'] == "parent") {
+                echo "Redirection vers IntraHomeParent<br>";
+                $this->view('IntraHomeParent');
+            } elseif ($_SESSION['role'] == "accompagnateur") {
+                echo "Redirection vers IntraHomeAcc<br>";
+                $this->view('IntraHomeAcc');
             }
-            $this->view('page_accueil'); 
+        } else {
+            echo "Aucun rôle détecté, chargement de la page_accueil<br>";
+            $this->view('page_accueil');
         }
-        $this->view('page_accueil'); 
     }
 }
 ?>

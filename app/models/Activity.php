@@ -1,5 +1,4 @@
 <?php
-
 Class Activity{
     private $db;
 
@@ -9,7 +8,7 @@ Class Activity{
     }
 
     public function CreateActivity($id,$nom_activite,$age_min_activite,$age_max_activite,$type_activite,
-    $nb_places,$niveau_activite,$prerequis,$tarif_activite,$description_activite,$image_activite){
+                                   $nb_places,$niveau_activite,$prerequis,$tarif_activite,$description_activite,$image_activite){
         $query = "INSERT INTO ACTIVITE( id_activite, nom_activite,age_min_activite,age_max_activite,type_activite,
         nb_places,niveau_activite,prerequis,tarif_activite,description_activite,img_activite) 
         VALUES (:id_activite,:nom_activite,:age_min_activite,:age_max_activite,:type_activite,
@@ -34,9 +33,9 @@ Class Activity{
             return $activity;
         }
         catch(Exception $e){
-           var_dump($e->getMessage());
-        //    var_dump()
-            
+            var_dump($e->getMessage());
+            //    var_dump()
+
         }
     }
 
@@ -62,7 +61,7 @@ Class Activity{
     }
 
     public function UpdateActivity($id,$nom_activite,$age_min_activite,$age_max_activite,$type_activite,
-    $nb_places,$niveau_activite,$prerequis,$tarif_activite,$description_activite,$image_activite){
+                                   $nb_places,$niveau_activite,$prerequis,$tarif_activite,$description_activite,$image_activite){
         $query = "UPDATE ACTIVITE SET 
         nom_activite=:nom_activite,age_min_activite=:age_min_activite,age_max_activite=:age_max_activite,type_activite=:type_activite,
         nb_places=:nb_places,niveau_activite=:niveau_activite,prerequis=:prerequis,tarif_activite=:tarif_activite,
@@ -89,8 +88,8 @@ Class Activity{
         }
         catch(Exception $e){
             $e->getMessage();
-        //    var_dump()
-            
+            //    var_dump()
+
         }
     }
 
@@ -106,17 +105,10 @@ Class Activity{
             return $activity;
         }
         catch(Exception $e){
-           return $e->getMessage();
-        //    var_dump()
-            
-        }
-    }
+            return $e->getMessage();
+            //    var_dump()
 
-    public function getActivityById($id_activite) {
-        $query = "SELECT * FROM activite WHERE id_activite = :id_activite";
-        $stmt = $this->db->prepare($query);
-        $stmt->execute([':id_activite' => $id_activite]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
     }
 
     public function getActivitesEnfant($id_enfant) {

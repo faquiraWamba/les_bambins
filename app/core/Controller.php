@@ -1,6 +1,4 @@
 <?php
-require_once "/xampp/htdocs/les_bambins/config/config.php";
-require_once "/xampp/htdocs/les_bambins/config/auth.php";
 Class Controller{
     public function view($view, $data=[]){
         extract($data); 

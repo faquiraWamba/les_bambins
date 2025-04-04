@@ -2,6 +2,12 @@
 require_once ROOT_PATH.'app/models/Comportement.php';
 
 class ChildMonitoringComportementModel {
+    private $db;
+
+    function __construct()
+    {
+        $this->db = connect_to_db();
+    }
 
     public function enregistrerSuiviComportement($id_enfant, $date, $type, $description_comportemental) {
         // Préparation de la requête SQL pour insérer un suivi comportemental

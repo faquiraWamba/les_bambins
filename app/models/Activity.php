@@ -10,8 +10,10 @@ Class Activity{
 
     public function CreateActivity($id,$nom_activite,$age_min_activite,$age_max_activite,$type_activite,
     $nb_places,$niveau_activite,$prerequis,$tarif_activite,$description_activite,$image_activite){
+
         $query = "INSERT INTO ACTIVITE( id_activite, nom_activite,age_min_activite,age_max_activite,type_activite,
         nb_places,niveau_activite,prerequis,tarif_activite,description_activite,img_activite) 
+
         VALUES (:id_activite,:nom_activite,:age_min_activite,:age_max_activite,:type_activite,
         :nb_places,:niveau_activite,:prerequis,:tarif_activite,:description_activite,:image_activite)";
 
@@ -41,7 +43,9 @@ Class Activity{
     }
 
     public function GetActivities(){
+
         $query = "SELECT * FROM ACTIVITE";
+
         $stmt = $this->db->prepare($query);
 
         try{
@@ -95,6 +99,7 @@ Class Activity{
     }
 
     public function DeleteActivity($id){
+        
         $query = "DELETE FROM ACTIVITE WHERE id_activite=:id_activite";
 
         $stmt=$this->db->prepare($query);

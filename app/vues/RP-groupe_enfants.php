@@ -34,7 +34,7 @@
                 <p class="form-title-RP">Enfant sans groupe</p>
                 <div class="profil info">
                     <h3>Nombre d'enfant sans groupe :</h3>
-                    <p>3</p>
+                    <p><?= isset($childsNogroup) ? count($childsNogroup) : 0 ?></p>
                 </div>
                 <table class="table-RP">
                     <tr>
@@ -106,7 +106,7 @@
                         <td><?=$group['age_min_groupe']?></td>
                         <td><?=$group['age_max_groupe']?></td>
                         <td><form method="POST" action="index.php?controller=GroupController&action=deleteGroup" class="delete-form">
-                                <input type="hidden" name="id_groupe" value="<?= $group['id_groupe'] ?>">
+                                <input type="hidden" name="numero_groupe" value="<?= $group['numero_groupe'] ?>">
                                 <button type="submit" class="delete-btn">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
@@ -136,7 +136,7 @@
                         <td><?=$group['age_min_groupe']?></td>
                         <td><?=$group['age_max_groupe']?></td>
                         <td><form method="POST" action="index.php?controller=GroupController&action=deleteGroup" class="delete-form">
-                                <input type="hidden" name="id_groupe" value="<?= $group['id_groupe'] ?>">
+                                <input type="hidden" name="numero_groupe" value="<?= $group['numero_groupe'] ?>">
                                 <button type="submit" class="delete-btn">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>

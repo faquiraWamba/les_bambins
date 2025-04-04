@@ -24,7 +24,7 @@ Class ChildController extends Controller{
         $id_parent=null;
 
         if($_SERVER['REQUEST_METHOD']==='POST'){
-            // var_dump($_POST);}
+            
             if (!empty($_POST["nom_parent"]) && !empty($_POST["prenom_parent"]) && !empty($_POST["sexe_parent"]) 
             && !empty($_POST["telephone_parent"]) && !empty($_POST["rue_parent"]) && !empty($_POST["ville_parent"])
             && !empty($_POST["code_postal_parent"]) && !empty($_POST["pays_parent"]) && !empty($_POST["email_parent"])){
@@ -100,7 +100,6 @@ Class ChildController extends Controller{
                         if($slot=="periscolaire"){
                             if(isset($_POST["periode_periscolaire"])){
                                 $jours = $_POST["periode_periscolaire"];
-                                var_dump($_POST["periode_periscolaire"]);
                                 foreach($jours as $jour => $periodes){
                                     foreach($periodes as $period){
 
@@ -139,7 +138,7 @@ Class ChildController extends Controller{
                     }
                 }
                 $msg="inscription en cours de validation";
-                $this->view('Page_accueil',[['error'=>$msg]]);
+                $this->view('Page_accueil',['success'=>$msg]);
                 
             }
         }

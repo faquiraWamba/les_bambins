@@ -11,7 +11,7 @@ class ChildMonitoringPedagogique {
         $query = "INSERT INTO PROFIL_PEDAGOGIQUE (type_profil, description_profil, id_enfant) 
                   VALUES (:type_profil, :description_profil, :id_enfant)";
         $stmt = $this->db->prepare($query);
-        var_dump($id_enfant);
+       
         try {
             $stmt->execute([
                 ':type_profil' => $type_profil,

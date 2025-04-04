@@ -59,7 +59,10 @@ class Facture {
 
     // Mise à jour d'une facture existante
     public function updateFacture($id_enfant, $montant) {
-        $query = "UPDATE FACTURE SET montant = montant + :montant, updated_at = NOW() WHERE id_enfant = :id_enfant";
+        $query = "UPDATE FACTURE 
+        SET montant = montant + :montant, updated_at = NOW() 
+        WHERE id_enfant = :id_enfant";
+        
         $stmt = $this->db->prepare($query);
 
         try {

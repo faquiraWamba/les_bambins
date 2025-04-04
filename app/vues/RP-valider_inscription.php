@@ -33,7 +33,11 @@
                         <td><?= $enfant['prenom_enfant']?></td>
                         <td><?= $enfant['sexe_enfant']?></td>
                         <td><?= $age?></td>
-                        <td><a href="index.php?controller=Child&action=ShowInfoInscription&id=<?=$enfant['id_enfant'] ?>" class="lien">Icon</a></td>
+                        <td>
+                            <a href="index.php?controller=Child&action=ShowInfoInscription&id=<?=$enfant['id_enfant'] ?>" class="lien">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </a>
+                        </td>
                     </tr>
                     <?php }}?>
                 </table>

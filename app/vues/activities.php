@@ -1,5 +1,5 @@
 <div class="container2">
-    <?php if (!$_SESSION['auth']) {?>
+<?php if (!isset($_SESSION['user_id'])) {?>
     <h2>Nos activités</h2>
     <?php }?>
 
@@ -20,7 +20,6 @@
         </div>
         <?php if($i%2!=0){?>
             <img src="<?= htmlspecialchars($activity['img_activite']) ?>" alt="Atelier Peinture" class="activity-img">
-            
         <?php }?>
         <div>
             <h3>Horaire</h3>
@@ -28,21 +27,15 @@
             <h3>Tranche d'âge</h3>
             <p><?= htmlspecialchars($activity['age_min_activite'])?> - <?= htmlspecialchars($activity['age_max_activite']) ?> ans</p>
         </div>
-        
-
-        <?php if ($_GET['action'] == 'ConsultActivity') : ?>
-            <!-- Ajout d'un nouvel élément spécifique uniquement dans la page ConsultActivity -->
-            <div>
-                <a href="index.php?controller=Activity&action=ModifyActivity">
-                    <button class="button3">Modifier</button>
-                </a>
-            </div>
-        <?php endif; ?>
         <?php if (isset($_SESSION['role'])){
             if($_SESSION['role'] == "administrateur") {?>
             <div class="btnActivite">
-                <a href="index.php?controller=Activity&action=ShowActivity&id=<?= htmlspecialchars($activity['id_activite']) ?>"> <button type="button">Modifier</button></a>
-                <a href="index.php?controller=Activity&action=DeleteActivity&id=<?= htmlspecialchars($activity['id_activite']) ?>"> <button  type="button">Supprimer</button></a>
+                <a href="index.php?controller=Activity&action=ShowActivity&id=<?= htmlspecialchars($activity['id_activite']) ?>"> 
+                    <button type="button">Modifier</button>
+                </a>
+                <a href="index.php?controller=Activity&action=DeleteActivity&id=<?= htmlspecialchars($activity['id_activite']) ?>"> 
+                    <button  type="button">Supprimer</button>
+                </a>
             </div>
         <?php }}?>
         <?php if (isset($_SESSION['role'])){

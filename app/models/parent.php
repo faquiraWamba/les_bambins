@@ -1,11 +1,12 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/les_bambins/config/config.php';
+
 Class Tutor{
     private $db;
 
 
     function __construct()
     {
-
         $this->db = connect_to_db();
     }
 
@@ -73,11 +74,13 @@ Class Tutor{
     }
 
     Public function getParentByChild($id){
+
         $query="SELECT * 
         FROM PARENT P 
         INNER JOIN UTILISATEUR U ON P.user_id=U.user_id 
         INNER JOIN ENFANT E ON P.id_parent = E.id_parent
         WHERE e.id_enfant LIKE :id";
+
         $stmt=$this->db->prepare($query);
 
         try{

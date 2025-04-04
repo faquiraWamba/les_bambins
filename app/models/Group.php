@@ -31,11 +31,14 @@ Class Group{
     }
 
     public function GetGroups(){
+        
         $query = "SELECT g.*, (g.nb_enfant - COUNT(e.id_enfant)) AS places_restantes
                   FROM GROUPE_ENFANT g
                   LEFT JOIN enfant e ON g.numero_groupe = e.numero_groupe
                   WHERE g.numero_groupe != 3 AND g.numero_groupe != 6 AND g.numero_groupe != 9
                   GROUP BY g.numero_groupe";
+
+
         $stmt = $this->db->prepare($query);
         try {
             $stmt->execute();

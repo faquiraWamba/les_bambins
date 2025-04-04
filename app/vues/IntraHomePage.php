@@ -1,5 +1,5 @@
 <div class="containerOrange">
-    <h1>Bienvenue dans votre espace "nom"</h1>
+    <h1>Bienvenue dans votre espace </h1>
 
     <div class="Intrahome">
         <?php if (isset($_SESSION['role'])) {

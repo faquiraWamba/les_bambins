@@ -29,7 +29,6 @@
                         <form method="POST">
                             <div class="register-data-form RP">
                                 <div class="register-tab-form-item register-tab-holiday-item">
-                                    <label for="id_enfant">Nom du groupe</label>
                                     <label for="nom_groupe">Nom du groupe</label>
                                     <div class="register-tab-form-item register-tab-holiday-item">
                                         <input type="text" id="searchInput" class="input-text-RP" onkeyup="searchChildren()" placeholder="Rechercher un enfant">

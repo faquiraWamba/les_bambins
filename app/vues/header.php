@@ -13,6 +13,7 @@
                     <li><a href="index.php?controller=Facture&action=ShowFacture">Gestion Centre</a></li>
                     <li><a href="index.php?controller=RegActivity&action=CreateRegActivity">Gestion Inscription</a></li>
                 <?php } else { if ($_SESSION['role'] == "animateur") { ?>
+                    <li><a href="index.php?controller=ChildMonitoringPresence&action=showFicheAppel">Gestion des enfants</a></li>
                     <li><a href="index.php?controller=EDT&action=showEDTAnim">EDT</a></li>
                 <?php } else { if ($_SESSION['role'] == "parent") { ?>
 

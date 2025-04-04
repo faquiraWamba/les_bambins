@@ -1,8 +1,10 @@
 <?php
-session_start();
-require_once '/xampp/htdocs/les_bambins/config/config.php';
-require_once 'autoload.php'; // Charge automatiquement les classes
-require_once "/xampp/htdocs/les_bambins/config/auth.php";
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once __DIR__ . '/../../config/config.php'; // Chemin absolu depuis "app/core"
+require_once ROOT_PATH . 'config/auth.php';
+require_once ROOT_PATH . 'app/core/autoload.php';
 
 $_SESSION['auth']=auth();
 $controller = isset($_GET['controller']) ? ucfirst($_GET['controller']) . 'Controller' : 'HomeController';

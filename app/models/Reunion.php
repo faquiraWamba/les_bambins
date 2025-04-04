@@ -1,6 +1,4 @@
 <?php
-require_once '/les_bambins/config/config.php';
-
 Class Reunion{
     private $db;
 

@@ -1,7 +1,4 @@
 <?php
-require_once ROOT_PATH.'app/models/Bill.php';
-
-
 Class Child_Slot{
     private $db;
 
@@ -18,8 +15,8 @@ Class Child_Slot{
             $stmt->execute([
                 ':id_enfant'=>$id_enfant,
                 ':id_creneau'=>$id_creneau,
-                'jour'=>$jour,
-                'periode'=>$periode
+                ':jour'=>$jour,
+                ':periode'=>$periode
             ]);
         }
         catch(Exception $e){

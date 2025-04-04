@@ -15,11 +15,11 @@ class ParcoursController extends Controller{
         $parcours = new Parcours;
         $activity = new Activity;
         $activities = $activity->GetActivities();
+        $allParcours = $parcours->GetAllParcours();
 
         if(isset($_GET['id'])){
             $parcours = $parcours->GetParcours($_GET['id']);
-            $this->view('RP-creer_parcours',['parcours'=>$parcours],);
-
+            $this->view('RP-creer_parcours',['parcours'=>$parcours]);
         }
     }
     public function ConsultParcours($msg=null){

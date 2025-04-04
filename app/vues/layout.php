@@ -99,10 +99,15 @@
 
         <script src="<?=BASE_URL?>/JS/register.js"></script>
         <script src="<?=BASE_URL?>/JS/Gestion_activite.js"></script>
+<<<<<<< HEAD
+<script src="<?=BASE_URL?>/JS/openTab.js"></script>
+
+=======
         <script src="<?=BASE_URL?>/JS/openTab.js"></script>
         <script src="<?=BASE_URL?>/JS/Gestion_facture.js"></script>
         <script src="<?=BASE_URL?>/JS/search.js"></script>
         <script src="https://kit.fontawesome.com/a6f89b6701.js" crossorigin="anonymous"></script>
+>>>>>>> c3e33eee985ebc19a6d7ae9b61b3b44632d73f73
         
         
 </body>

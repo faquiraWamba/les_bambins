@@ -1,6 +1,13 @@
 <div class="containerOrange">
-    <h1>Bienvenue dans votre espace </h1>
-
+    <h1>Bienvenue dans votre espace</h1>
+    <?php if (isset($_SESSION['role'])) {
+        if ($_SESSION['role'] == "parent") {  ?>
+            <h1><?= $parent["nom_parent"] ?? " "?></h1>
+    <?php }} ?>
+    <?php if (isset($_SESSION['role'])) {
+    if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur")) { ?>
+        <h1><?= $personnel["nom_personnel"] ?? " "?></h1>
+    <?php }} ?>
     <div class="Intrahome">
         <?php if (isset($_SESSION['role'])) {
         if ($_SESSION['role'] == "administrateur") { ?>
@@ -17,7 +24,14 @@
                     <h2>Vie au centre</h2>
                     <a href="index.php?controller=EDT&action=showEDTAnim"><button class="bar Orange">Emploi du temps</button></a>
                     <a href="index.php?controller=Menu&action=showMenu"><button class="bar">Menu</button></a>
-                </div><?php }} ?>
+                </div>
+                <div class="module_home">
+                    <h2>Gestion des enfants</h2>
+                    <a href="index.php?controller=ChildMonitoringPresence&action=showFicheAppel"><button class="bar Orange">Faire l'appel</button></a>
+                    <a href="index.php?controller=Activity&action=showRapportActivite"><button class="bar">Rapport d'activité</button></a>
+                    <a href="index.php?controller=Animateur&action=showActiviteAnim"><button class="bar">Mes activités</button></a>
+                </div>
+            <?php }} ?>
 
         <?php if (isset($_SESSION['role'])) {
         if ($_SESSION['role'] == "administrateur" || $_SESSION['role'] == "animateur") { ?>

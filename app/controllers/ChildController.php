@@ -153,10 +153,21 @@ Class ChildController extends Controller{
         } else {
             $enfantsInscrits = $childModel->getChildrenInscrit();
         }
+        var_dump($enfantsInscrits);
         $this->view('RP-Info_enfants', ['enfantsInscrits' => $enfantsInscrits]);
     }
-    function showProfilEnfant(){
-        $this->view('Profil_enfant');
+    function showProfilEnfant($msg = null){
+        if(isset($_GET['id'])){
+            $id=$_GET['id'];
+            $newenfant = new Child;
+            $enfant = $newenfant->getChild($id);
+            $newparent= new Tutor;
+            $parent=$newparent->getParentByChild($id);
+            $creneau= new Child_slot;
+            $creneaux = $creneau->GetAllSlotAttente($id);
+            // $enfant_creneau->Get
+            $this->view('Profil_enfant',['enfant'=>$enfant,'parent'=>$parent, 'creneaux'=>$creneaux, 'error'=>$msg]);
+        }
     }
     function showInfoInscription($msg = null){
         if(isset($_GET['id'])){

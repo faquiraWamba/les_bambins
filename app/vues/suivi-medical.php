@@ -27,8 +27,8 @@
                 </form>
                 <p class="form-title-RP">Personne à contacter en cas d'urgence</p>
                 <div>
-                    <h3>Nom du parent :</h3>
-                    <p>numéro de tel</p>
+                    <h3>Numéro de téléphone :</h3>
+                    <p><?php echo htmlspecialchars($telephone_parent); ?></p>
                 </div>
                 <?php if (isset($_SESSION['role'])) {
                 if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur")) { ?>

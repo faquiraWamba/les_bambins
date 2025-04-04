@@ -185,9 +185,22 @@ class ActivityController extends Controller{
         }
 
     }
-   
 
+    public function showActivitiesEnfant(){
+        if (isset($_GET['id_enfant'])) {
+            $activity = new Activity();
 
+            $activites = $activity->getActivitesEnfant($_GET['id_enfant']);
+
+            if ($activites) {
+                $this->view('activities_enfant', ['activites' => $activites]);
+            } else {
+                $this->view('activities_enfant', ['error' => 'Aucune activité trouvée pour cet enfant.']);
+            }
+        } else {
+            $this->view('Profil_enfant', ['error' => 'ID de l\'enfant manquant.']);
+        }
+    }
 }
 
 

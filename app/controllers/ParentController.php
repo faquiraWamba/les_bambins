@@ -109,5 +109,22 @@ Class ParentController extends Controller{
         $parent = new Tutor();
         $parent->getParent($email);
     }
+
+    public function showParentNum($id_enfant) {
+        $parentModel = new Tutor(); // Initialiser le modèle
+        $parentInfo = $parentModel->getParentByChild($id_enfant); // Récupérer les infos du parent par l'ID de l'enfant
+
+        if ($parentInfo) {
+            $telephone_parent = $parentInfo['telephone_parent']; // Récupérer le numéro de téléphone du parent
+        } else {
+            $telephone_parent = "Parent non trouvé"; // Si aucun parent n'est trouvé
+        }
+
+        // Passer le numéro de téléphone à la vue avec le nom 'telephone_parent'
+        $this->view('suivi-medical', ['telephone_parent' => $telephone_parent]);
+    }
+
+
+
 }
 ?>

@@ -18,8 +18,8 @@ Class Child_Slot{
             $stmt->execute([
                 ':id_enfant'=>$id_enfant,
                 ':id_creneau'=>$id_creneau,
-                'jour'=>$jour,
-                'periode'=>$periode
+                ':jour'=>$jour,
+                ':periode'=>$periode
             ]);
         }
         catch(Exception $e){

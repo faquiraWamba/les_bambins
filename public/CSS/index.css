@@ -57,7 +57,6 @@ nav ul {
 nav ul a{
   color: var(--white-color);
   font-family: "Abril Fatface", serif;
-
 }
 
 footer,header{
@@ -705,7 +704,7 @@ h2{
 /*home Intra*/
 .Intrahome{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 90%;
   gap: 20px;
   margin: 2em auto;
@@ -718,9 +717,12 @@ h2{
 .bar{
   width: 100%;
   border-radius: 10px;
-  border: 2px solid var(--text-color);
-  height: 10vh;
+  border: solid var(--text-color);
+  height: 7vh;
   padding: 2px;
+  font-size: 100%;
+  background-color: var(--white-color);
+  border-width: 2px 4px 6px 2px;
 }
 .bar.Orange{
   background-color: var(--primary-color);

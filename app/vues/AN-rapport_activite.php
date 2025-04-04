@@ -1,5 +1,5 @@
 <div class="containerOrange">
-    <h1>Gestion du centre</h1>
+    <h1>Gestion des enfants</h1>
     <div class="form_GA">
         <div class="onglet-RP">
             <a href="index.php?controller=ChildMonitoringPresence&action=showFicheAppel"><button class="onglet">Fiche d'appel</button></a>

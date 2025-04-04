@@ -118,5 +118,15 @@ Class Activity{
         $stmt->execute([':id_activite' => $id_activite]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function getActivitesEnfant($id_enfant) {
+        $query = "SELECT a.* FROM ACTIVITE a 
+              JOIN INSCRIPTION_ACTIVITE ia ON a.id_activite = ia.id_activite 
+              WHERE ia.id_enfant = :id_enfant";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([':id_enfant' => $id_enfant]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
 ?>

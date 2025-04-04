@@ -305,9 +305,8 @@
         </div>
 
         <!--info ajoutés à la page profil enfant-->
-        <?php if (isset($profilEnfant) && $profilEnfant === true): ?>
-            <p class="form-title-RP">Informations enfants</p>
-            <h3>Inscription activité</h3>
+                <p class="form-title-RP">Informations inscription activité</p>
+                <h3>Inscription activité</h3>
             <table class="table-RP">
                 <tr>
                     <th>Nom</th>
@@ -315,41 +314,52 @@
                     <th>Etat</th>
                     <th>Annuler inscription</th>
                 </tr>
-                <tr>
-                    <td>13/06/1026</td>
-                    <td>77</td>
-                    <td>file attente</td>
-                    <td>icon</td>
-                </tr>
-            </table>
-            <h3>Inscription parcours activité</h3>
-            <table class="table-RP">
-                <tr>
-                    <th>Nom</th>
-                    <th>Type</th>
-                    <th>Etat</th>
-                    <th>Annuler inscription</th>
-                </tr>
-                <tr>
-                    <td>13/06/1026</td>
-                    <td>77</td>
-                    <td>file attente</td>
-                    <td>icon</td>
-                </tr>
-            </table>
-            <p class="form-title-RP">Fiche médicale</p><!--ça sera bien de mettre le dossier médical mais jsp comment on fait-->
-        <h3> </h3>
-            <h3>Allergie</h3>
-            <table class="table-RP">
-                <tr>
-                    <td>13/06/1026</td>
-                    <td>77</td>
-                    <td>file attente</td>
-                    <td>icon</td>
-                </tr>
+                <?php if (isset($activites) && !empty($activites)): ?>
+                <?php foreach ($activites as $activite): ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($activite['nom_activite']); ?></td>
+                        <td><?php echo htmlspecialchars($activite['type_activite']); ?></td>
+                        <td><?php echo htmlspecialchars($activite['etat_file_attente']); ?></td>
+                        <td>
+                            <a href="annuler_inscription.php?id_activite=<?php echo $activite['id_activite']; ?>&id_enfant=<?php echo $_GET['id_enfant']; ?>">
+                                Annuler
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="4">Aucune activité trouvée</td>
+                    </tr>
+                <?php endif; ?>
             </table>
 
-        <?php endif; ?>
+        <!-- Pour le parcours -->
+        <h3>Inscription parcours activité</h3>
+        <table class="table-RP">
+            <tr>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Etat</th>
+                <th>Annuler inscription</th>
+            </tr>
+            <?php if (!empty($allParcours) && is_array($allParcours)): ?>
+                <?php foreach ($allParcours as $parcours): ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($parcours['titre_parcours']); ?></td>
+                        <td><?php echo htmlspecialchars($parcours['type_parcours']); ?></td>
+                        <td><?php echo htmlspecialchars($parcours['etat']); ?></td>
+                        <td><a href="annuler_inscription.php?id=<?php echo $parcours['id_parcours']; ?>">Annuler</a></td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="4">Aucun parcours trouvé</td>
+                </tr>
+            <?php endif; ?>
+        </table>
+
+        <p class="form-title-RP">Fiche médicale</p>
+        <a href="fichier_medical.pdf" download><button>Télécharger le fichier médical</button></a>
     </div>
 </div>
-

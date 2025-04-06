@@ -15,18 +15,18 @@
             <div class="tab-content-GA">
                 <form method='post'>
                     <div class="register-data-form RP">
+                        <!-- Input de recherche -->
                         <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="nom_enfant">Nom de l'enfant</label>
-                            <input class="input-text-RP" list="liste_enfant">
-                            <datalist id="liste_enfant"><!-- je sais pas comment on reprend de la database-->
-                                <option value="Edge">
-                                <option value="Firefox">
-                            </datalist>
+                            <input type="text" id="searchInput" class="input-text-RP" onkeyup="searchChildren()" placeholder="Rechercher un enfant">
                         </div>
+                        <div class="register-tab-form-item register-tab-holiday-item">
+                            <input type="hidden" class="input-text-RP" id="selectedChildId" name="id_enfant">
+                        </div>
+                        <div id="searchResults" class="input-text-RP" ></div>
                     </div>
                 </form>
                 <?php if (isset($_SESSION['role'])) {
-                    if ($_SESSION['role'] == "parent") { ?>
+                    if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur") || ($_SESSION['role'] == "accompagnateur")) { ?>
                         <p class="form-title-RP">Notifier d'une abscence</p>
                         <form>
                             <div class="register-data-form RP">

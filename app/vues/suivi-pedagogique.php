@@ -13,8 +13,12 @@
 
         <div class="form-content-RP">
             <div class="tab-content-GA">
-            <p class="form-title-RP">Enregistrement d'un nouveau suivi pédagogique</p>
+                <?php if (isset($_SESSION['role'])) {
+                if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur") || ($_SESSION['role'] == "accompagnateur")) { ?>
 
+                <p class="form-title-RP">Enregistrement d'un nouveau suivi pédagogique</p>
+                <?php } ?>
+                <?php } ?>
             <form method="post" action="index.php?controller=ChildMonitoringPedagogique&action=addProfil" onsubmit="return validateFormSuivi()">
         
                 <div class="register-data-form RP">
@@ -48,8 +52,8 @@
                             <button  type="submit">Enregistrer un suivi pédagogique</button>
                         </div>
                     </div>
+                    <?php } }?>
                 </form>
-                <?php } }?>
                 <p class="form-title-RP">Historique du suivi pédagogique</p>
                 <table class="table-RP">
                     <tr>

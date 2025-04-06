@@ -1,5 +1,5 @@
 <?php
-require_once '/xampp/htdocs/les_bambins/config/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] .'/les_bambins/config/config.php';
 require_once ROOT_PATH . 'app/models/Child.php';
 
 $db = connect_to_db();

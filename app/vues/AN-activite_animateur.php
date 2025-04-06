@@ -8,23 +8,32 @@
         </div>
 
         <div class="form-content-RP">
-
             <div class="tab-content-GA">
-                <p class="form-title-RP">Faire l'appel</p>
-                        <table class="table-RP">
+                <p class="form-title-RP">Mes activités</p>
+                <?php if (isset($activities) && !empty($activities)) { ?>
+                    <table class="table-RP">
+                        <thead>
                             <tr>
-                                <th>Activité</th>
+                                <th>Nom de l'activité</th>
                                 <th>Type</th>
                                 <th>Niveau</th>
-                                <th>Groupe concerné</th>
+                                <th>Tranche d'âge</th>
                             </tr>
-                            <tr>
-                                <td>Nom activité</td>
-                                <td> </td>
-                                <td> </td>
-                                <td> </td>
-                        </table>
-
+                        </thead>
+                        <tbody>
+                            <?php foreach ($activities as $activity) { ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($activity['nom_activite']) ?></td>
+                                    <td><?= htmlspecialchars($activity['type_activite']) ?></td>
+                                    <td><?= htmlspecialchars($activity['niveau_activite']) ?></td>
+                                    <td><?= htmlspecialchars($activity['age_min_activite']) ?> - <?= htmlspecialchars($activity['age_max_activite']) ?> ans</td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                <?php } else { ?>
+                    <p>Aucune activité assignée pour le moment.</p>
+                <?php } ?>
             </div>
         </div>
     </div>

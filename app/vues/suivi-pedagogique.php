@@ -23,9 +23,15 @@
         
                 <div class="register-data-form RP">
                 <!-- Input de recherche -->
-                <div class="register-tab-form-item register-tab-holiday-item">
-                    <input type="text" id="searchInput" class="input-text-RP" onkeyup="searchChildren()" placeholder="Rechercher un enfant">
-                </div>
+                <?php if (isset($_SESSION['role']) && $_SESSION['role'] == "parent") { ?>
+                    <div class="register-tab-form-item register-tab-holiday-item">
+                        <input type="text" id="searchParentInput" class="input-text-RP" onkeyup="searchParentChildren()" placeholder="Rechercher un enfant">
+                    </div>
+                <?php } else { ?>
+                    <div class="register-tab-form-item register-tab-holiday-item">
+                        <input type="text" id="searchInput" class="input-text-RP" onkeyup="searchChildren()" placeholder="Rechercher un enfant">
+                    </div>
+                <?php } ?>
                 <div class="register-tab-form-item register-tab-holiday-item">
                     <input type="hidden" class="input-text-RP" id="selectedChildId" name="id_enfant">
                 </div>

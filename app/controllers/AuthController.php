@@ -26,6 +26,7 @@ class AuthController extends Controller {
                 } else if ($personnel) {
                     $_SESSION['role'] = $personnel['role_personnel'];
                     $_SESSION['user_id'] = $user['user_id'];
+                    $_SESSION['id_personnel'] = $personnel['id_personnel'];
                 }
 
                 header('Location: index.php?controller=Home');

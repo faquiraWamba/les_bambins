@@ -24,6 +24,7 @@ function searchChildren() {
                             fetchChildHistory(child.id_enfant);
                             fetchBehavioralHistory(child.id_enfant);
                             fetchMedicalHistory(child.id_enfant);
+                            fetchPresenceHistory(child.id_enfant) 
                         };
 
                         resultsContainer.appendChild(div);
@@ -135,3 +136,74 @@ function fetchMedicalHistory(id_enfant) {
         });
 }
 
+
+function fetchPresenceHistory(id_enfant) {
+    fetch('index.php?controller=ChildMonitoringPresence&action=getChildHistory&id_enfant=' + id_enfant)
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.getElementById('historyTableBodyPresence');
+            tableBody.innerHTML = ''; // Vide les lignes précédentes
+
+            if (data.length > 0) {
+                data.forEach(presence => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${presence.date_presence}</td>
+                        <td>${presence.nom_activite}</td>
+                        <td>${presence.etat_presence_activite}</td>
+                        <td>${presence.projet_realise || 'Aucun projet'}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } else {
+                tableBody.innerHTML = '<tr><td colspan="4">Aucun historique de présence trouvé.</td></tr>';
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors du chargement de l\'historique des présences :', error);
+        });
+}
+
+function searchParentChildren() {
+    const query = document.getElementById('searchParentInput').value;
+
+    if (query.trim() !== '') {
+        fetch('/les_bambins/app/core/search_Parent_child.php?query=' + query)
+            .then(response => response.json())
+            .then(data => {
+                const resultsContainer = document.getElementById('searchResults');
+                resultsContainer.innerHTML = ''; // Vide les résultats précédents
+
+                if (data.length > 0) {
+                    data.forEach(child => {
+                        const div = document.createElement('div');
+                        div.classList.add('search-item');
+                        div.textContent = `${child.nom_enfant} ${child.prenom_enfant}`;
+
+                        // Lorsqu'un enfant est sélectionné, met à jour l'input caché et la recherche
+                        div.onclick = function () {
+                            document.getElementById('selectedChildId').value = child.id_enfant;
+                            document.getElementById('searchParentInput').value = `${child.nom_enfant} ${child.prenom_enfant}`; // Met à jour l'input de recherche
+                            resultsContainer.innerHTML = ''; // Vide les résultats après sélection
+
+                            // Charger l'historique de l'enfant
+                            fetchChildHistory(child.id_enfant);
+                            fetchBehavioralHistory(child.id_enfant);
+                            fetchMedicalHistory(child.id_enfant);
+                            fetchPresenceHistory(child.id_enfant);
+                        };
+
+                        resultsContainer.appendChild(div);
+                    });
+                } else {
+                    resultsContainer.innerHTML = '<div>Aucun enfant trouvé</div>';
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de la recherche :', error);
+            });
+    } else {
+        // Si la recherche est vide, vide les résultats
+        document.getElementById('searchResults').innerHTML = '';
+    }
+}

@@ -73,6 +73,27 @@ Class Child{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function searchChildrenByParent($name, $id_parent) {
+        $query = "SELECT e.id_enfant, e.nom_enfant, e.prenom_enfant 
+                  FROM enfant e
+                  INNER JOIN enfant_creneau c ON e.id_enfant = c.id_enfant
+                  WHERE c.Etat = 'validé' 
+                  AND e.id_parent = :id_parent 
+                  AND (e.nom_enfant LIKE :name OR e.prenom_enfant LIKE :name)";
+        $stmt = $this->db->prepare($query);
+
+        try {
+            $stmt->execute([
+                ':id_parent' => $id_parent,
+                ':name' => '%' . $name . '%'
+            ]);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            error_log("Erreur lors de la recherche des enfants : " . $e->getMessage());
+            return [];
+        }
+    }
+
     public function getChilds() {
         $query = "SELECT * FROM enfant";
         $stmt = $this->db->prepare($query);

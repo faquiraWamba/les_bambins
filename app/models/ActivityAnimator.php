@@ -26,7 +26,7 @@ class ActivityAnimator {
 
     // Récupérer les activités affectées à un animateur
     public function getActivitiesByAnimator($id_animateur) {
-        $query = "SELECT a.id_activite, a.nom_activite 
+        $query = "SELECT a.id_activite, a.nom_activite, a.type_activite, a.niveau_activite, a.age_min_activite, a.age_max_activite
                   FROM activite_animateur aa
                   INNER JOIN activite a ON aa.id_activite = a.id_activite
                   WHERE aa.id_animateur = :id_animateur";
@@ -36,7 +36,25 @@ class ActivityAnimator {
             $stmt->execute([':id_animateur' => $id_animateur]);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
-            error_log("Erreur lors de la récupération des activités : " . $e->getMessage());
+            error_log("Erreur lors de la récupération des activités de l'animateur : " . $e->getMessage());
+            return [];
+        }
+    }
+
+    // Récupérer les activités affectées à un personnel
+    public function getActivitiesByPersonnel($id_personnel) {
+        $query = "SELECT a.id_activite, a.nom_activite, a.age_min_activite, a.age_max_activite, a.type_activite, a.niveau_activite
+                  FROM activite_animateur aa
+                  INNER JOIN activite a ON aa.id_activite = a.id_activite
+                  INNER JOIN animateur an ON aa.id_animateur = an.id_animateur
+                  WHERE an.id_personnel = :id_personnel";
+        $stmt = $this->db->prepare($query);
+
+        try {
+            $stmt->execute([':id_personnel' => $id_personnel]);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            error_log("Erreur lors de la récupération des activités pour le personnel : " . $e->getMessage());
             return [];
         }
     }

@@ -6,6 +6,10 @@ class AnimateurController extends Controller{
         $this->view('AN-activite_animateur');
     }
 
+    public function showAffectation(){
+        $this->view('RP-affectation_animateur');
+    }
+
 }
 
 

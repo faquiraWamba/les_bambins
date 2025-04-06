@@ -14,11 +14,37 @@
         <div class="form-content-RP">
             <div class="tab-content-GA">
                 <?php if (isset($_SESSION['role'])) {
-                if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur") || ($_SESSION['role'] == "accompagnateur")) { ?>
+                    if (($_SESSION['role'] == "parent")) { ?>
 
-                <p class="form-title-RP">Enregistrement d'un nouveau suivi comportemental</p>
-                <?php } ?>
-                <?php } ?>
+                        <table class="table-RP">
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Date de naissance</th>
+                                <th>Groupe</th>
+                            </tr>
+                            <?php if (isset($enfantsInscrits) && !empty($enfantsInscrits)) {
+                                foreach ($enfantsInscrits as $enfant) { ?>
+                                    <tr>
+                                        <td><a href="index.php?controller=Child&action=showProfilEnfant&id=<?= $enfant['id_enfant'] ?>" class="lien"><?= $enfant['nom_enfant'] ?></a></td>
+                                        <td><?= $enfant['prenom_enfant'] ?></td>
+                                        <td><?= $enfant['date_naissance'] ?></td>
+                                        <td><?= $enfant['numero_groupe'] ?></td>
+                                    </tr>
+                                <?php }
+                            } else { ?>
+                                <tr>
+                                    <td colspan="4">Aucun enfant inscrit trouvé.</td>
+                                </tr>
+                            <?php } ?>
+                        </table>
+                    <?php } }?>
+                <?php if (isset($_SESSION['role'])) {
+                    if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur") || ($_SESSION['role'] == "accompagnateur")) { ?>
+
+
+                        <p class="form-title-RP">Enregistrement d'un nouveau suivi comportemental</p>
+
                 <form method="post" action="index.php?controller=ChildMonitoringComportement&action=addComportement" onsubmit="return validateFormSuivi()">
                     <div class="register-data-form RP">
                         <!-- Input de recherche -->
@@ -31,10 +57,7 @@
                         <div id="searchResults" class="input-text-RP"></div>
                     </div>
 
-                    <?php if (isset($_SESSION['role'])) {
-                        if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur") || ($_SESSION['role'] == "accompagnateur")) { ?>
-
-                            <div class="register-data-form RP">
+                        <div class="register-data-form RP">
                                 <div class="register-tab-form-item register-tab-holiday-item">
                                     <label for="type">Type <span class="obligate">*</span></label>
                                     <select class="input-text-RP" name="type" required>
@@ -51,10 +74,9 @@
                                     <button type="submit">Enregistrer un suivi comportemental</button>
                                 </div>
                             </div>
-                        <?php } ?>
-                    <?php } ?>
-                </form>
 
+                </form>
+                <?php } } ?>
                 <p class="form-title-RP">Historique du suivi comportemental</p>
                 <table class="table-RP">
                     <thead>

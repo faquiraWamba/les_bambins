@@ -13,6 +13,36 @@
 
         <div class="form-content-RP">
             <div class="tab-content-GA">
+                <?php if (isset($_SESSION['role'])) {
+                    if (($_SESSION['role'] == "parent")) { ?>
+
+                        <table class="table-RP">
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Date de naissance</th>
+                                <th>Groupe</th>
+                            </tr>
+                            <?php if (isset($enfantsInscrits) && !empty($enfantsInscrits)) {
+                                foreach ($enfantsInscrits as $enfant) { ?>
+                                    <tr>
+                                        <td><a href="index.php?controller=Child&action=showProfilEnfant&id=<?= $enfant['id_enfant'] ?>" class="lien"><?= $enfant['nom_enfant'] ?></a></td>
+                                        <td><?= $enfant['prenom_enfant'] ?></td>
+                                        <td><?= $enfant['date_naissance'] ?></td>
+                                        <td><?= $enfant['numero_groupe'] ?></td>
+                                    </tr>
+                                <?php }
+                            } else { ?>
+                                <tr>
+                                    <td colspan="4">Aucun enfant inscrit trouvé.</td>
+                                </tr>
+                            <?php } ?>
+                        </table>
+                    <?php } }?>
+                <?php if (isset($_SESSION['role'])) {
+                if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur") || ($_SESSION['role'] == "accompagnateur")) { ?>
+
+
                 <form method='post'>
                     <div class="register-data-form RP">
                         <!-- Input de recherche -->
@@ -25,10 +55,7 @@
                         <div id="searchResults" class="input-text-RP" ></div>
                     </div>
                 </form>
-                <?php if (isset($_SESSION['role'])) {
-                    if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur") || ($_SESSION['role'] == "accompagnateur")) { ?>
-
-                        <p class="form-title-RP">Personne à contacter en cas d'urgence</p>
+                    <p class="form-title-RP">Personne à contacter en cas d'urgence</p>
                 <div>
                     <h3>Numéro de téléphone :</h3>
                     <p><?php echo htmlspecialchars($telephone_parent); ?></p>

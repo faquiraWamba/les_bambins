@@ -71,5 +71,51 @@ class Child_Activity {
             return false; 
         }
     }
+    public function getActivitiesByChild($id_enfant) {
+        try {
+            // Préparer la requête pour récupérer les activités de l'enfant
+            $query = "SELECT a.id_activite, a.nom_activite, ia.etat_file_attente, ia.date_debut_activite, ia.date_fin_activite, a.tarif_activite, a.type_activite, ia.rabais
+                      FROM ACTIVITE a
+                      INNER JOIN INSCRIPTION_ACTIVITE ia ON a.id_activite = ia.id_activite
+                      WHERE ia.id_enfant = :id_enfant";
+            $stmt = $this->db->prepare($query);
+
+            // Exécuter la requête avec l'ID de l'enfant
+            $stmt->execute([':id_enfant' => $id_enfant]);
+
+            // Retourner les résultats sous forme de tableau associatif
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            // Gérer les erreurs en cas de problème avec la requête
+            error_log("Erreur lors de la récupération des activités : " . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function getActivityInscription($id_activite, $id_enfant) {
+        try {
+            $query = "SELECT ia.date_debut_activite, ia.date_fin_activite, a.prix_activite
+                      FROM INSCRIPTION_ACTIVITE ia
+                      INNER JOIN ACTIVITE a ON ia.id_activite = a.id_activite
+                      WHERE ia.id_activite = :id_activite AND ia.id_enfant = :id_enfant";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute([':id_activite' => $id_activite, ':id_enfant' => $id_enfant]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log("Erreur lors de la récupération de l'inscription : " . $e->getMessage());
+            return null;
+        }
+    }
+
+    public function cancelActivityInscription($id_activite, $id_enfant) {
+        try {
+            $query = "DELETE FROM INSCRIPTION_ACTIVITE WHERE id_activite = :id_activite AND id_enfant = :id_enfant";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute([':id_activite' => $id_activite, ':id_enfant' => $id_enfant]);
+        } catch (PDOException $e) {
+            error_log("Erreur lors de l'annulation de l'inscription : " . $e->getMessage());
+            throw new Exception("Impossible d'annuler l'inscription.");
+        }
+    }
 }
 ?>

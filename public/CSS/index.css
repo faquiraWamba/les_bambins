@@ -401,6 +401,36 @@ form a {
   font-size: 17px;
 }
 
+/* Style pour les activités affichées en ligne */
+.activities-inline {
+    display: flex;
+    flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
+    gap: 15px; /* Espacement entre les éléments */
+    justify-content: flex-start; /* Aligne les éléments au début */
+    align-items: center; /* Centre les éléments verticalement */
+}
+
+.activity-item-small {
+    flex: 0 1 auto; /* Les éléments prennent la largeur nécessaire */
+    max-width: 120px; /* Largeur maximale pour chaque élément */
+    text-align: center; /* Centre le texte sous l'image */
+}
+
+.activity-img-small {
+    width: 100px; /* Largeur fixe */
+    height: 100px; /* Hauteur fixe */
+    border-radius: 5px; /* Coins arrondis */
+    object-fit: cover; /* Ajuste l'image pour qu'elle remplisse le conteneur */
+    border: 2px solid var(--text-color); /* Ajoute une bordure */
+    background-color: var(--font-color); /* Couleur de fond pour les images manquantes */
+}
+
+.activity-item-small p {
+    margin-top: 5px; /* Espacement entre l'image et le texte */
+    font-size: 0.8em; /* Taille de texte réduite */
+    font-weight: bold; /* Texte en gras */
+}
+
 /*page accueil*/
 .p_accueil{
   width: 90%;

@@ -41,6 +41,23 @@ Class Child_Slot{
         }  
     }
 
+    public function GetAllSlotValidate($id_enfant){
+        $query = "SELECT *
+        FROM  ENFANT_CRENEAU EC INNER JOIN creneau e ON e.id_creneau=EC.id_creneau
+        WHERE EC.id_enfant like :id_enfant AND Ec.Etat = 'validé'";
+        $stmt = $this->db->prepare($query);
+
+        try{
+            $stmt->execute([':id_enfant'=>$id_enfant]);
+            $parcours = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $parcours;
+        }
+        catch(Exception $e){
+                var_dump($e->getMessage());
+                
+        }  
+    }
+
     public function validateSlot($id_enfant) {
         $this->db->beginTransaction(); // Démarre une transaction
     

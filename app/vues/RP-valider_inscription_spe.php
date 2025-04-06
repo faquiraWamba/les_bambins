@@ -312,49 +312,93 @@
                     <th>Nom</th>
                     <th>Type</th>
                     <th>Etat</th>
-                    <th>Annuler inscription</th>
+                    <th>Date début</th>
+                    <th>Date fin</th>
+                    <th>Action</th>
                 </tr>
-                <?php if (isset($activites) && !empty($activites)): ?>
-                <?php foreach ($activites as $activite): ?>
+                <?php if (isset($activities) && !empty($activities)): ?>
+                <?php foreach ($activities as $activite): ?>
                     <tr>
                         <td><?php echo htmlspecialchars($activite['nom_activite']); ?></td>
                         <td><?php echo htmlspecialchars($activite['type_activite']); ?></td>
-                        <td><?php echo htmlspecialchars($activite['etat_file_attente']); ?></td>
                         <td>
-                            <a href="annuler_inscription.php?id_activite=<?php echo $activite['id_activite']; ?>&id_enfant=<?php echo $_GET['id_enfant']; ?>">
-                                Annuler
-                            </a>
+                            <?php 
+                            if ($activite['etat_file_attente'] === 'out') {
+                                echo '<span style="color: green;">Inscrit</span>';
+                            } elseif ($activite['etat_file_attente'] === 'in') {
+                                echo '<span style="color: red;">En attente</span>';
+                            } else {
+                                echo htmlspecialchars($activite['etat_file_attente']);
+                            }
+                            ?>
+                        </td>
+                        <td><?php echo htmlspecialchars($activite['date_debut_activite'] ?? 'Non spécifiée'); ?></td>
+                        <td><?php echo htmlspecialchars($activite['date_fin_activite'] ?? 'Non spécifiée'); ?></td>
+                        <td>
+                            <?php if ($activite['etat_file_attente'] === 'in'): ?>
+                                <a href="index.php?controller=ChildActivity&action=cancelActivity&id_activite=<?php echo $activite['id_activite']; ?>&id_enfant=<?php echo htmlspecialchars($enfant['id_enfant']); ?>">
+                                    Annuler
+                                </a>
+                            <?php else: ?>
+                                <span>Aucune action disponible</span>
+                            <?php endif; ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="4">Aucune activité trouvée</td>
+                        <td colspan="6">Aucune activité trouvée</td>
                     </tr>
                 <?php endif; ?>
             </table>
 
         <!-- Pour le parcours -->
+        
+
         <h3>Inscription parcours activité</h3>
         <table class="table-RP">
             <tr>
                 <th>Nom</th>
-                <th>Type</th>
                 <th>Etat</th>
-                <th>Annuler inscription</th>
+                <th>Date début</th>
+                <th>Date fin</th>
+                <th>Action</th>
             </tr>
-            <?php if (!empty($allParcours) && is_array($allParcours)): ?>
-                <?php foreach ($allParcours as $parcours): ?>
+            <?php if (!empty($parcours) && is_array($parcours)): ?>
+                <?php foreach ($parcours as $parcour): ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($parcours['titre_parcours']); ?></td>
-                        <td><?php echo htmlspecialchars($parcours['type_parcours']); ?></td>
-                        <td><?php echo htmlspecialchars($parcours['etat']); ?></td>
-                        <td><a href="annuler_inscription.php?id=<?php echo $parcours['id_parcours']; ?>">Annuler</a></td>
+                        <td><?php echo htmlspecialchars($parcour['titre_parcours']); ?></td>
+                        <td>
+                            <?php 
+                            $dateDebut = new DateTime($parcour['date_debut_parcours']);
+                            $dateFin = new DateTime($parcour['date_fin_parcours']);
+                            $aujourdhui = new DateTime();
+
+                            if ($aujourdhui < $dateDebut) {
+                                echo '<span style="color: blue;">À venir</span>';
+                            } elseif ($aujourdhui >= $dateDebut && $aujourdhui <= $dateFin) {
+                                echo '<span style="color: green;">En cours</span>';
+                            } else {
+                                echo '<span style="color: gray;">Terminé</span>';
+                            }
+                            ?>
+                        </td>
+                        <td><?php echo htmlspecialchars($parcour['date_debut_parcours'] ?? 'Non spécifiée'); ?></td>
+                        <td><?php echo htmlspecialchars($parcour['date_fin_parcours'] ?? 'Non spécifiée'); ?></td>
+                        <td>
+                            <?php if ($aujourdhui < $dateDebut): ?>
+                                <a href="index.php?controller=ChildParcours&action=cancelParcours&id_parcours=<?php echo $parcour['id_parcours']; ?>&id_enfant=<?php echo htmlspecialchars($enfant['id_enfant']); ?>">
+                                    Annuler
+                                </a>
+                            <?php else: ?>
+                                <span>__</span>
+                            <?php endif; ?>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="4">Aucun parcours trouvé</td>
+                    <td colspan="6">Aucun parcours trouvé</td>
                 </tr>
             <?php endif; ?>
         </table>
@@ -363,3 +407,7 @@
         <a href="fichier_medical.pdf" download><button>Télécharger le fichier médical</button></a>
     </div>
 </div>
+
+<?php if (isset($_GET['msg'])): ?>
+    <p class="message"><?= htmlspecialchars($_GET['msg']); ?></p>
+<?php endif; ?>

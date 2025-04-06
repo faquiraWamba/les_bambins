@@ -22,8 +22,6 @@
             <img src="<?= htmlspecialchars($activity['img_activite']) ?>" alt="Atelier Peinture" class="activity-img">
         <?php }?>
         <div>
-            <h3>Horaire</h3>
-            <p>Lundi - 16h</p>
             <h3>Tranche d'âge</h3>
             <p><?= htmlspecialchars($activity['age_min_activite'])?> - <?= htmlspecialchars($activity['age_max_activite']) ?> ans</p>
         </div>

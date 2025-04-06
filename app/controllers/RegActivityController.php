@@ -44,7 +44,7 @@ class RegActivityController extends Controller {
         if (isset($_GET['id_activite'])) {
             $id_activite = $_GET['id_activite'];
             $activityModel = new Activity();
-            $activity = $activityModel->getActivityById($id_activite);
+            $activity = $activityModel->getActivity($id_activite);
 
             if ($_SESSION['role'] == 'parent') {
                 $parentId = $_SESSION['parent_id'];

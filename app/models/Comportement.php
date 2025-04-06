@@ -1,5 +1,4 @@
 <?php
-require_once '/xampp/htdocs/les_bambins/config/config.php';
 
 class ChildMonitoringComportementModel {
     private $db;
@@ -7,14 +6,6 @@ class ChildMonitoringComportementModel {
     function __construct()
     {
         $this->db = connect_to_db();
-    }
-
-    private $db;  // Déclare la propriété $db
-
-    // Constructeur pour initialiser la connexion à la base de données
-    public function __construct() {
-        // Appel de la fonction pour se connecter à la base de données
-        $this->db = connect_to_db();  // Utilisation de la fonction connect_to_db pour établir la connexion
     }
 
     // Méthode pour enregistrer un suivi comportemental

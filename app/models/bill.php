@@ -1,4 +1,6 @@
 <?php
+
+require_once ROOT_PATH . 'app/core/Generator.php';
 class Facture {
     private $db;
 
@@ -75,6 +77,16 @@ class Facture {
         }
     }
 
+    public function deduireMontant($id_enfant, $montant) {
+        try {
+            $query = "UPDATE FACTURE SET montant = montant - :montant WHERE id_enfant = :id_enfant";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute([':montant' => $montant, ':id_enfant' => $id_enfant]);
+        } catch (PDOException $e) {
+            error_log("Erreur lors de la mise à jour de la facture : " . $e->getMessage());
+            throw new Exception("Impossible de mettre à jour la facture.");
+        }
+    }
  
     public function getUnpaidBills() {
         $query = "SELECT * FROM FACTURE f

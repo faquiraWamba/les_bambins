@@ -10,11 +10,11 @@ if (!defined('BASE_URL')) {
 function connect_to_db(){
     $user = 'root';
     $host="127.0.0.1";
-    $pwd='root'; //changer si besoin
+    $pwd=''; //changer si besoin
     $dbname="les_bambins";
 
     try{
-        $bdd = new PDO("mysql:host=$host;port=8889;dbname=$dbname;charset=utf8", $user, $pwd, [ //enlever port=8889 si besoin
+        $bdd = new PDO("mysql:host=$host;port=3306;dbname=$dbname;charset=utf8", $user, $pwd, [ //enlever port=8889 si besoin
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]);
         return $bdd;

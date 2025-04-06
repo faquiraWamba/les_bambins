@@ -4,6 +4,7 @@ require_once ROOT_PATH.'app/core/Generator.php';
 require_once ROOT_PATH.'app/models/Child.php';
 require_once ROOT_PATH.'app/models/User.php';
 require_once ROOT_PATH.'app/models/Child_Slot.php';
+require_once ROOT_PATH.'app/models/Child_Activity.php';
 require_once ROOT_PATH.'app/models/Child_Competence.php';
 require_once ROOT_PATH.'app/core/calculateFunction.php';
 require_once ROOT_PATH.'app/models/Parent.php';
@@ -152,20 +153,37 @@ Class ChildController extends Controller{
         } else {
             $enfantsInscrits = $childModel->getChildrenInscrit();
         }
-        var_dump($enfantsInscrits);
         $this->view('RP-Info_enfants', ['enfantsInscrits' => $enfantsInscrits]);
     }
-    function showProfilEnfant($msg = null){
-        if(isset($_GET['id'])){
-            $id=$_GET['id'];
+    function showProfilEnfant($msg = null) {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
             $newenfant = new Child;
             $enfant = $newenfant->getChild($id);
-            $newparent= new Tutor;
-            $parent=$newparent->getParentByChild($id);
-            $creneau= new Child_slot;
-            $creneaux = $creneau->GetAllSlotAttente($id);
-            // $enfant_creneau->Get
-            $this->view('Profil_enfant',['enfant'=>$enfant,'parent'=>$parent, 'creneaux'=>$creneaux, 'error'=>$msg]);
+
+            $newparent = new Tutor;
+            $parent = $newparent->getParentByChild($id);
+
+            $creneau = new Child_slot;
+            $creneaux = $creneau->GetAllSlotValidate($id);
+
+            // Récupérer les activités de l'enfant
+            $activityModel = new Child_Activity;
+            $activities = $activityModel->getActivitiesByChild($id);
+
+            // Récupérer les parcours de l'enfant
+            $parcoursModel = new Child_Parcours();
+            $parcours = $parcoursModel->getParcoursByChild($id);
+
+            // Passer les données à la vue
+            $this->view('Profil_enfant', [
+                'enfant' => $enfant,
+                'parent' => $parent,
+                'creneaux' => $creneaux,
+                'activities' => $activities,
+                'parcours' => $parcours,
+                'error' => $msg
+            ]);
         }
     }
     function showInfoInscription($msg = null){

@@ -5,6 +5,7 @@
             <a href="index.php?controller=Facture&action=showFacture"><button class="onglet">Facture</button></a>
             <a href="index.php?controller=Reunion&action=showReunion"><button class="onglet active">Réunion</button></a>
             <a href="index.php?controller=Questionnaire&action=showQuestionnaire"><button class="onglet">Questionnaire</button></a>
+            <a href="index.php?controller=Animateur&action=showAffectation"><button class="onglet">Affectation animateur</button></a>
         </div>
 
         <div class="form-content-RP">

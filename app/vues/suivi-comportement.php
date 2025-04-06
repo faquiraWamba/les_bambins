@@ -13,8 +13,12 @@
 
         <div class="form-content-RP">
             <div class="tab-content-GA">
-                <p class="form-title-RP">Enregistrement d'un nouveau suivi comportemental</p>
+                <?php if (isset($_SESSION['role'])) {
+                if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur") || ($_SESSION['role'] == "accompagnateur")) { ?>
 
+                <p class="form-title-RP">Enregistrement d'un nouveau suivi comportemental</p>
+                <?php } ?>
+                <?php } ?>
                 <form method="post" action="index.php?controller=ChildMonitoringComportement&action=addComportement" onsubmit="return validateFormSuivi()">
                     <div class="register-data-form RP">
                         <!-- Input de recherche -->
@@ -29,6 +33,7 @@
 
                     <?php if (isset($_SESSION['role'])) {
                         if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur") || ($_SESSION['role'] == "accompagnateur")) { ?>
+
                             <div class="register-data-form RP">
                                 <div class="register-tab-form-item register-tab-holiday-item">
                                     <label for="type">Type <span class="obligate">*</span></label>

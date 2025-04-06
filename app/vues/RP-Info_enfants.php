@@ -24,11 +24,14 @@
 
                 <form method='post' action="index.php?controller=Child&action=searchChild">
                     <div class="register-data-form RP">
+                        <!-- Input de recherche -->
                         <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="nom_enfant">Nom de l'enfant </label>
-                            <input class="input-text-RP" id="nom_enfant" name="nom_enfant" list="liste_enfants">
-                            <datalist id="liste_enfants"></datalist>
+                            <input type="text" id="searchInput" class="input-text-RP" onkeyup="searchChildren()" placeholder="Rechercher un enfant">
                         </div>
+                        <div class="register-tab-form-item register-tab-holiday-item">
+                            <input type="hidden" class="input-text-RP" id="selectedChildId" name="id_enfant">
+                        </div>
+                        <div id="searchResults" class="input-text-RP" ></div>
                     </div>
                 </form>
 

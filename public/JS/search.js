@@ -22,6 +22,7 @@ function searchChildren() {
 
                             // Charger l'historique de l'enfant
                             fetchChildHistory(child.id_enfant);
+                            fetchBehavioralHistory(child.id_enfant);
                         };
 
                         resultsContainer.appendChild(div);
@@ -80,7 +81,12 @@ function fetchBehavioralHistory(id_enfant) {
     fetch('index.php?controller=ChildMonitoringComportement&action=getChildHistory&id_enfant=' + id_enfant)
         .then(response => response.json())
         .then(data => {
-            const tableBody = document.getElementById('historyTableBody');
+            const tableBody = document.getElementById('historyTableBodyComportement');
+            if (!tableBody) {
+                console.error('Élément historyTableBodyComportement introuvable.');
+                return;
+            }
+
             tableBody.innerHTML = ''; // Vide les lignes précédentes
 
             if (data.length > 0) {

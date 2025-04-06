@@ -40,5 +40,13 @@ class ChildMonitoringComportementController extends Controller {
             $this->view('suivi-comportement');
         }
     }
+    public function getChildHistory() {
+        if (isset($_GET['id_enfant'])) {
+            $id_enfant = $_GET['id_enfant'];
+            $profilModel = new ChildMonitoringComportement();
+            $historique = $profilModel->getLastTenComportement($id_enfant);
+            echo json_encode($historique);
+        }
+    }
 }
 ?>

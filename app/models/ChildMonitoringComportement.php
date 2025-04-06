@@ -41,5 +41,16 @@ class ChildMonitoringComportement {
             return [];
         }
     }
+
+    public function getLastTenComportement($id_enfant) {
+        $query = "SELECT created_at, type_comportement, description_comportement, id_comportement 
+                  FROM COMPORTEMENT 
+                  WHERE id_enfant = :id_enfant 
+                  ORDER BY created_at DESC
+                  LIMIT 10";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([':id_enfant' => $id_enfant]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>

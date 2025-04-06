@@ -59,7 +59,7 @@
                             <th>Description</th>
                         </tr>
                     </thead>
-                    <tbody id="historyTableBody">
+                    <tbody id="historyTableBodyComportement">
                         <?php if (isset($historique) && !empty($historique)) {
                             foreach ($historique as $suivi) { ?>
                                 <tr>

@@ -1,43 +1,44 @@
 <?php
-require_once ROOT_PATH.'app/core/Controller.php';
-require_once ROOT_PATH.'app/models/Comportement.php';
+require_once ROOT_PATH . 'app/core/Controller.php';
+require_once ROOT_PATH . 'app/models/ChildMonitoringComportement.php';
 
 class ChildMonitoringComportementController extends Controller {
-
     public function showChildMonitoringC() {
-        $model = new ChildMonitoringComportementModel();
+        $childModel = new Child();
+        $children = $childModel->getChildrenInscrit();
 
-        // Vérifier si la clé 'id_enfant' existe dans la session
-        if (!isset($_SESSION['id_enfant'])) {
-            // Gérer l'erreur, par exemple en redirigeant ou en affichant un message
-            echo "L'id de l'enfant n'est pas défini dans la session.";
-            exit; // Arrêter l'exécution du code si 'id_enfant' est manquant
+        if (isset($_GET['id_enfant'])) {
+            $id_enfant = $_GET['id_enfant'];
+            $comportementModel = new ChildMonitoringComportement();
+            $historique = $comportementModel->getComportementHistory($id_enfant);
+
+            $this->view('suivi-comportement', [
+                'children' => $children,
+                'historique' => $historique,
+                'id_enfant' => $id_enfant
+            ]);
+        } else {
+            $this->view('suivi-comportement', ['children' => $children]);
         }
+    }
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // Vérifier les données soumises
-            if (isset($_POST['date'], $_POST['description_comportemental'], $_POST['id_enfant'])) {
-                $date = $_POST['date'];
-                $description_comportemental = $_POST['description_comportemental'];
-                $id_enfant = $_POST['id_enfant'];
-                $type = isset($_POST['type']) ? $_POST['type'] : '';
+    public function addComportement() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $type = $_POST['type'];
+            $description = $_POST['description_comportemental'];
+            $id_enfant = $_POST['id_enfant'];
 
-                // Ajouter un suivi comportemental
-                $enregistrement = $model->enregistrerSuiviComportement($id_enfant, $date, $type, $description_comportemental);
+            $comportementModel = new ChildMonitoringComportement();
+            $result = $comportementModel->addComportement($type, $description, $id_enfant);
 
-                if ($enregistrement) {
-                    header("Location: index.php?controller=ChildMonitoringComportement&action=showChildMonitoringC");
-                } else {
-                    echo "Erreur lors de l'enregistrement du suivi comportemental.";
-                }
+            if ($result) {
+                $this->view('suivi-comportement', ['success' => 'Suivi comportemental ajouté avec succès.']);
+            } else {
+                $this->view('suivi-comportement', ['error' => 'Erreur lors de l\'ajout du suivi comportemental.']);
             }
+        } else {
+            $this->view('suivi-comportement');
         }
-
-        // Utiliser $_SESSION['id_enfant'] pour obtenir les suivis comportementaux
-        $suivis = $model->getSuivisComportementaux($_SESSION['id_enfant']);
-
-        // Passer les suivis comportementaux à la vue
-        $this->view('suivi-comportement', ['suivis' => $suivis]);
     }
 }
 ?>

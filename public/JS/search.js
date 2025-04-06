@@ -76,3 +76,29 @@ function fetchChildHistory(id_enfant) {
         });
 }
 
+function fetchBehavioralHistory(id_enfant) {
+    fetch('index.php?controller=ChildMonitoringComportement&action=getChildHistory&id_enfant=' + id_enfant)
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.getElementById('historyTableBody');
+            tableBody.innerHTML = ''; // Vide les lignes précédentes
+
+            if (data.length > 0) {
+                data.forEach(comportement => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${comportement.created_at}</td>
+                        <td>${comportement.type_comportement}</td>
+                        <td>${comportement.description_comportement}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } else {
+                tableBody.innerHTML = '<tr><td colspan="3">Aucun suivi comportemental trouvé.</td></tr>';
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors du chargement de l\'historique comportemental :', error);
+        });
+}
+

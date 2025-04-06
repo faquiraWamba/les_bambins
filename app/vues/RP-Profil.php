@@ -1,5 +1,5 @@
 <div class="containerOrange">
-    <h1>Espace de "nom"</h1>
+    <h1>Votre Profil</h1>
     <div class="containbox">
         <p class="form-title-RP">Profil</p>
         <div class="profil">

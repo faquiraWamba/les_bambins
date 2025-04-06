@@ -34,7 +34,7 @@
                             <div class="register-tab-form-item register-tab-holiday-item">
                                 <label for="nom_activite">Nom de l'activité <span class="obligate">*</span></label>
                                 <select class="input-text-RP" list="liste_activite" name="id_activity">
-                                <datalist id="liste_activite"><!-- je sais pas comment on reprend de la database-->
+                                <datalist id="liste_activite">
                                     <option value="Edge">
                                     <option value="Firefox">
                                 </datalist>

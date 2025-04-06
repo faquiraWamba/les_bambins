@@ -65,7 +65,10 @@
                     <td><?= $bill['date_facture'] ?? 'NONE' ?></td>
                     <td><?= $bill['montant']  ?? 'NONE' ?></td>
                     <td>Non Payé</td>
-                    <td>icon</td>
+                    <td><a href="facture-factice.pdf" download="Facture_Factice.pdf" style="text-decoration: none;">
+                            <i class="fa-solid fa-file-arrow-down" style="color: #1b1004; font-size: 24px;"></i>
+                        </a>
+                    </td>
                 </tr>
 
                 <?php    }

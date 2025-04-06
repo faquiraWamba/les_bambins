@@ -32,21 +32,21 @@
                     </tr>
                     <tr>
                         <td class="tableQuest">Note moyenne</td>
-                        <td>13/06/2025</td>
-                        <td>19h</td>
-                        <td>à venir</td>
+                        <td>3.8</td>
+                        <td>4.2</td>
+                        <td>3.9</td>
                     </tr>
                     <tr>
                         <td class="tableQuest">Note maximale</td>
-                        <td>13/06/2025</td>
-                        <td>19h</td>
-                        <td>à venir</td>
+                        <td>3.8</td>
+                        <td>4.2</td>
+                        <td>3.9</td>
                     </tr>
                     <tr>
                         <td class="tableQuest">Note minimale</td>
-                        <td>13/06/2025</td>
-                        <td>19h</td>
-                        <td>à venir</td>
+                        <td>3.8</td>
+                        <td>4.2</td>
+                        <td>3.9</td>
                     </tr>
                 </table>
             </div>

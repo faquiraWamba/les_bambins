@@ -26,7 +26,7 @@
                     </div>
                 </form>
                 <?php if (isset($_SESSION['role'])) {
-                    if (($_SESSION['role'] == "animateur") || ($_SESSION['role'] == "administrateur") || ($_SESSION['role'] == "accompagnateur")) { ?>
+                    if (($_SESSION['role'] == "parent")) { ?>
                         <p class="form-title-RP">Notifier d'une abscence</p>
                         <form>
                             <div class="register-data-form RP">

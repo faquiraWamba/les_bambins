@@ -22,14 +22,17 @@
                                 <option value="Firefox">
                             </datalist>
                         </div>
-                        <div class="register-tab-form-item register-tab-holiday-item">
-                            <label for="nom_enfant">Nom de l'enfant <span class="obligate">*</span></label>
-                            <input class="input-text-RP" list="liste_enfant">
-                            <datalist id="liste_enfant"><!-- je sais pas comment on reprend de la database-->
-                                <option value="Edge">
-                                <option value="Firefox">
-                            </datalist>
-                        </div>
+                            <div class="register-data-form RP">
+                                <!-- Input de recherche -->
+                                <div class="register-tab-form-item register-tab-holiday-item">
+                                    <label for="nom_enfant">Nom de l'enfant</label>
+                                    <input type="text" id="searchInput" class="input-text-RP" onkeyup="searchChildren()" placeholder="Rechercher un enfant">
+                                </div>
+                                <div class="register-tab-form-item register-tab-holiday-item">
+                                    <input type="hidden" class="input-text-RP" id="selectedChildId" name="id_enfant">
+                                </div>
+                                <div id="searchResults" class="input-text-RP"></div>
+                            </div>
                 </form>
                 <table class="table-RP">
                     <tr>
@@ -42,7 +45,7 @@
                         <td>13/06/1026</td>
                         <td>77</td>
                         <td>Payé</td>
-                        <td>icon</td><!--mettre un bouton qui supprime-->
+                        <td><i class="fa-solid fa-trash"></i></td>
                     </tr>
                 </table>
             </div>

@@ -1,0 +1,15 @@
+# Ignorer les fichiers d'images
+*.jpg
+*.jpeg
+*.png
+*.gif
+
+# Ignorer le fichier SQL
+les_bambins*.sql
+
+# Ignorer les fichiers générés par le système
+.DS_Store
+Thumbs.db
+
+# Ignorer les fichiers de configuration locaux
+.env

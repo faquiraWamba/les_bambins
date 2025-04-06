@@ -23,6 +23,7 @@ function searchChildren() {
                             // Charger l'historique de l'enfant
                             fetchChildHistory(child.id_enfant);
                             fetchBehavioralHistory(child.id_enfant);
+                            fetchMedicalHistory(child.id_enfant);
                         };
 
                         resultsContainer.appendChild(div);
@@ -105,6 +106,32 @@ function fetchBehavioralHistory(id_enfant) {
         })
         .catch(error => {
             console.error('Erreur lors du chargement de l\'historique comportemental :', error);
+        });
+}
+
+function fetchMedicalHistory(id_enfant) {
+    fetch('index.php?controller=ChildMonitoringMed&action=getChildHistory&id_enfant=' + id_enfant)
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.getElementById('historyTableBodyMedical');
+            tableBody.innerHTML = ''; // Vide les lignes précédentes
+
+            if (data.length > 0) {
+                data.forEach(record => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${record.created_at}</td>
+                        <td>${record.type_suivi}</td>
+                        <td>${record.description_suivi}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } else {
+                tableBody.innerHTML = '<tr><td colspan="3">Aucun suivi médical trouvé.</td></tr>';
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors du chargement de l\'historique médical :', error);
         });
 }
 

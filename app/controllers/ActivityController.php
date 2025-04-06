@@ -1,10 +1,8 @@
 <?php 
 require_once ROOT_PATH.'app/core/Controller.php';
 require_once ROOT_PATH.'app/core/Generator.php';
-require_once ROOT_PATH.'app/core/Generator.php';
 require_once ROOT_PATH.'app/models/Activity.php';
-require_once ROOT_PATH.'app/controllers/imgController.php';
-require_once ROOT_PATH.'app/controllers/imgController.php';
+require_once ROOT_PATH.'app/controllers/imgController.php';;
 
 class ActivityController extends Controller{
     public function showRapportActivite(){
